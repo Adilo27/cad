@@ -1,5 +1,9 @@
-\subsection{Quantum Monte Carlo Simulations\label{sec:MC_quanten}
-In the quantum field three problems has to be solved. (\cite{1905.02666})
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Quantum Monte Carlo}\label{sec: qmc}
+In the quantum field three problems has to be solved.(\cite{1905.02666})
+
 \begin{enumerate}
 	\item Load the probability Estimation (the log-normal distribution) in to the quantum computer. This problem is described in section \ref{sec:MC_QGAN}
 	\item The payoff function $F(\textbf{X})$ has to be build with qubits inside the quantum computer. In section \ref{sec:MC_Payoff} the payoff function is constructed.
@@ -8,8 +12,8 @@ In the quantum field three problems has to be solved. (\cite{1905.02666})
 But before we can describe how to construct the gates to build the payoff function, we need to explain how amplitude estimation is working in an quantum computer. We are doing this in section \ref{sec:MC_AE}
 
 \subsubsection{Loading the distribution (QuGAN)}\label{sec:MC_QGAN}
-In this section we go over the basics of the QuGAN, because we use an already implemented function, which is not QuGAN, of qiskit (\cite{Qiskit}) later to load in the log-normal distribution.
-
+In this section we go over the basics of the QuGAN, because we use an already implemented function, which is not QuGAN, of qiskit (\cite{Qiskit}) later to load in the log-normal distribution.\\
+\\
 QuGAN stands for Quantum Generative Adversarial Networks and it creates fake data which are similar to the real data. The GAN method is used when there are only a few real world data or to bring the data in to a new system. The last one is exactly our purpose here. We want to have the log-normal distribution inside a quantum computer. For this we divide the log-normal distribution in distinct buckets $n$. The value of $n$ has to be the number of states the $k$ qubits can have $n=2^{k}$. So if we have 3 qubits we have 8 distinct buckets. Every state of all the $k$ qubits maps to a real value.
 
 The structure of an QuGAN is shown in figure \ref{fig:qgan}. So a QuGAN goes throw this steps:
@@ -21,9 +25,10 @@ The structure of an QuGAN is shown in figure \ref{fig:qgan}. So a QuGAN goes thr
 	\item The quantum state is then transformed in to the classical world and the loss is calculated. Also the Quantum Circuits can create sample states and this sample states are then used to generate classical data points.
 	\item With the loss the parameters of the circuit can be update. After updating the circuits parameter we go back to step \ref{enu:QuGan_parameter}.
 \end{enumerate}
+
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=\linewidth]{images/qgan_structure.png}
+    \includegraphics[width=\linewidth]{../../../images/qgan_structure.png}
   \end{center}
   \caption{ QuGAN System Architecture \cite{2010.09036}}
   \label{fig:qgan}
@@ -141,7 +146,6 @@ Until now we only showed how to implement a linear function but every piece-wise
 
 So now we have a qubit $a_{n-1}$ (control qubit) which holds the information if $i\geq b$. This control qubit is then used to control if the rotations of breakpoint $b$ are executed or not. After applying the $Y$ Rotations for a breakpoint $b$ the inverse of the greater or equal operation has to applied to the circuit, so that the states are all $\ket{0}$ for the next breakpoint. 
 Note that a smaller-than operations can be realized by adding a bit-flip X-gate to qubit $a_{n-1}$.
-\\   
 
 Now that we have shown how to construct a piece-wise linear function in a quantum computer we change $\theta_P$ again to better obtain our desired result $\mathbb{E}$.
 \begin{align}
@@ -152,8 +156,12 @@ Now that we have shown how to construct a piece-wise linear function in a quantu
 Equation \ref{eq:theata_P} is chosen to center $ \sin^2(\theta_P) $ around $\tilde{f}_b(i) = 0$ and \ref{eq:f_bi} so that $\tilde{f}_b(i) \in [-1,1] $
 
 At the end of the Amplitude Estimation we only have to calculate the result.
-To obtain an approximation for $\tetha_p$, AE applies Quantum Phase Estimation to approximate certain eigenvalues of \mathcal{Q}, which are classically mapped to an estimator for $a$. The Quantum Phase Estimation uses $m$ additional sampling qubits to represent result and $M = 2^m$ applications of $\mathcal{Q}$, i.e., $M$ quantum samples. The m qubits, initialized to an equal superposition state by Hadamard gates, are used to control different powers of $\mathcal{Q}$. After applying an inverse Quantum Fourier Transform, their state is measured resulting in an integer $y \in \{0, ..., M − 1\}$, which is classically mapped to the estimator for a, i.e.
+To obtain an approximation for $\theta_p$, AE applies Quantum Phase Estimation to approximate certain eigenvalues of $\mathcal{Q}$, which are classically mapped to an estimator for $a$. The Quantum Phase Estimation uses $m$ additional sampling qubits to represent result and $M = 2^m$ applications of $\mathcal{Q}$, i.e., $M$ quantum samples. 
+The $m$ qubits, initialized to an equal superposition state by Hadamard gates, are used to control different powers of $\mathcal{Q}$. After applying an inverse Quantum Fourier Transform, their state is measured resulting in an integer $y \in \{0, ..., M - 1\}$, which is classically mapped to the estimator for $a$, i.e.
+
 \begin{equation}
     \tilde{a} = \sin^2(y \pi / M) \in [0,1] \label{eq:estimate_a}.
 \end{equation}
-\bibliography{././refs}
+
+\biblio
+\end{document}

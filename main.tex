@@ -1,5 +1,8 @@
 \documentclass[a4paper, 12pt, one column, aas_macros]{article}
 
+\usepackage{subfiles}
+\usepackage{xr} 
+                                                                                         
 %% Language and font encodings. This says how to do hyphenation on end of lines.
 \usepackage[english]{babel}
 %\usepackage[utf8x]{inputenc}
@@ -17,29 +20,41 @@
 \usepackage{amssymb}  %
 \usepackage{tikz}
 \usepackage{float}
+
+\def\biblio{\bibliography{refs}}
+
 \usepackage{indentfirst}
 \usetikzlibrary{quantikz}
 
 %% Citation package
-\usepackage[authoryear]{natbib}
+\usepackage[square, numbers]{natbib}
 \bibliographystyle{abbrvnat}
-\setcitestyle{authoryear,open={},close={}}
+% \setcitestyle{authoryear,open={},close={}}
+\setcitestyle{numbers}
 \setlength{\parindent}{1em}
 \title{Option Pricing using Canonical Amplitude Estimation}
-\author{Constantin Kurz \\ Thomas Jung \\ Deepankar Bhagat}
+\author{Constantin Kurz \\ Thomas Jung \\ Deepankar Bhagat \\ Adil Acun}
 \begin{document}
+\def\biblio{}
 \maketitle
 
-\include{./sections/introduction.tex}
-\include{./sections/bsm_and_european_call_options.tex}
+% 1: Introduction
+\subfile{./sections/introduction/introduction.tex}
 
-\section{Monte Carlo Simulation}    
-In this section we discuss how Monte Carlo Simulations are working and compare them to quantum computer.
-\include{./sections/subsections/classical_monte_carlo.tex}
-\include{./sections/subsections/quantum_monte_carlo.tex}
+% 2: Black-Scholes-Merton for EU Call Options
+\subfile{./sections/bms/bms.tex}
 
-\include{./sections/results.tex}
-\include{./sections/outlook_and_conclusion.tex}
+% 3: Monte-Carlo Simulations
+\subfile{./sections/monte_carlo/monte_carlo.tex}
+% 3.1: Classical Monte-Carlo Simulations
+\subfile{./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex}
+% 3.2: Quantum Monte-Carlo Simulations
+\subfile{./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex}
 
+% 4: Results
+\subfile{./sections/results/results.tex}
+
+% 5: Outlook and Conclusion
+\subfile{./sections/outlook_and_conclusion/conclusion.tex}
 \bibliography{refs}
 \end{document}

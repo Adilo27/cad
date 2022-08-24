@@ -1,39 +1,60 @@
-\section{Black-Scholes-Merton-Model and European Call Options}
+\documentclass[../main.tex]{subfiles}
 
-The Black-Scholes-Merton (BSM) model considers the pricing of financial derivatives (‘options’). The original model assumes a single benchmark asset (‘stock’), the price of which is stochastically driven by a Brownian motion, see fig $\ref{fig:stockPaths}$. In addition, it assumes a risk-free investment into a bank account (‘bond’).\\
+\begin{document}
+\section{Black-Scholes-Merton-Model and European Call Options}\label{sec: bms}
+
+The Black-Scholes-Merton (BSM) model considers the pricing of financial derivatives (\emph{options}). The original model assumes a single benchmark asset (\emph{stock}), the price of which is stochastically driven by a Brownian motion, see fig $\ref{fig:stockPaths}$. In addition, it assumes a risk-free investment into a bank account (\emph{bond}).\\
+
 The Black-Scholes-Merton model consists of two assets, one risky (the stock), the other one risk-free (the bond). The risky asset is defined by the stochastic differential equation for the price dynamics given by
+
 \begin{equation}
     dS_t = S_t r dt + S_t \sigma dW_t,
+    \label{eq: risky}
 \end{equation}
+
 where $r$ is the drift, $\sigma$ the volatility and dWt is a Brownian increment. The initial condition is S0. In addition, the risk-free asset dynamics is given by
+
 \begin{equation}
    dB_t = B_t r dt, 
 \end{equation}
+
 where r is the risk-free rate (market rate).\\
 the risky asset stochastic differential equation can be solved as
+
 \begin{align}
 	   S_i &=S_{0}\cdot\exp^{\sigma \cdot W_i+(r-\frac{\sigma^2}{2})T} \label{eq:S_T} \\
 	   W_i &= \mathcal{N}(\mu=0,\sigma^2=T) \label{eq:W_T}.
 \end{align}
+
 The risk-free asset is solved easily as
+
 \begin{equation}
     B_t = e^{rt}.
 \end{equation}
+
 This risk-free asset also is used for ‘discounting’, i.e. determining the present value of a future amount of money.
 One of the simplest options is the European call option. The European call option gives the owner of the option the right to buy the stock at maturity time $T \geq 0$ for a pre-agreed strike price $K$.\\
 The payoff is defined as
+
 \begin{equation}
     f(S_T) = \max(0, S_T - K ).
 \end{equation}
+
 The task of pricing is to evaluate at present time $t = 0$ the expectation value of the option $f(S_T)$ on the stock on the maturity date.
 The pricing problem is thus given by evaluating the risk-neutral price
+
 \begin{equation}
     \Pi = e^{-rt} \mathbb{E}[f(S_T)],
 \end{equation}
+
 where $e^{-rT}$ is the discount factor, which determines the present value of the payoff at a future time, given the model assumption of a risk-free asset growing with r.\\
 The asset price a maturity $T$ follows a log-normal distribution wit probability density (\cite{1905.02666})
+
 \begin{equation}
     P(S_T) = \frac{1}{S_T \sigma \sqrt{2 \pi T}} exp (- \frac{(\text{ln} S_T - \mu)^2}{2 \sigma^2 T}, \label{eq:lognormal}
 \end{equation}
+
 where $\sigma$ is the volatility of the asset and $\mu = (r-0.5\sigma^2)T + \text{ln}(S_0)$.
-\bibliography{./refs}
+
+\biblio
+\end{document}
