@@ -2,7 +2,7 @@
 
 \begin{document}
 \subsection{Quantum Monte Carlo}\label{sec: qmc}
-In the quantum field three problems has to be solved.(\cite{1905.02666})
+In the quantum field three problems has to be solved.(\cite{Stamatopoulos_2019})
 
 \begin{enumerate}
 	\item Load the probability Estimation (the log-normal distribution) in to the quantum computer. This problem is described in section \ref{sec:MC_QGAN}
@@ -30,7 +30,7 @@ The structure of an QuGAN is shown in figure \ref{fig:qgan}. So a QuGAN goes thr
   \begin{center}
     \includegraphics[width=\linewidth]{../../../images/qgan_structure.png}
   \end{center}
-  \caption{ QuGAN System Architecture \cite{2010.09036}}
+  \caption{ QuGAN System Architecture \cite{Stein_2020}}
   \label{fig:qgan}
 \end{figure}
 \subsubsection{Amplitude Estimation}\label{sec:MC_AE}
@@ -69,7 +69,7 @@ $S_0$ is a reflection about the $\ket{0}$ state and $S_{\psi_1}$ is a reflection
 \lstick{(n+m-1) \ket{0}} &  & & \ldots \qw &  & \ldots \qw & & \qw
 \end{quantikz}
 \end{center}
-\caption{ Design of the Amplitude Estimation recreated after \cite{1905.02666}}
+\caption{ Design of the Amplitude Estimation recreated after \cite{Stamatopoulos_2019}}
 \label{fig:qae}
 \end{figure}
 The error $\epsilon$ of this method defined as followed
@@ -97,7 +97,7 @@ So this function can be rebuild in a quantum computer with controlled $Y$-Rotati
 \lstick{\ket{q_3}} & \gate[1]{R_y(f_0)} & \gate[1]{CR_y(f_1)} & \gate[1]{2CR_y(f_1)} & \gate[1]{4CR_y(f_1)} & \qw
 \end{quantikz}
 \end{center}
-\caption{ Quantum circuit for a linear function. Base image copied from \cite{1905.02666}}
+\caption{ Quantum circuit for a linear function. Base image copied from \cite{Stamatopoulos_2019}}
 \label{fig:PF_y}
 \end{figure}
 
@@ -121,7 +121,7 @@ Until now we only showed how to implement a linear function but every piece-wise
 \lstick{\ket{c}} & \gate{X} &  \targ{} & \qw & \qw & \gate{OR} & \qw
 \end{quantikz}
 \end{center}
-\caption{ Example of an $OR$-Operation on qubit $\ket{a}$ and $\ket{b}$. The result is then saved in $\ket{c}$. Base image copied from \cite{1905.02666}}
+\caption{ Example of an $OR$-Operation on qubit $\ket{a}$ and $\ket{b}$. The result is then saved in $\ket{c}$. Base image copied from \cite{Stamatopoulos_2019}}
 \label{fig:PF_OR}
 \end{figure}
 
@@ -140,7 +140,7 @@ Until now we only showed how to implement a linear function but every piece-wise
 \lstick{\ket{a_{n-1}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw & \gate{OR} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw 
 \end{quantikz}
 \end{center}
-\caption{ Basic structure of an circuit for the bigger then operation. Base image copied from \cite{1905.02666}}
+\caption{ Basic structure of an circuit for the bigger then operation. Base image copied from \cite{Stamatopoulos_2019}}
 \label{fig:PF_max}
 \end{figure}
 

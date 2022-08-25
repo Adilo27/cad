@@ -16,29 +16,29 @@ D.~Grinko, J.~Gacon, C.~Zoufal, and S.~Woerner.
 \newblock \doi{10.1038/s41534-021-00379-1}.
 \newblock URL \url{https://doi.org/10.1038%2Fs41534-021-00379-1}.
 
-\bibitem[Montanaro(2015)]{1504.06987}
+\bibitem[Montanaro(2015)]{Montanaro_2015}
 A.~Montanaro.
 \newblock Quantum speedup of monte carlo methods.
-\newblock \emph{;}, 2015.
+\newblock \emph{pre-print}, 2015.
 \newblock \doi{10.1098/rspa.2015.0301}.
 
-\bibitem[Rebentrost et~al.(2018)Rebentrost, Gupt, and Bromley]{1805.00109}
+\bibitem[Rebentrost et~al.(2018)Rebentrost, Gupt, and Bromley]{Rebentrost_2018}
 P.~Rebentrost, B.~Gupt, and T.~R. Bromley.
 \newblock Quantum computational finance: Monte carlo pricing of financial
   derivatives.
-\newblock \emph{;}, 2018.
+\newblock \emph{pre-print}, 2018.
 \newblock \doi{10.1103/PhysRevA.98.022321}.
 
 \bibitem[Stamatopoulos et~al.(2019)Stamatopoulos, Egger, Sun, Zoufal, Iten,
-  Shen, and Woerner]{1905.02666}
+  Shen, and Woerner]{Stamatopoulos_2019}
 N.~Stamatopoulos, D.~J. Egger, Y.~Sun, C.~Zoufal, R.~Iten, N.~Shen, and
   S.~Woerner.
 \newblock Option pricing using quantum computers.
-\newblock \emph{;}, 2019.
+\newblock \emph{pre-print}, 2019.
 \newblock \doi{10.22331/q-2020-07-06-291}.
 
 \bibitem[Stein et~al.(2020)Stein, Baheri, Chen, Mao, Guan, Li, Fang, and
-  Xu]{2010.09036}
+  Xu]{Stein_2020}
 S.~A. Stein, B.~Baheri, D.~Chen, Y.~Mao, Q.~Guan, A.~Li, B.~Fang, and S.~Xu.
 \newblock Qugan: A generative adversarial network through quantum states, 2020.
 

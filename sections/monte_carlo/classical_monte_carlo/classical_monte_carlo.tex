@@ -2,7 +2,7 @@
 
 \begin{document}
 \subsection{Classical Monte Carlo}\label{sec: cmc}
-In general monte carlo data are generated if an experiment or an calculation doesn't have sufficient training data. To generate data using the Monte Carlo method we can following these steps (\cite{1905.02666}):
+In general monte carlo data are generated if an experiment or an calculation doesn't have sufficient training data. To generate data using the Monte Carlo method we can following these steps (\cite{Stamatopoulos_2019}):
 
 \begin{enumerate}
 	\item At first we need a set of random variables $\textbf{X}=\{X_1, X_2, \dots, X_N\}$. In our case this values describe the asset price and other sources of uncertainties.
@@ -21,11 +21,11 @@ To calculate the end result we split the time frame $T$ in $n$ steps, with each 
   \begin{center}
     \includegraphics[width=0.5\linewidth]{../../../images/stock_path.png}
   \end{center}
-  \caption{Image of five different paths of the stock price. The stock price is in dollar and the time is in days. The dashed black line is the mean of the samples and the dotted red lines are the first standard deviation. The parameters are: $S_0=\$3, r=0.1, \sigma=0.25$ \cite{1805.00109}}
+  \caption{Image of five different paths of the stock price. The stock price is in dollar and the time is in days. The dashed black line is the mean of the samples and the dotted red lines are the first standard deviation. The parameters are: $S_0=\$3, r=0.1, \sigma=0.25$ \cite{Rebentrost_2018}}
   \label{fig:stockPaths}
 \end{figure}
 
-Now $\Pi$ is the true option price and $\hat{\Pi}$ is the approximation of the option price calculated via the Monte Carlo data, with $M$ samples. With this values and the condition that the variance of the payoff function is $ \leq \lambda^2$ the probability that $|\Pi-\hat{\Pi}| \leq \epsilon$ can be determined by Chebyshev’s inequality (\cite{1504.06987}).
+Now $\Pi$ is the true option price and $\hat{\Pi}$ is the approximation of the option price calculated via the Monte Carlo data, with $M$ samples. With this values and the condition that the variance of the payoff function is $ \leq \lambda^2$ the probability that $|\Pi-\hat{\Pi}| \leq \epsilon$ can be determined by Chebyshev’s inequality (\cite{Montanaro_2015}).
 
 \begin{align}
 	        P[|\Pi-\hat{\Pi}| \leq \epsilon] \leq \frac{\lambda^2}{M\epsilon^2}

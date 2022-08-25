@@ -1,8 +1,8 @@
-PWD /Users/EA28PF/Documents/Tekstproducties/qmc/sections/monte_carlo/classical_monte_carlo
+PWD /Users/EA28PF/Documents/Tekstproducties/cad/sections/monte_carlo/classical_monte_carlo
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/EA28PF/Documents/Tekstproducties/qmc/sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex
+INPUT /Users/EA28PF/Documents/Tekstproducties/cad/sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex
 OUTPUT classical_monte_carlo.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls
