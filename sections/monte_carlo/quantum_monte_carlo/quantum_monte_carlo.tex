@@ -12,8 +12,8 @@ In the quantum field three problems has to be solved.(\cite{1905.02666})
 But before we can describe how to construct the gates to build the payoff function, we need to explain how amplitude estimation is working in an quantum computer. We are doing this in section \ref{sec:MC_AE}
 
 \subsubsection{Loading the distribution (QuGAN)}\label{sec:MC_QGAN}
-In this section we go over the basics of the QuGAN, because we use an already implemented function, which is not QuGAN, of qiskit (\cite{Qiskit}) later to load in the log-normal distribution.\\
-\\
+In this section we go over the basics of the QuGAN, because we use an already implemented function, which is not QuGAN, of qiskit (\cite{Qiskit}) later to load in the log-normal distribution.
+
 QuGAN stands for Quantum Generative Adversarial Networks and it creates fake data which are similar to the real data. The GAN method is used when there are only a few real world data or to bring the data in to a new system. The last one is exactly our purpose here. We want to have the log-normal distribution inside a quantum computer. For this we divide the log-normal distribution in distinct buckets $n$. The value of $n$ has to be the number of states the $k$ qubits can have $n=2^{k}$. So if we have 3 qubits we have 8 distinct buckets. Every state of all the $k$ qubits maps to a real value.
 
 The structure of an QuGAN is shown in figure \ref{fig:qgan}. So a QuGAN goes throw this steps:
@@ -70,7 +70,7 @@ $S_0$ is a reflection about the $\ket{0}$ state and $S_{\psi_1}$ is a reflection
 \end{quantikz}
 \end{center}
 \caption{ Design of the Amplitude Estimation recreated after \cite{1905.02666}}
-\label{fig:qgan}
+\label{fig:qae}
 \end{figure}
 The error $\epsilon$ of this method defined as followed
 \begin{align}
