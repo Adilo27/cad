@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  26 AUG 2022 09:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  26 AUG 2022 14:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -315,7 +315,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen175
@@ -448,7 +450,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box63
 \@float@everytoks=\toks36
 \@floatcapt=\box64
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/pagecolor/pagecolor.sty
+Package: pagecolor 2017/05/29 v1.0i Provides thepagecolor (HMM)
+ (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/quantikz/tikzlibraryquantikz.code.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/xargs/xargs.sty
 Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
@@ -553,7 +561,8 @@ File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerbox@background=\box68
 \pgf@layerboxsaved@background=\box69
-) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex))
+(/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
 \tikz@math@for@depth=\count319
 \tikz@math@dimen=\dimen290
 \tikz@math@toks=\toks41
@@ -578,24 +587,24 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -656,7 +665,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 38.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -666,107 +675,107 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count328
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
- (./sections/introduction/introduction.tex) (./sections/bms/bms.tex [1
+ (./sections/introduction/introduction.tex [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex [2]
-<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=93, 672.5125pt x 448.67625pt>
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/bms/bms.tex [2]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex
+<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=87, 672.5125pt x 448.67625pt>
 File: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png Graphic file (type png)
 <use ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>
 Package pdftex.def Info: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png  used on input line 22.
 (pdftex.def)             Requested size: 227.62206pt x 151.86328pt.
- [3
+ [3]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.50 \begin{align}
-                   <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [4]
-<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=131, 1539.7525pt x 972.63374pt>
+l.8 	\item L
+            oad the probability Estimation (the log-normal distribution) in ... <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]
+<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=126, 1539.7525pt x 972.63374pt>
 File: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png Graphic file (type png)
 <use ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>
 Package pdftex.def Info: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24411pt x 287.56264pt.
- [5
+ [5] [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.54 \begin{align}
-                   <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [6
+l.75 T
+      he error $\epsilon$ of this method defined as followed <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.87 \end{align}
-                ] [7
+l.103 
+      ] [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.127 
-      ] [8
+l.146 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.161 
-      
+l.146 
+      ]) (./sections/results/results.tex [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.161 
-      ]) (./sections/results/results.tex
-<./sections/results//../../images/probability.png, id=197, 423.5825pt x 328.22626pt>
+l.6 
+    ]
+<./sections/results//../../images/probability.png, id=204, 423.5825pt x 328.22626pt>
 File: ./sections/results//../../images/probability.png Graphic file (type png)
 <use ./sections/results//../../images/probability.png>
 Package pdftex.def Info: ./sections/results//../../images/probability.png  used on input line 10.
 (pdftex.def)             Requested size: 227.62206pt x 176.3781pt.
-<./sections/results//../../images/payoff_european.png, id=201, 399.4925pt x 319.1925pt>
+<./sections/results//../../images/payoff_european.png, id=208, 399.4925pt x 319.1925pt>
 File: ./sections/results//../../images/payoff_european.png Graphic file (type png)
 <use ./sections/results//../../images/payoff_european.png>
 Package pdftex.def Info: ./sections/results//../../images/payoff_european.png  used on input line 23.
 (pdftex.def)             Requested size: 227.62206pt x 181.86855pt.
- [9
+ [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.28 
       <./sections/results//../../images/probability.png>]
-<./sections/results//../../images/model.png, id=214, 1220.56pt x 1081.03876pt>
+<./sections/results//../../images/model.png, id=220, 1220.56pt x 1081.03876pt>
 File: ./sections/results//../../images/model.png Graphic file (type png)
 <use ./sections/results//../../images/model.png>
 Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
 (pdftex.def)             Requested size: 455.24411pt x 403.21115pt.
- [10
+ [11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.50 
       <./sections/results//../../images/payoff_european.png>]
-<./sections/results//../../images/probability_estimate.png, id=224, 462.72874pt x 357.335pt>
+<./sections/results//../../images/probability_estimate.png, id=230, 462.72874pt x 357.335pt>
 File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
 <use ./sections/results//../../images/probability_estimate.png>
 Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
 (pdftex.def)             Requested size: 227.62206pt x 175.77724pt.
- [11
+ [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.58 
       <./sections/results//../../images/model.png>]
-<./sections/results//../../images/grover.png, id=233, 1356.06625pt x 442.65375pt>
+<./sections/results//../../images/grover.png, id=239, 1356.06625pt x 442.65375pt>
 File: ./sections/results//../../images/grover.png Graphic file (type png)
 <use ./sections/results//../../images/grover.png>
 Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
 (pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
-<./sections/results//../../images/combinedCircuit.png, id=237, 1472.50125pt x 609.27625pt>
+<./sections/results//../../images/combinedCircuit.png, id=243, 1472.50125pt x 609.27625pt>
 File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
 <use ./sections/results//../../images/combinedCircuit.png>
 Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
 (pdftex.def)             Requested size: 455.24411pt x 188.36235pt.
- [12
+ [13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -777,17 +786,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) ha
                                                   \__shipout_drop_firstpage_...
 l.83 T
       he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$... <./sections/results//../../images/probability_estimate.png> <./sections/results//../../images/grover.png>]
-<./sections/results//../../images/resultAE.png, id=247, 477.785pt x 334.24875pt>
+<./sections/results//../../images/resultAE.png, id=254, 477.785pt x 334.24875pt>
 File: ./sections/results//../../images/resultAE.png Graphic file (type png)
 <use ./sections/results//../../images/resultAE.png>
 Package pdftex.def Info: ./sections/results//../../images/resultAE.png  used on input line 99.
 (pdftex.def)             Requested size: 455.24411pt x 318.47804pt.
- [13
+ [14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.104 W
-       hen we now execute the same Circuit using Iterative Amplitude Estimat... <./sections/results//../../images/combinedCircuit.png>]) (./sections/outlook_and_conclusion/conclusion.tex) (./main.bbl [14
+       hen we now execute the same Circuit using Iterative Amplitude Estimat... <./sections/results//../../images/combinedCircuit.png>]) (./sections/outlook_and_conclusion/conclusion.tex) (./main.bbl [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -796,23 +805,23 @@ l.12 ..., Gacon, Zoufal, and Woerner]{Grinko_2021}
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 17.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) [15] (./main.aux)
+)) [16] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A7BED61C6A28DC528FCED9BDED2A2D28;1819.
  ) 
 Here is how much of TeX's memory you used:
- 30790 strings out of 478268
- 625836 string characters out of 5846347
- 1110404 words of memory out of 5000000
- 48338 multiletter control sequences out of 15000+600000
+ 30951 strings out of 478268
+ 629486 string characters out of 5846347
+ 1105875 words of memory out of 5000000
+ 48487 multiletter control sequences out of 15000+600000
  486969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,24n,89p,1216b,1733s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,24n,89p,2077b,1735s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (15 pages, 1235300 bytes).
+Output written on main.pdf (16 pages, 1239578 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 94 named destinations out of 1000 (max. 500000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
