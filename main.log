@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  25 AUG 2022 16:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  26 AUG 2022 09:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -676,7 +676,7 @@ LaTeX Info: Redefining \nameref on input line 36.
  (./sections/introduction/introduction.tex) (./sections/bms/bms.tex [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex [2]
-<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=98, 672.5125pt x 448.67625pt>
+<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=93, 672.5125pt x 448.67625pt>
 File: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png Graphic file (type png)
 <use ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>
 Package pdftex.def Info: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png  used on input line 22.
@@ -685,24 +685,24 @@ Package pdftex.def Info: ./sections/monte_carlo/classical_monte_carlo//../../../
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.59 \end{align}
-                 <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex
-<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=122, 1539.7525pt x 972.63374pt>
+l.50 \begin{align}
+                   <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [4]
+<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=131, 1539.7525pt x 972.63374pt>
 File: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png Graphic file (type png)
 <use ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>
 Package pdftex.def Info: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24411pt x 287.56264pt.
- [4] [5
+ [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.59 \end{align}
-                 <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [6
+l.54 \begin{align}
+                   <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90 
-     ] [7
+l.87 \end{align}
+                ] [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -718,12 +718,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has
                                                   \__shipout_drop_firstpage_...
 l.161 
       ]) (./sections/results/results.tex
-<./sections/results//../../images/probability.png, id=198, 423.5825pt x 328.22626pt>
+<./sections/results//../../images/probability.png, id=197, 423.5825pt x 328.22626pt>
 File: ./sections/results//../../images/probability.png Graphic file (type png)
 <use ./sections/results//../../images/probability.png>
 Package pdftex.def Info: ./sections/results//../../images/probability.png  used on input line 10.
 (pdftex.def)             Requested size: 227.62206pt x 176.3781pt.
-<./sections/results//../../images/payoff_european.png, id=202, 399.4925pt x 319.1925pt>
+<./sections/results//../../images/payoff_european.png, id=201, 399.4925pt x 319.1925pt>
 File: ./sections/results//../../images/payoff_european.png Graphic file (type png)
 <use ./sections/results//../../images/payoff_european.png>
 Package pdftex.def Info: ./sections/results//../../images/payoff_european.png  used on input line 23.
@@ -734,7 +734,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has
                                                   \__shipout_drop_firstpage_...
 l.28 
       <./sections/results//../../images/probability.png>]
-<./sections/results//../../images/model.png, id=215, 1220.56pt x 1081.03876pt>
+<./sections/results//../../images/model.png, id=214, 1220.56pt x 1081.03876pt>
 File: ./sections/results//../../images/model.png Graphic file (type png)
 <use ./sections/results//../../images/model.png>
 Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
@@ -745,7 +745,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has
                                                   \__shipout_drop_firstpage_...
 l.50 
       <./sections/results//../../images/payoff_european.png>]
-<./sections/results//../../images/probability_estimate.png, id=225, 462.72874pt x 357.335pt>
+<./sections/results//../../images/probability_estimate.png, id=224, 462.72874pt x 357.335pt>
 File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
 <use ./sections/results//../../images/probability_estimate.png>
 Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
@@ -756,12 +756,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has
                                                   \__shipout_drop_firstpage_...
 l.58 
       <./sections/results//../../images/model.png>]
-<./sections/results//../../images/grover.png, id=234, 1356.06625pt x 442.65375pt>
+<./sections/results//../../images/grover.png, id=233, 1356.06625pt x 442.65375pt>
 File: ./sections/results//../../images/grover.png Graphic file (type png)
 <use ./sections/results//../../images/grover.png>
 Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
 (pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
-<./sections/results//../../images/combinedCircuit.png, id=238, 1472.50125pt x 609.27625pt>
+<./sections/results//../../images/combinedCircuit.png, id=237, 1472.50125pt x 609.27625pt>
 File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
 <use ./sections/results//../../images/combinedCircuit.png>
 Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
@@ -777,7 +777,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) ha
                                                   \__shipout_drop_firstpage_...
 l.83 T
       he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$... <./sections/results//../../images/probability_estimate.png> <./sections/results//../../images/grover.png>]
-<./sections/results//../../images/resultAE.png, id=248, 477.785pt x 334.24875pt>
+<./sections/results//../../images/resultAE.png, id=247, 477.785pt x 334.24875pt>
 File: ./sections/results//../../images/resultAE.png Graphic file (type png)
 <use ./sections/results//../../images/resultAE.png>
 Package pdftex.def Info: ./sections/results//../../images/resultAE.png  used on input line 99.
@@ -801,18 +801,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A7BED61C6A28DC528FCED9BDED2A2D28;1819.
  ) 
 Here is how much of TeX's memory you used:
- 30789 strings out of 478268
- 625826 string characters out of 5846347
+ 30790 strings out of 478268
+ 625836 string characters out of 5846347
  1110404 words of memory out of 5000000
  48338 multiletter control sequences out of 15000+600000
  486969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,24n,89p,1216b,1733s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (15 pages, 1234459 bytes).
+Output written on main.pdf (15 pages, 1235300 bytes).
 PDF statistics:
- 390 PDF objects out of 1000 (max. 8388607)
- 303 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 302 compressed objects within 4 object streams
+ 94 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
