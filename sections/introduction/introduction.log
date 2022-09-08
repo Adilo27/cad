@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  31 AUG 2022 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  8 SEP 2022 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -459,6 +459,11 @@ Package: pagecolor 2017/05/29 v1.0i Provides thepagecolor (HMM)
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count308
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/quantikz/tikzlibraryquantikz.code.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/xargs/xargs.sty
@@ -469,30 +474,27 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 \XKV@toks=\toks37
 \XKV@tempa@toks=\toks38
 )
-\XKV@depth=\count308
+\XKV@depth=\count309
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\xargs@max=\count309
+\xargs@max=\count310
 \xargs@toksa=\toks39
 \xargs@toksb=\toks40
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count310
-\decimalpart=\count311
+\integerpart=\count311
+\decimalpart=\count312
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-02-24 L3 programming layer (loader) 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count312
+\l__color_backend_stack_int=\count313
 \l__pdf_internal_box=\box65
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count313
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
@@ -690,7 +692,7 @@ LaTeX Info: Redefining \nameref on input line 3.
 LaTeX Warning: Reference `sec: bms' on page 1 undefined on input line 10.
 
 
-LaTeX Warning: Reference `sec: mc' on page 1 undefined on input line 13.
+LaTeX Warning: Reference `sec: mc' on page 1 undefined on input line 14.
 
 [1
 
@@ -701,21 +703,21 @@ No file introduction.bbl.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `introduction.out' has not changed.
-(rerunfilecheck)             Checksum: 9814C2D956916ADB9290ECA4E25C967A;103.
+(rerunfilecheck)             Checksum: 04798093F9C2E642F369DC0B147D9003;334.
  ) 
 Here is how much of TeX's memory you used:
- 26941 strings out of 478268
- 527046 string characters out of 5846347
- 826190 words of memory out of 5000000
- 44626 multiletter control sequences out of 15000+600000
+ 26985 strings out of 478268
+ 528148 string characters out of 5846347
+ 826998 words of memory out of 5000000
+ 44666 multiletter control sequences out of 15000+600000
  478532 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,5n,106p,2066b,340s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on introduction.pdf (2 pages, 51458 bytes).
+ 104i,5n,106p,2066b,342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on introduction.pdf (2 pages, 63485 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

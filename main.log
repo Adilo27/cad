@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  31 AUG 2022 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  8 SEP 2022 15:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -456,6 +456,11 @@ Package: pagecolor 2017/05/29 v1.0i Provides thepagecolor (HMM)
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count308
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/quantikz/tikzlibraryquantikz.code.tex (/usr/local/texlive/2022/texmf-dist/tex/latex/xargs/xargs.sty
@@ -466,30 +471,27 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 \XKV@toks=\toks37
 \XKV@tempa@toks=\toks38
 )
-\XKV@depth=\count308
+\XKV@depth=\count309
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\xargs@max=\count309
+\xargs@max=\count310
 \xargs@toksa=\toks39
 \xargs@toksb=\toks40
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count310
-\decimalpart=\count311
+\integerpart=\count311
+\decimalpart=\count312
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-02-24 L3 programming layer (loader) 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count312
+\l__color_backend_stack_int=\count313
 \l__pdf_internal_box=\box65
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
-) (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count313
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
@@ -587,24 +589,24 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -665,7 +667,7 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 38.
+Package hyperref Info: Link coloring OFF on input line 39.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -675,64 +677,64 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count328
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
-LaTeX Info: Redefining \nameref on input line 38.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  (./sections/introduction/introduction.tex [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/bms/bms.tex [2]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex
-<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=87, 672.5125pt x 448.67625pt>
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/bms/bms.tex [2]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex [3]
+<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=102, 672.5125pt x 448.67625pt>
 File: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png Graphic file (type png)
 <use ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>
 Package pdftex.def Info: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png  used on input line 22.
 (pdftex.def)             Requested size: 227.62206pt x 151.86328pt.
- [3]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [4
+ [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.8 	\item L
-            oad the probability Estimation (the log-normal distribution) in ... <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]
-<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=126, 1539.7525pt x 972.63374pt>
+l.44 \begin{align}
+                   <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [5]
+<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=139, 1539.7525pt x 972.63374pt>
 File: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png Graphic file (type png)
 <use ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>
 Package pdftex.def Info: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24411pt x 287.56264pt.
- [5] [6
+ [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.75 T
-      he error $\epsilon$ of this method defined as followed <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [7
+l.49 \end{align}
+                 <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
-      ] [8
+l.85 \begin{align}
+                  ] [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.146 
-      
+l.115 \end{enumerate}
+                     ] [9
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.146 
-      ]) (./sections/results/results.tex [9
+l.158 A
+       t the end of the Amplitude Estimation we only have to calculate the r...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.6 
-    ]
-<./sections/results//../../images/probability.png, id=204, 423.5825pt x 328.22626pt>
+l.158 A
+       t the end of the Amplitude Estimation we only have to calculate the r...]) (./sections/results/results.tex
+<./sections/results//../../images/probability.png, id=207, 423.5825pt x 328.22626pt>
 File: ./sections/results//../../images/probability.png Graphic file (type png)
 <use ./sections/results//../../images/probability.png>
 Package pdftex.def Info: ./sections/results//../../images/probability.png  used on input line 10.
 (pdftex.def)             Requested size: 227.62206pt x 176.3781pt.
-<./sections/results//../../images/payoff_european.png, id=208, 399.4925pt x 319.1925pt>
+<./sections/results//../../images/payoff_european.png, id=211, 399.4925pt x 319.1925pt>
 File: ./sections/results//../../images/payoff_european.png Graphic file (type png)
 <use ./sections/results//../../images/payoff_european.png>
 Package pdftex.def Info: ./sections/results//../../images/payoff_european.png  used on input line 23.
@@ -743,7 +745,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has
                                                   \__shipout_drop_firstpage_...
 l.28 
       <./sections/results//../../images/probability.png>]
-<./sections/results//../../images/model.png, id=220, 1220.56pt x 1081.03876pt>
+<./sections/results//../../images/model.png, id=223, 1220.56pt x 1081.03876pt>
 File: ./sections/results//../../images/model.png Graphic file (type png)
 <use ./sections/results//../../images/model.png>
 Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
@@ -754,7 +756,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has
                                                   \__shipout_drop_firstpage_...
 l.50 
       <./sections/results//../../images/payoff_european.png>]
-<./sections/results//../../images/probability_estimate.png, id=230, 462.72874pt x 357.335pt>
+<./sections/results//../../images/probability_estimate.png, id=234, 462.72874pt x 357.335pt>
 File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
 <use ./sections/results//../../images/probability_estimate.png>
 Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
@@ -765,12 +767,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has
                                                   \__shipout_drop_firstpage_...
 l.58 
       <./sections/results//../../images/model.png>]
-<./sections/results//../../images/grover.png, id=239, 1356.06625pt x 442.65375pt>
+<./sections/results//../../images/grover.png, id=243, 1356.06625pt x 442.65375pt>
 File: ./sections/results//../../images/grover.png Graphic file (type png)
 <use ./sections/results//../../images/grover.png>
 Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
 (pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
-<./sections/results//../../images/combinedCircuit.png, id=243, 1472.50125pt x 609.27625pt>
+<./sections/results//../../images/combinedCircuit.png, id=247, 1472.50125pt x 609.27625pt>
 File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
 <use ./sections/results//../../images/combinedCircuit.png>
 Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
@@ -786,7 +788,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) ha
                                                   \__shipout_drop_firstpage_...
 l.83 T
       he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$... <./sections/results//../../images/probability_estimate.png> <./sections/results//../../images/grover.png>]
-<./sections/results//../../images/resultAE.png, id=254, 477.785pt x 334.24875pt>
+<./sections/results//../../images/resultAE.png, id=258, 477.785pt x 334.24875pt>
 File: ./sections/results//../../images/resultAE.png Graphic file (type png)
 <use ./sections/results//../../images/resultAE.png>
 Package pdftex.def Info: ./sections/results//../../images/resultAE.png  used on input line 99.
@@ -807,21 +809,21 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 17
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )) [16] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A7BED61C6A28DC528FCED9BDED2A2D28;1819.
+(rerunfilecheck)             Checksum: 4453D1EF7F9F5F3AC56EB8E3C7EEA1DC;2051.
  ) 
 Here is how much of TeX's memory you used:
- 30951 strings out of 478268
- 629486 string characters out of 5846347
- 1105875 words of memory out of 5000000
- 48487 multiletter control sequences out of 15000+600000
+ 30995 strings out of 478268
+ 630588 string characters out of 5846347
+ 1121289 words of memory out of 5000000
+ 48527 multiletter control sequences out of 15000+600000
  486969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,24n,89p,2078b,1735s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,24n,89p,2078b,1731s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (16 pages, 1239711 bytes).
+Output written on main.pdf (16 pages, 1241157 bytes).
 PDF statistics:
- 395 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 311 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

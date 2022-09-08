@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1661516276 "main.aux" "main.bbl" "main" 1661943374
+["bibtex main"] 1662642445 "main.aux" "main.bbl" "main" 1662642448
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "main.aux" 1661943373 12829 d7540c507c34d8485675816dcc5a93e1 "pdflatex"
+  "main.aux" 1662642448 13058 26ac286af88a4cca6ea7e2d11d5abd2b "pdflatex"
   "refs.bib" 1661439393 1828 a38cb4e0b0c16c438c529bdd0d96d266 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1661943370 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1661943374
-  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1661943370 2056 63b80011bc4e89744fc91e72fc5f5792 ""
+["pdflatex"] 1662642445 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1662642448
+  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1662642441 2077 118cab68bb89c4c8a0e770057d4984dc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -213,6 +213,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1616101747 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/natbib/natbib.sty" 1291685959 45456 1c8843383c0bd05870c45fa0ebea6cc2 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pagecolor/pagecolor.sty" 1496704785 11374 a33b5198b1f2000a2dd83a02a7b9bc86 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty" 1615762720 4288 94714aa7f535440f33181fec52a31963 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty" 1601326656 1090 bae35ef70b3168089ef166db3e66f5b2 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty" 1601326656 410 615550c46f918fcbee37641b02a862d9 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty" 1601326656 21013 f4ff83d25bb56552493b030f27c075ae ""
@@ -239,12 +240,12 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1658924498 2826440 d2c1b12003e657753df6ae9d1fd1ec6d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1661943373 12829 d7540c507c34d8485675816dcc5a93e1 "pdflatex"
-  "main.bbl" 1661516277 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
-  "main.out" 1661943373 1819 a7bed61c6a28dc528fced9bded2a2d28 "pdflatex"
-  "main.tex" 1661943370 2056 63b80011bc4e89744fc91e72fc5f5792 ""
+  "main.aux" 1662642448 13058 26ac286af88a4cca6ea7e2d11d5abd2b "pdflatex"
+  "main.bbl" 1662642445 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
+  "main.out" 1662642448 2051 4453d1ef7f9f5f3ac56eb8e3c7eea1dc "pdflatex"
+  "main.tex" 1662642441 2077 118cab68bb89c4c8a0e770057d4984dc ""
   "sections/bms/bms.tex" 1661439385 2651 41f38c5d1fb43317eee5929a17c91a09 ""
-  "sections/introduction/introduction.tex" 1661943363 4151 ea4c7568b37eacad25706642fc2b29f8 ""
+  "sections/introduction/introduction.tex" 1662642433 4611 2d60b90383ba475241da4452ba16e062 ""
   "sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png" 1661428675 90553 3d354ab0d91c47ca5c1f5aa4a186a9e3 ""
   "sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex" 1661439469 3410 0219d00130e832446aa436f918cc34d7 ""
   "sections/monte_carlo/monte_carlo.tex" 1661428675 219 3f8f32f686f9b610b48a7258e539e02f ""

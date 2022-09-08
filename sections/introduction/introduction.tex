@@ -8,11 +8,21 @@ This report was originally intended as a report for the course Introduction to Q
 
 % Computational Finance
 Banks and other financial institutes employ vast computational resources for pricing and risk management of financial assets and derivatives. Without the computational resources evaluating complex mathematical models today's financial markets would be in grave danger and could not operate efficiently or at the scale it does nowadays. Examples of assets on financial markets are stocks, bonds and commodities. The assets are a base for more complex financial instruments called derivatives. A financial derivative, as it name suggests, derives its price from the future price or a price trajectory of at least one asset. As the nature of risky assets is stochastic, determining a fair price of a derivative (contract) is a challenge. A mathematical model that can be used for this pricing model is called the Black-Scholes-Merton model. In Section \ref{sec: bms} this model is discussed in more depth and its applications on derivatives is addressed.
+\par
 
 % Monte Carlo simulations
 The Black-Scholes-Merton model is only solved analytically for very simple derivatives. For example, a simple derivative is a derivative whose payoff only relies on the future price at maturity time. A more complex derivative would be one where the payoff depends on the trajectory towards some future price at maturity time. Unfortunately, these complex derivatives have path-dependence embedded in the payoff function and combined with the stochastic nature of the underlying asset(s), it becomes infeasible (or perhaps impossible) to find an analytical solution for the pricing problem. Due to the stochastic nature of the underlying risky asset(s), it is wise to revert to a method where the expectation value of the future price (or the trajectory) is calculated by repeatedly and randomly sampling from a probabilistic distribution describing the underlying asset price (development). This method, called the Monte Carlo method, has long been explored in physics, chemistry, biology, finance, meteorology and many other domains where analytical solutions are infeasible and stochastic behaviors are observed. Random sampling from a distribution yield a higher accuracy (i.e., lower error) as the number of samples is growing. The downside of increasing the number of samples is the increased cost of computational power. A ten-fold improvement in accuracy suggests a hundred-fold longer runtime. Monte Carlo simulations can become rapidly intractable due to the scaling illustrated in the previous sentence. Thus, perhaps by changing the nature of deterministic processing units in computers to stochastic processing units, such as quantum processing units, a better scaling might be attained. Therefore, this report explores the opportunities and challenges of quantum computers regarding Monte Carlo simulations applied in the financial industry. For a more in-depth introduction on Monte Carlo simulations, please consult Section \ref{sec: mc}.
+\par
 
 % Exploring Quantum Computing and motivations
-A quantum algorithm and computer capable of performing Monte Carlo simulations of financial derivatives (and the pricing problems) in a consistent and reliable way would be of utmost importance. 
+A quantum algorithm and computer capable of performing Monte Carlo simulations of financial derivatives (and the pricing problems) in a consistent and reliable way would be of utmost importance. This document discusses and shows which algorithms on quantum computers might be helpful in risk analytics and derivatives pricing.\par
+
+% Exploring Quantum Computing and motivations
+\subsection{Introduction to Quantum Computing} \label{sec: intro_qm}
+In this section the gated quantum computing model is used as the default quantum computing paradigm. The gated model is similar to the model employed on classical computers, that is, a logical (Boolean) circuit with bits and gates. A logical circuit is a representation of bits undergoing operations as determined by a user. A bit is a binary digit in one of two states, false with value $0$ and true with value $1$. An operator may act on one or more bits and change the states (and values) returned in output bits.
+\par
+
+
+
 \biblio
 \end{document}
