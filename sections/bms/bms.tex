@@ -50,8 +50,8 @@ The pricing problem is thus given by evaluating the risk-neutral price
 where $e^{-rT}$ is the discount factor, which determines the present value of the payoff at a future time, given the model assumption of a risk-free asset growing with r.\\
 The asset price a maturity $T$ follows a log-normal distribution wit probability density (\cite{Stamatopoulos_2019})
 
-\begin{equation}
-    P(S_T) = \frac{1}{S_T \sigma \sqrt{2 \pi T}} exp (- \frac{(\text{ln} S_T - \mu)^2}{2 \sigma^2 T}, \label{eq:lognormal}
+\begin{equation}\label{eq:lognormal}
+    P(S_T) = \frac{1}{S_T \sigma \sqrt{2 \pi T}} \exp{(- \frac{(\text{ln} S_T - \mu)^2}{2 \sigma^2 T})},
 \end{equation}
 
 where $\sigma$ is the volatility of the asset and $\mu = (r-0.5\sigma^2)T + \text{ln}(S_0)$.

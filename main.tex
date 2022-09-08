@@ -21,6 +21,8 @@
 \usepackage{float}
 \usepackage{pagecolor}
 \usepackage{xcolor}
+\usepackage{listings}
+\usepackage{color}
 
 \def\biblio{\bibliography{refs}}
 
@@ -37,6 +39,28 @@
 \author{Constantin Kurz MSc. \\ Thomas Jung MSc. \\ Deepankar Bhagat MSc.\\ Adil Acun PhD.}
 \begin{document}
 
+%% code
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%% 
 \pagecolor{black!80!Sepia}
 \color{orange!20}
 \def\biblio{}

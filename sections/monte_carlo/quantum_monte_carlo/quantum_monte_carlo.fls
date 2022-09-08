@@ -1,8 +1,8 @@
-PWD /Users/EA28PF/Documents/Tekstproducties/cad/sections/monte_carlo/quantum_monte_carlo
+PWD /Users/em07od/Desktop/QuantumComputing/Projects/QMC-2/cad/sections/monte_carlo/quantum_monte_carlo
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/EA28PF/Documents/Tekstproducties/cad/sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex
+INPUT /Users/em07od/Desktop/QuantumComputing/Projects/QMC-2/cad/sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex
 OUTPUT quantum_monte_carlo.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/subfiles/subfiles.cls

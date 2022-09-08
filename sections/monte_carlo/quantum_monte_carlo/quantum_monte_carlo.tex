@@ -2,37 +2,112 @@
 
 \begin{document}
 \subsection{Quantum Monte Carlo}\label{sec: qmc}
-In the quantum field three problems has to be solved.(\cite{Stamatopoulos_2019})
+Quantum Amplitude Estimation provides a quadratic speed-up over classical monte carlo methods. \\
+Suppose a unitary operator $A$ is acting on a register of $(n+1)$ qubits
+\begin{align}\label{eq:actionOfA}
+  A\ket{0}_{n+1} &= \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1}, \label{eq:AE_A}
+\end{align}
+for normalised states $\ket{\psi_0}_{n}\ket{0}$, $\ket{\psi_1}_{n}\ket{1}$ and unknown $a \in [0,1]$.
+QAE allows the efficient estimation of $a$, i.e. the probability of measuring $\ket{1}$ in the last qubit
+Simply measuring $\ket{1}$ t times does not give any advantage since the variance of t is defined by a bernoulli distibution
+\begin{equation}\label{eq:t}
+  t = O(\frac{a(1-a)}{\epsilon^2}),
+\end{equation}
+with given accuracy $\epsilon$.\\
+To gain a quantum speed-up more efficient quantum algorithm are used than simply measuring t times. 
+From $\ref{eq:actionOfA}$ it can be seen that
+\begin{equation}\label{eq:aIsSin}
+  a = sin^2(\theta_a),
+\end{equation}
+what comes frome the fact that exchanging $a \text{ and } 1-a$ by sin and cos would result in same quantum behavior.\\
+The first efficient quantum algorthim is Grovers algorithmn, where
+\begin{align}
+  Q &= AS_0AS_{\psi_0} \nonumber \\
+  S_0 &= 1-2\ket{0}\bra{0} \nonumber \\
+  S_{\psi_0} &= 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0}. \nonumber \\
+\end{align}
+$Q$ applies a rotation of angle $2\theta_a$ in the complex two-dimensional Hilbert space spannend by $\ket{\psi_0}\ket{0}$ and
+$\ket{\psi_1}\ket{0}$. The eigenvalues of $Q$ are (Euler formula) $\exp{ (\pm \theta_a)}$.\\
+To obtain an approximation for $\theta_a$ QAE applies Quantum Phase Estimation(QPE) to approximate the eigenvalues of $Q$.
+QPE uses $m$ additional sampling qubits to represent the results and $M=2^m$ applications of $Q$.\\
+For that the $m$ qubits are initialized to a equal superposition by Hadamard gates and are then used to control the different powers of $Q$
+applied to the QAE register. After application of an inverse Quantum Fourier Transformation (QFT) the state of QAE register is measured, resulting in
+$y \in {0,..., M-1}$ which is classically mapped to the estimator of $a$
+\begin{equation}
+  \tilde{a} = \sin^2(y \pi / M) \in [0,1] \label{eq:estimate_a}.
+\end{equation}
+Focusing on the efficiency of the algorithm described above it can be observed from \ref{eq:classic_M} and \ref{eq:AE_M} that $\tilde{a}$
+satisfies:
+\begin{align}
+    |\tilde{\a} - \a| &\leq (\frac{\sqrt{\pi}}{M} + \frac{\pi}{M^2}) = O(M^-1), \label{eq:AE_M}
+\end{align}
+with probability of at least $(\frac{8}{\pi})$. Result $\ref{eq:AE_M}$ represents a quadratic speed-up in comparision to the classical efficiency $\ref{eq:t}$.
+\subsubsection{European Option Pricing}\label{sec:eurOpPricing}
+For option contracts the involved random variables represent the possible values $S_T$ the underlying asset can take and the probabilities $p_i$ that those values will be realized.
+For the unitary $A$ that means: Given an n+1-qubit register $N$ (QAE register), asset prices at maturity $ \{ S_i \} $ for $ i \in \{ 0,..,2^n-1 \} $, the corresponding probabilites $ \{ p_i \}$ and the option payoff
+$f(S_i)$ the operator $A$ becomes
+\begin{equation}\label{eq:AWitha}
+  A = \sum_{i=0}^{2n+1} \bigl ( \sqrt{1-f(S_i)}\sqrt{p_i}\ket{S_i}\ket{0} + \sqrt{f(S_i)}\sqrt{p_i}\ket{S_i}\ket{1} \bigr ).
+\end{equation}
+Comparing $\ref{eq:AWitha} \text{ and } \ref{eq:actionOfA}$ gives for options
+\begin{equation}\label{eq:aForOption}
+  a = \sum_{i=0}^{2n+1} f(S_i)p_i = E[f(S_T)].
+\end{equation}
+For option pricing using QAE that means that in order to be able to apply QAE the unitary operator $A$ has to be created using quantum circuits, i.e. a efficient method to encode
+the probabilities $p_i$ for a certain stock price at maturity $S_i$ and the corresponding payoff $f(S_i)$ in the register $N$.
+%--> start here
 
+% discuss in more detail where the accuracy 8/pi comes from QPE
+% show that ket{S_i} is binary representation of asset price. Write down how quantum register looks like after application of QPE
+% -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
+% check qpe wiki article. 
+On a quantum computer the task to perform a monte carlo is in general threefold(\cite{Stamatopoulos_2019}).
+First given an n-qubit register $M$, asset prices $ \{ S_i \} $ for $ i \in \{ 0,..,2^n-1 \} $ the corresponding probabilites $ \{ p_i \}$ 
+have to be encoded in $M$. In BSM-model the analytical formulas to price options assume that the underlying stock price at maturity follows a log-normal distribution
+with constant volatility \ref{eq:lognormal}. Second the payoff of european call options has additionally to be integrated 
+The distribution loading algorithm creates the following n-qubit state:
+\begin{equation}\label{eq:probState}
+\ket{\Phi}_n = \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{S_i}_n.
+\end{equation}
+The algorithm for creating $ref{eq:probState}$ reads:
+\begin{itemize}
+  \item On an interval, which is described by the minimal and maximal asset price an equidistant discretization is established
+   based in the number of quantum states $M=2^n-1$.
+  \item Equidistant x-values are used to compute log-normal probability of the asset prices.
+  \item The probabilites are normalized by the sum of all probabilites
+  \item The square root is applied and resulting numbers initialized in a quantum state.
+\end{itemize} 
+The algorithm for the distribution loading can then be implemented like:
+\begin{lstlisting}
+  def logNormalDistribution(num_qubits, mu, sigma, bounds: tuple, name):
+    qc = QuantumCircuit(num_qubits, name=name)
+    x = np.linspace(bounds[0], bounds[1], num=2**num_qubits)
+    probabilities = []
+    for x_i in x:
+        # map probabilities from normal to log-normal reference:
+        # https://stats.stackexchange.com/questions/214997/multivariate-log-normal-probabiltiy-density-function-pdf
+        if np.min(x_i) > 0:
+            det = 1 / np.prod(x_i)
+            probability = multivariate_normal.pdf(np.log(x_i), mu, sigma) * det
+        else:
+            probability = 0
+        probabilities += [probability]
+        normalized_probabilities = probabilities / np.sum(probabilities) 
+        
+    initialize = Initialize(np.sqrt(normalized_probabilities))
+    circuit = initialize.gates_to_uncompute().inverse()
+    qc.compose(circuit, inplace=True)
+    return qc, x, probabilities
+\end{lstlisting}
+
+
+%% old stuff
 \begin{enumerate}
-	\item Load the probability Estimation (the log-normal distribution) in to the quantum computer. This problem is described in section \ref{sec:MC_QGAN}
 	\item The payoff function $F(\textbf{X})$ has to be build with qubits inside the quantum computer. In section \ref{sec:MC_Payoff} the payoff function is constructed.
 	\item The quantum computer should calculate at the end the expected value of the payoff $\mathbb{E}_P[F(\textbf{X})]$, this will also be explained in section \ref{sec:MC_Payoff}.
 \end{enumerate}
 But before we can describe how to construct the gates to build the payoff function, we need to explain how amplitude estimation is working in an quantum computer. We are doing this in section \ref{sec:MC_AE}
 
-\subsubsection{Loading the distribution (QuGAN)}\label{sec:MC_QGAN}
-In this section we go over the basics of the QuGAN, because we use an already implemented function, which is not QuGAN, of qiskit (\cite{Qiskit}) later to load in the log-normal distribution.
-
-QuGAN stands for Quantum Generative Adversarial Networks and it creates fake data which are similar to the real data. The GAN method is used when there are only a few real world data or to bring the data in to a new system. The last one is exactly our purpose here. We want to have the log-normal distribution inside a quantum computer. For this we divide the log-normal distribution in distinct buckets $n$. The value of $n$ has to be the number of states the $k$ qubits can have $n=2^{k}$. So if we have 3 qubits we have 8 distinct buckets. Every state of all the $k$ qubits maps to a real value.
-
-The structure of an QuGAN is shown in figure \ref{fig:qgan}. So a QuGAN goes throw this steps:
-\begin{enumerate}
-	\item We load in at first the classical dataset, transform the Dateset and with this dataset initial parameter for the gates can be created.
-	\item With this parameters the quantum circuit can be created. \label{enu:QuGan_parameter}
-	\item The quantum circuit is then loaded into a quantum computer.
-	\item After optimise steps in the quantum computer the quantum state is measured.
-	\item The quantum state is then transformed in to the classical world and the loss is calculated. Also the Quantum Circuits can create sample states and this sample states are then used to generate classical data points.
-	\item With the loss the parameters of the circuit can be update. After updating the circuits parameter we go back to step \ref{enu:QuGan_parameter}.
-\end{enumerate}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=\linewidth]{../../../images/qgan_structure.png}
-  \end{center}
-  \caption{ QuGAN System Architecture \cite{Stein_2020}}
-  \label{fig:qgan}
-\end{figure}
 \subsubsection{Amplitude Estimation}\label{sec:MC_AE}
 For the Amplitude Estimation (AE) we need an unitary operator $A$ which behaves on an register of $(n+1)$ qubits like this
 \begin{align}
