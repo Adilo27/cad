@@ -34,6 +34,31 @@ Gated quantum computing is similar to classical computing with logical circuits.
     \label{eq: qubit_vector_representation}
 \end{equation}
 
+Logical gates take in a Boolean input and return a Boolean output as followed from a Boolean function embedded in that gate. For example, a NOT-gate has a Boolean formula embedded in it that inverts the binary value of an input bit. To illustrate, an input bit with value 0 would become an output bit with value 1. A quantum gate follows the same principle. The quantum gate has an input quantum state (or an amplitude vector), follows a linear algebraic formula (or a matrix) and returns an output quantum state (again, an amplitude vector). One notable differenc between classical and quantum computing is the number of bits and qubits put in and returned. In classical computing the number of input and output bits may differ, for example, the AND-gate, would require two input bits and only returns a single output bit. In quantum computing a quantum gate performs on operation on (a set of) qubits and solely transforms the states of these qubits only. More technically, a quantum gate is a unitary matrix.  The unitary property, i.e., the complex conjugate transpose of a matrix multiplied by the original matrix is an identity matrix, ensures that the norm of the quantum state vector is preserved (and remains one). All unitary matrices are square too. The property of being square results in the fact that the number of qubits is preserved during the operation. An example of a quantum gate deployed on a single qubit is given below where the amplitudes of the base states are swapped:
+
+\begin{gather*}
+    X = \begin{bmatrix} 
+    0 & 1 \\
+    1 & 0 \\
+    \end{bmatrix} \\
+    \text{Let } \ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix}\alpha \\ \beta \end{bmatrix} \\
+    X\ket{\psi} =  \begin{bmatrix} 
+        0 & 1 \\
+        1 & 0 \\
+        \end{bmatrix} \begin{bmatrix}\alpha \\ \beta \end{bmatrix}  = \begin{bmatrix}\beta \\ \alpha \end{bmatrix} = \beta \ket{0} + \alpha \ket{1}
+\label{eq: gate_x}
+\end{gather*}
+
+Qubits are technically quantum states, hence, are governed by a wave function as followed from/by Schrödinger's equation. The wave nature allows for \emph{interference} where amplitudes of a base state may constructively or destructively interfere. Below is an example of interference upon using an Hadamard gate on a generic qubit.
+
+\begin{gather*}
+    H\ket{\psi} =  \sqrt{\frac{1}{2}}\begin{bmatrix} 1 & 1 \\ 1 & \text{-}1 \end{bmatrix} \begin{bmatrix}\alpha \\ \beta \end{bmatrix}  = \\ 
+    \sqrt{\frac{1}{2}} \begin{bmatrix}\alpha + \beta \\ \alpha - \beta \end{bmatrix} = \\
+    \sqrt{\frac{1}{2}}(\alpha + \beta) \ket{0} + \sqrt{\frac{1}{2}}(\alpha - \beta) \ket{1}
+\label{eq: gate_h}
+\end{gather*}
+
+If $\alpha = \beta$, then the $\ket{1}$-state would be diminished completely. Even though the qubit started in a superposition of two base states, due to interference, the resulting qubit is now characterized by a single base state only. This does not mean the other base state is removed entirely, it is solely absent (until some other operation would redistribute the amplitudes such to acquire a non-zero amplitude on both base states).
 
 
 
