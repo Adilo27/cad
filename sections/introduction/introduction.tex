@@ -19,8 +19,21 @@ A quantum algorithm and computer capable of performing Monte Carlo simulations o
 
 % Exploring Quantum Computing and motivations
 \subsection{Introduction to Quantum Computing} \label{sec: intro_qm}
-In this section the gated quantum computing model is used as the default quantum computing paradigm. The gated model is similar to the model employed on classical computers, that is, a logical (Boolean) circuit with bits and gates. A logical circuit is a representation of bits undergoing operations as determined by a user. A bit is a binary digit in one of two states, false with value $0$ and true with value $1$. An operator may act on one or more bits and change the states (and values) returned in output bits.
-\par
+
+% Qubit definition
+Gated quantum computing is similar to classical computing with logical circuits. A logical circuits is composed of bits and gates. A bit is a binary digit carrying one of the following two values exclusively: $0$(\textit{false}) or $1$ (\textit{true}). A quantum bit, abbreviated as \emph{qubit}, is a quantum state with two base states $\ket{0}$ and $\ket{1}$ and does not exclude the presence of both states simultaneously (which is called the \emph{superposition} principle). How and how much a base state is contributing to the qubit is determined by the amplitude ($\alpha$, and $\beta$ in the equation below) of each base state. Upon measuring a quantum state, hence forcing it into a classical realm, the superposition principle collapses and only one single deterministic state must be acquired. The resulting state is retrieved by a stochastic process in which the probability distribution of the base states is characterized by the absolute value squared of amplitudes. As the sum of all probability coefficients of a probability distribution must be one, the sum of all absolute value squared of amplitudes must be one too. A qubit is then defined as the equation below following both an algebraic and a vector representation respectively:
+
+\begin{equation}
+    \ket{\psi} = \alpha \ket{0} + \beta \ket{1}, \, \,\text{with} \,\, (\alpha, \beta) \in \mathcal{C},
+    \, \,\text{and} \, \, |\alpha|^2 + |\beta|^2 = 1   
+    \label{eq: qubit_definition}
+\end{equation}
+ 
+\begin{equation}
+    \ket{\psi} = \begin{bmatrix}\alpha \\ \beta \end{bmatrix}
+    \label{eq: qubit_vector_representation}
+\end{equation}
+
 
 
 

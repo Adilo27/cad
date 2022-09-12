@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1662642445 "main.aux" "main.bbl" "main" 1662642448
+["bibtex main"] 1662981531 "main.aux" "main.bbl" "main" 1662981702
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "main.aux" 1662642448 13058 26ac286af88a4cca6ea7e2d11d5abd2b "pdflatex"
+  "main.aux" 1662981701 13257 e6ab6177ab03fe6cb08c1c962c0488b1 "pdflatex"
   "refs.bib" 1661439393 1828 a38cb4e0b0c16c438c529bdd0d96d266 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1662642445 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1662642448
-  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1662642441 2077 118cab68bb89c4c8a0e770057d4984dc ""
+["pdflatex"] 1662981698 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1662981702
+  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1662981698 2077 118cab68bb89c4c8a0e770057d4984dc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -240,12 +240,12 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1658924498 2826440 d2c1b12003e657753df6ae9d1fd1ec6d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1662642448 13058 26ac286af88a4cca6ea7e2d11d5abd2b "pdflatex"
-  "main.bbl" 1662642445 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
-  "main.out" 1662642448 2051 4453d1ef7f9f5f3ac56eb8e3c7eea1dc "pdflatex"
-  "main.tex" 1662642441 2077 118cab68bb89c4c8a0e770057d4984dc ""
+  "main.aux" 1662981701 13257 e6ab6177ab03fe6cb08c1c962c0488b1 "pdflatex"
+  "main.bbl" 1662981531 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
+  "main.out" 1662981701 2051 4453d1ef7f9f5f3ac56eb8e3c7eea1dc "pdflatex"
+  "main.tex" 1662981698 2077 118cab68bb89c4c8a0e770057d4984dc ""
   "sections/bms/bms.tex" 1661439385 2651 41f38c5d1fb43317eee5929a17c91a09 ""
-  "sections/introduction/introduction.tex" 1662642433 4611 2d60b90383ba475241da4452ba16e062 ""
+  "sections/introduction/introduction.tex" 1662981697 6249 403e26f23c57e431f0312976afe424f9 ""
   "sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png" 1661428675 90553 3d354ab0d91c47ca5c1f5aa4a186a9e3 ""
   "sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex" 1661439469 3410 0219d00130e832446aa436f918cc34d7 ""
   "sections/monte_carlo/monte_carlo.tex" 1661428675 219 3f8f32f686f9b610b48a7258e539e02f ""
