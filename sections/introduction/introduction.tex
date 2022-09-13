@@ -34,6 +34,7 @@ Gated quantum computing is similar to classical computing with logical circuits.
     \label{eq: qubit_vector_representation}
 \end{equation}
 
+% Quantum Gates and X-gate
 Logical gates take in a Boolean input and return a Boolean output as followed from a Boolean function embedded in that gate. For example, a NOT-gate has a Boolean formula embedded in it that inverts the binary value of an input bit. To illustrate, an input bit with value 0 would become an output bit with value 1. A quantum gate follows the same principle. The quantum gate has an input quantum state (or an amplitude vector), follows a linear algebraic formula (or a matrix) and returns an output quantum state (again, an amplitude vector). One notable differenc between classical and quantum computing is the number of bits and qubits put in and returned. In classical computing the number of input and output bits may differ, for example, the AND-gate, would require two input bits and only returns a single output bit. In quantum computing a quantum gate performs on operation on (a set of) qubits and solely transforms the states of these qubits only. More technically, a quantum gate is a unitary matrix.  The unitary property, i.e., the complex conjugate transpose of a matrix multiplied by the original matrix is an identity matrix, ensures that the norm of the quantum state vector is preserved (and remains one). All unitary matrices are square too. The property of being square results in the fact that the number of qubits is preserved during the operation. An example of a quantum gate deployed on a single qubit is given below where the amplitudes of the base states are swapped:
 
 \begin{gather*}
@@ -49,7 +50,17 @@ Logical gates take in a Boolean input and return a Boolean output as followed fr
 \label{eq: gate_x}
 \end{gather*}
 
-Qubits are technically quantum states, hence, are governed by a wave function as followed from/by Schrödinger's equation. The wave nature allows for \emph{interference} where amplitudes of a base state may constructively or destructively interfere. Below is an example of interference upon using an Hadamard gate on a generic qubit.
+% Quantum Circuit Representation
+The above operation can be represented as a quantum circuit as seen below. The qubit is shown as a quantum register (and is often initialised with state $\ket{0}$). Gates are blocks put on a quantum register and perform an operation on the targetted qubit. The first gate denotes the X-gate operation as exemplified above. The second gate is a measurement gate. The measurement gate collapses the quantum state into a single deterministic base state according to the probability distribution derived from the amplitudes of the quantum state.
+
+\begin{equation*}
+    \begin{quantikz}[transparent]
+        \lstick{\ket{\psi}} & \gate{X} & \meter{}
+    \end{quantikz}
+\end{equation*}
+
+% Interference
+Qubits are technically quantum states, hence, are governed by a wave function as followed from/by Schrödinger's equation. The wave nature allows for \emph{interference} where amplitudes of a base state may constructively or destructively interfere. Below is an example of interference upon using an Hadamard gate on a generic qubit. The quantum circuit is also shown below.
 
 \begin{gather*}
     H\ket{\psi} =  \sqrt{\frac{1}{2}}\begin{bmatrix} 1 & 1 \\ 1 & \text{-}1 \end{bmatrix} \begin{bmatrix}\alpha \\ \beta \end{bmatrix}  = \\ 
@@ -58,8 +69,108 @@ Qubits are technically quantum states, hence, are governed by a wave function as
 \label{eq: gate_h}
 \end{gather*}
 
+\begin{equation*}
+    \begin{quantikz}[transparent]
+        \lstick{\ket{\psi}} & \gate{H} & \meter{}
+    \end{quantikz}
+\end{equation*}
+
 If $\alpha = \beta$, then the $\ket{1}$-state would be diminished completely. Even though the qubit started in a superposition of two base states, due to interference, the resulting qubit is now characterized by a single base state only. This does not mean the other base state is removed entirely, it is solely absent (until some other operation would redistribute the amplitudes such to acquire a non-zero amplitude on both base states).
 
+% Multi-qubit systems
+A single qubit holds only two discrete base states representing two bits of information. Often, more bits of information is needed, thus more qubits are needed. With Boolean algebra and classical bits, multi-bit systems are $0$'s and $1$'s concatenaded horizontally from right to left. The right-most bit is the least significant bit, whereas the left-most bit is the most significant bit. For example, the integer number $13$ becomes the bit-string $1101$, where the left-most qubit is valued $2^{3} = 8$ and right-most qubit $2^0 = 1$. Qubits are represented in various ways, all meaning the same. 
+\begin{gather*}
+    \ket{1101} \\
+    \ket{1,1,0,1} \\
+    \ket{1} \ket{1} \ket{0} \ket{1} \\
+    \ket{1} \otimes \ket{1} \otimes \ket{0} \otimes \ket{1} \\
+\label{eq: multi_qubit_representation}
+\end{gather*}
+A four-qubit state holds $2^4 = 16$ bits of information. Therefore, the vector representing a four-qubit state has $16$ elements.
+
+In a circuit, typically, but not always, the least significant bit is the uppermost qubit.  Now suppose a circuit is initialised with the state $\ket{1101}$ and some gates account for a final state $\ket{1000}$ (where an X-gate is put on the second and last qubit from the left).
+\begin{equation*}
+    \begin{quantikz}[transparent]
+        \lstick{\ket{1}} & \gate{X} & \qw & \rstick{\ket{0}}  \\
+        \lstick{\ket{0}} & \qw & \qw & \rstick{\ket{0}}  \\
+        \lstick{\ket{1}} & \gate{X}& \qw & \rstick{\ket{0}}  \\
+        \lstick{\ket{1}} & \qw & \qw & \rstick{\ket{1}} \\
+    \end{quantikz}
+\end{equation*}
+
+Algebraically, these operations are represented as below by only picking the first and last qubit representation from above. Please note that the sequence of the Kronecker products ($\otimes$) is crucial. Here, $I$ is an identity matrix which preserves the same state (as multiplying any number by one with simple arithmetics).
+
+\begin{gather*}
+    (I \otimes X \otimes I \otimes X) \ket{1101} = \ket{1000}\\
+    \\
+    (I \otimes X \otimes I \otimes X) (\ket{1} \otimes \ket{1} \otimes \ket{0} \otimes \ket{1}) = \\
+    I\ket{1} \otimes X\ket{1} \otimes I\ket{0} \otimes X\ket{1} = \\
+    (\ket{1} \otimes \ket{0} \otimes \ket{0} \otimes \ket{0})
+\label{eq: multi_quantum_circuit_representation}
+\end{gather*}
+
+% Kronecker Product
+A Kronecker product is a tensor product between two tensors. Usually, the tensors used in quantum computing are often scalars, vectors and matrices. Below, two examples are given of Kronecker products to illustrate what it does. Let $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$ and $\ket{\phi} = \gamma \ket{0} + \delta \ket{1}$. The vector representation of these two states are respectively:
+
+\begin{equation*}
+    \ket{\psi} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}, \quad  \ket{\phi} = \begin{bmatrix} \gamma \\ \delta \end{bmatrix}
+    \label{eq: kronecker_vector_definition}
+\end{equation*}
+
+Then the Kronecker product of the quantum states result in a composite quantum state:
+
+\begin{gather*}
+    \ket{\psi, \phi} = \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix} \otimes \begin{bmatrix} \gamma \\ \delta \end{bmatrix} \\
+    = \begin{bmatrix} \alpha \begin{bmatrix} \gamma \\ \delta \end{bmatrix} \\ \beta \begin{bmatrix} \gamma \\ \delta \end{bmatrix} \end{bmatrix} \\
+    = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix}
+    \label{eq: kronecker_vector}
+\end{gather*}
+
+A similar example is given for two $2 \times 2$-matrices called $U$ and $V$.
+
+\begin{equation*}
+    U = \begin{bmatrix} a & b \\ c & d  \end{bmatrix}, \quad  V = \begin{bmatrix} e & f \\ g & h  \end{bmatrix}
+    \label{eq: kronecker_matrix_definition}
+\end{equation*}
+
+The Kronecker product of U and V is then:
+
+\begin{gather*}
+    U \otimes V = \begin{bmatrix} a & b \\ c & d  \end{bmatrix} \otimes \begin{bmatrix} e & f \\ g & h  \end{bmatrix} \\
+    = \begin{bmatrix} a \begin{bmatrix} e & f \\ g & h  \end{bmatrix}
+        & b \begin{bmatrix} e & f \\ g & h  \end{bmatrix}\\ 
+        c \begin{bmatrix} e & f \\ g & h  \end{bmatrix}
+        & d \begin{bmatrix} e & f \\ g & h  \end{bmatrix} \end{bmatrix} \\
+        =  \begin{bmatrix} ae & af & be & bf \\ ag & ah & bg & bh \\ ce & cf & de & df \\ cg & ch & dg & dh  \end{bmatrix}
+    \label{eq: kronecker_matrix}
+\end{gather*}
+
+A pattern that one sees above is that Kronecker products are about putting the rightmost tensor inside of the leftmost tensor in the equation multiplying the rightmost tensor by every scalar of the leftmost tensor.  
+
+The inverse of a Kronecker product involves finding $A$ and $B$ from $C = A \otimes B$. There are no unique solutoins for this problem. However, one may consult the Pitsianis-Van Loan algorithm for the approximation of $A$ and $B$ by a minimisation function (if the two matrices are real valued). For the sake of illustration, consider the vector below:
+
+\begin{equation*}
+    x = \begin{bmatrix} 1 \\ 0 \\ 2 \\ 0  \end{bmatrix}
+\end{equation*}
+
+The goal is to find two vectors $u$ and $v$ such that $x = u \otimes v$. Just by trial and error one would find:
+
+\begin{equation*}
+    u = \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \quad  v = \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+\end{equation*}
+
+This means that a $4$-dimensional vector can be decomposed in two $2$-dimensional vectors. Regarding qubits, this would mean that a composed two-qubit system is decomposed in two independent qubits, as each independent qubit has only two elements in its vector representation.
+
+% Entanglement
+It is possible to have a multi-qubit state in which it is not possible to invert the Kronecker product. Consider the following problem:
+
+\begin{equation*}
+    \ket{\psi} = \sqrt{\frac{1}{2}} \ket{00} + \sqrt{\frac{1}{2}} \ket{11} = \sqrt{\frac{1}{2}} \cdot \begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}, \quad  \text{ find } \ket{u} \text{ and } \ket{v} \text{ for which holds } \ket{\psi} = \ket{u} \otimes \ket{v}
+\end{equation*}
+
+It is not possible to find valid quantum states $\ket{u}$ and $\ket{v}$ for this problem, even though $\ket{\psi}$ is a valid two-qubit state. It is then said that the two qubits are strongly correlated, or entangled, meaning that that $\ket{\psi}$ acts like a single particle composed of two strongly correlated qubits. Suppose $\ket{\psi} = \sqrt{\frac{1}{2}} \ket{00} + \sqrt{\frac{1}{2}} \ket{11}$ to be measured and the leftmost qubit is measured. There is a probability of $\dfrac{1}{2}$ that the leftmost qubit will collapse in a $0$-state or in a $1$-state. However, it would collapse into a $0$-state, then the remaining qubit is also going to be in a $0$-state as it is the only option left. With that, the superposition of the second qubit immediately collapses when the first qubit is measured. One bit of measurement hence gives two bits of information, one can say.
+
+Entanglement is useful in many occassions in quantum computing. Suppose an initial two state system to be $\ket{x}\ket{0}$ and that there is a quantum gate that embeds a function $f(x)$ that provides $\ket{x}\ket{f(x)}$. By entanglement, any input $x$ is connected to its corresponding output $f(x)$. If the input-register is a superposition of many states, i.e., many inputs, then the output-register will host a superposition of many outputs at the same time. It is therefore not a surprise that including superposition and entanglement into a quantum circuit leverages speedups. With interference included in the post-processing of the superposed and entangled circuit, algorithms can be designed that might give speedups to classical counterparts.
 
 
 \biblio
