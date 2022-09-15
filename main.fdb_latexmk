@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1663075088 "main.aux" "main.bbl" "main" 1663075123
+["bibtex main"] 1663253308 "main.aux" "main.bbl" "main" 1663253345
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "main.aux" 1663075122 14054 32a35f37eacf711302ea3096bcb581a0 "pdflatex"
+  "main.aux" 1663253345 16172 a1fd3d7c8f3a9b46d81b21f2ebdb84a6 "pdflatex"
   "refs.bib" 1661439393 1828 a38cb4e0b0c16c438c529bdd0d96d266 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1663075119 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1663075123
-  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1663075119 2081 e8e85e8bdb4772a9904cc7b9cdad76f2 ""
+["pdflatex"] 1663253341 "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" "main.pdf" "main" 1663253345
+  "/Users/EA28PF/Documents/Tekstproducties/cad/main.tex" 1663253341 2081 e8e85e8bdb4772a9904cc7b9cdad76f2 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -240,12 +240,14 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1658924498 2826440 d2c1b12003e657753df6ae9d1fd1ec6d ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1663075122 14054 32a35f37eacf711302ea3096bcb581a0 "pdflatex"
-  "main.bbl" 1663075088 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
-  "main.out" 1663075122 2051 4453d1ef7f9f5f3ac56eb8e3c7eea1dc "pdflatex"
-  "main.tex" 1663075119 2081 e8e85e8bdb4772a9904cc7b9cdad76f2 ""
+  "main.aux" 1663253345 16172 a1fd3d7c8f3a9b46d81b21f2ebdb84a6 "pdflatex"
+  "main.bbl" 1663253308 1798 ef12283fff8e31433fce802084dea873 "bibtex main"
+  "main.out" 1663253345 2051 4453d1ef7f9f5f3ac56eb8e3c7eea1dc "pdflatex"
+  "main.tex" 1663253341 2081 e8e85e8bdb4772a9904cc7b9cdad76f2 ""
   "sections/bms/bms.tex" 1661439385 2651 41f38c5d1fb43317eee5929a17c91a09 ""
-  "sections/introduction/introduction.tex" 1663075117 17904 172477867f4cb32c185872ab27bba220 ""
+  "sections/introduction//../../images/bloch_sphere.png" 1663250532 47877 1ad8bb6b81ef46c249aa01d27787f69f ""
+  "sections/introduction//../../images/variational_circuit_example.png" 1663249979 137072 c76ddb3661d624cf7fe1a9ddbbde2188 ""
+  "sections/introduction/introduction.tex" 1663253338 23500 0cb34cb361129ab67b379fba944b208a ""
   "sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png" 1661428675 90553 3d354ab0d91c47ca5c1f5aa4a186a9e3 ""
   "sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex" 1661439469 3410 0219d00130e832446aa436f918cc34d7 ""
   "sections/monte_carlo/monte_carlo.tex" 1661428675 219 3f8f32f686f9b610b48a7258e539e02f ""

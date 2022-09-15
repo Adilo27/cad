@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  13 SEP 2022 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  15 SEP 2022 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -696,9 +696,31 @@ LaTeX Warning: Reference `sec: mc' on page 1 undefined on input line 14.
 
 [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<../../images/bloch_sphere.png, id=26, 1204.5pt x 1280.785pt>
+File: ../../images/bloch_sphere.png Graphic file (type png)
+<use ../../images/bloch_sphere.png>
+Package pdftex.def Info: ../../images/bloch_sphere.png  used on input line 41.
+(pdftex.def)             Requested size: 227.62206pt x 242.02274pt.
+ [2] [3
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.63 \end{gather}
+                  <../../images/bloch_sphere.png>] [4] [5] [6] [7]
+<../../images/variational_circuit_example.png, id=75, 1117.17375pt x 350.30875pt>
+File: ../../images/variational_circuit_example.png Graphic file (type png)
+<use ../../images/variational_circuit_example.png>
+Package pdftex.def Info: ../../images/variational_circuit_example.png  used on input line 227.
+(pdftex.def)             Requested size: 455.24411pt x 142.75089pt.
+ [8]
 No file introduction.bbl.
-[6] (./introduction.aux)
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.236 \end{document}
+                     <../../images/variational_circuit_example.png>] (./introduction.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -706,18 +728,18 @@ Package rerunfilecheck Info: File `introduction.out' has not changed.
 (rerunfilecheck)             Checksum: 04798093F9C2E642F369DC0B147D9003;334.
  ) 
 Here is how much of TeX's memory you used:
- 27555 strings out of 478268
- 541736 string characters out of 5846347
- 851604 words of memory out of 5000000
- 45227 multiletter control sequences out of 15000+600000
+ 27600 strings out of 478268
+ 542602 string characters out of 5846347
+ 851224 words of memory out of 5000000
+ 45245 multiletter control sequences out of 15000+600000
  480746 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,20n,106p,2066b,1544s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on introduction.pdf (6 pages, 145684 bytes).
+ 104i,20n,106p,2066b,1550s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on introduction.pdf (9 pages, 308806 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 39 words of extra memory for PDF output out of 10000 (max. 10000000)
 

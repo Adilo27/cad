@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  13 SEP 2022 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.27)  15 SEP 2022 16:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,120 +686,142 @@ LaTeX Info: Redefining \nameref on input line 39.
 
  (./sections/introduction/introduction.tex [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]) (./sections/bms/bms.tex [6] [7]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex
-<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=118, 672.5125pt x 448.67625pt>
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<./sections/introduction//../../images/bloch_sphere.png, id=69, 1204.5pt x 1280.785pt>
+File: ./sections/introduction//../../images/bloch_sphere.png Graphic file (type png)
+<use ./sections/introduction//../../images/bloch_sphere.png>
+Package pdftex.def Info: ./sections/introduction//../../images/bloch_sphere.png  used on input line 41.
+(pdftex.def)             Requested size: 227.62206pt x 242.02274pt.
+ [2] [3
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.51 
+      <./sections/introduction//../../images/bloch_sphere.png>] [4] [5] [6] [7]
+<./sections/introduction//../../images/variational_circuit_example.png, id=118, 1117.17375pt x 350.30875pt>
+File: ./sections/introduction//../../images/variational_circuit_example.png Graphic file (type png)
+<use ./sections/introduction//../../images/variational_circuit_example.png>
+Package pdftex.def Info: ./sections/introduction//../../images/variational_circuit_example.png  used on input line 227.
+(pdftex.def)             Requested size: 455.24411pt x 142.75089pt.
+ [8]) (./sections/bms/bms.tex [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.27 \end{align}
+                 <./sections/introduction//../../images/variational_circuit_example.png>]) (./sections/monte_carlo/monte_carlo.tex) (./sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex [10]
+<./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png, id=163, 672.5125pt x 448.67625pt>
 File: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png Graphic file (type png)
 <use ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>
 Package pdftex.def Info: ./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png  used on input line 22.
 (pdftex.def)             Requested size: 227.62206pt x 151.86328pt.
- [8] [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+ [11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.59 \end{align}
-                 <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex
-<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=153, 1539.7525pt x 972.63374pt>
+l.44 \begin{align}
+                   <./sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png>]) (./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex [12]
+<./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png, id=198, 1539.7525pt x 972.63374pt>
 File: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png Graphic file (type png)
 <use ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>
 Package pdftex.def Info: ./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png  used on input line 31.
 (pdftex.def)             Requested size: 455.24411pt x 287.56264pt.
- [10] [11
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.75 T
-      he error $\epsilon$ of this method defined as followed <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [12
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.102 \end{figure}
-                  ] [13
+ [13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.146 
-      
+l.49 \end{align}
+                 <./sections/monte_carlo/quantum_monte_carlo//../../../images/qgan_structure.png>] [14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.146 
-      ]) (./sections/results/results.tex [14
+l.85 \begin{align}
+                  ] [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.6 
-    ]
-<./sections/results//../../images/probability.png, id=231, 423.5825pt x 328.22626pt>
+l.115 \end{enumerate}
+                     ] [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.158 A
+       t the end of the Amplitude Estimation we only have to calculate the r...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.158 A
+       t the end of the Amplitude Estimation we only have to calculate the r...]) (./sections/results/results.tex
+<./sections/results//../../images/probability.png, id=265, 423.5825pt x 328.22626pt>
 File: ./sections/results//../../images/probability.png Graphic file (type png)
 <use ./sections/results//../../images/probability.png>
 Package pdftex.def Info: ./sections/results//../../images/probability.png  used on input line 10.
 (pdftex.def)             Requested size: 227.62206pt x 176.3781pt.
-<./sections/results//../../images/payoff_european.png, id=235, 399.4925pt x 319.1925pt>
+<./sections/results//../../images/payoff_european.png, id=269, 399.4925pt x 319.1925pt>
 File: ./sections/results//../../images/payoff_european.png Graphic file (type png)
 <use ./sections/results//../../images/payoff_european.png>
 Package pdftex.def Info: ./sections/results//../../images/payoff_european.png  used on input line 23.
 (pdftex.def)             Requested size: 227.62206pt x 181.86855pt.
- [15
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.28 
-      <./sections/results//../../images/probability.png>]
-<./sections/results//../../images/model.png, id=247, 1220.56pt x 1081.03876pt>
-File: ./sections/results//../../images/model.png Graphic file (type png)
-<use ./sections/results//../../images/model.png>
-Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
-(pdftex.def)             Requested size: 455.24411pt x 403.21115pt.
- [16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.50 
-      <./sections/results//../../images/payoff_european.png>]
-<./sections/results//../../images/probability_estimate.png, id=257, 462.72874pt x 357.335pt>
-File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
-<use ./sections/results//../../images/probability_estimate.png>
-Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
-(pdftex.def)             Requested size: 227.62206pt x 175.77724pt.
  [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.58 
-      <./sections/results//../../images/model.png>]
-<./sections/results//../../images/grover.png, id=266, 1356.06625pt x 442.65375pt>
-File: ./sections/results//../../images/grover.png Graphic file (type png)
-<use ./sections/results//../../images/grover.png>
-Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
-(pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
-<./sections/results//../../images/combinedCircuit.png, id=270, 1472.50125pt x 609.27625pt>
-File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
-<use ./sections/results//../../images/combinedCircuit.png>
-Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
-(pdftex.def)             Requested size: 455.24411pt x 188.36235pt.
+l.28 
+      <./sections/results//../../images/probability.png>]
+<./sections/results//../../images/model.png, id=281, 1220.56pt x 1081.03876pt>
+File: ./sections/results//../../images/model.png Graphic file (type png)
+<use ./sections/results//../../images/model.png>
+Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
+(pdftex.def)             Requested size: 455.24411pt x 403.21115pt.
  [18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
+l.50 
+      <./sections/results//../../images/payoff_european.png>]
+<./sections/results//../../images/probability_estimate.png, id=293, 462.72874pt x 357.335pt>
+File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
+<use ./sections/results//../../images/probability_estimate.png>
+Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
+(pdftex.def)             Requested size: 227.62206pt x 175.77724pt.
+ [19
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.58 
+      <./sections/results//../../images/model.png>]
+<./sections/results//../../images/grover.png, id=303, 1356.06625pt x 442.65375pt>
+File: ./sections/results//../../images/grover.png Graphic file (type png)
+<use ./sections/results//../../images/grover.png>
+Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
+(pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
+<./sections/results//../../images/combinedCircuit.png, id=307, 1472.50125pt x 609.27625pt>
+File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
+<use ./sections/results//../../images/combinedCircuit.png>
+Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
+(pdftex.def)             Requested size: 455.24411pt x 188.36235pt.
+ [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
 l.83 T
       he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.83 T
       he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$... <./sections/results//../../images/probability_estimate.png> <./sections/results//../../images/grover.png>]
-<./sections/results//../../images/resultAE.png, id=280, 477.785pt x 334.24875pt>
+<./sections/results//../../images/resultAE.png, id=317, 477.785pt x 334.24875pt>
 File: ./sections/results//../../images/resultAE.png Graphic file (type png)
 <use ./sections/results//../../images/resultAE.png>
 Package pdftex.def Info: ./sections/results//../../images/resultAE.png  used on input line 99.
 (pdftex.def)             Requested size: 455.24411pt x 318.47804pt.
- [19
-pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+ [21
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.104 W
-       hen we now execute the same Circuit using Iterative Amplitude Estimat... <./sections/results//../../images/combinedCircuit.png>]) (./sections/outlook_and_conclusion/conclusion.tex) (./main.bbl [20
-pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
+       hen we now execute the same Circuit using Iterative Amplitude Estimat... <./sections/results//../../images/combinedCircuit.png>]) (./sections/outlook_and_conclusion/conclusion.tex) (./main.bbl [22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.12 ..., Gacon, Zoufal, and Woerner]{Grinko_2021}
@@ -807,23 +829,23 @@ l.12 ..., Gacon, Zoufal, and Woerner]{Grinko_2021}
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 17.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) [21] (./main.aux)
+)) [23] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4453D1EF7F9F5F3AC56EB8E3C7EEA1DC;2051.
  ) 
 Here is how much of TeX's memory you used:
- 31397 strings out of 478268
- 640338 string characters out of 5846347
- 1107094 words of memory out of 5000000
- 48922 multiletter control sequences out of 15000+600000
+ 31440 strings out of 478268
+ 641657 string characters out of 5846347
+ 1122064 words of memory out of 5000000
+ 48939 multiletter control sequences out of 15000+600000
  486969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,24n,89p,2078b,1726s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (21 pages, 1260382 bytes).
+Output written on main.pdf (23 pages, 1388248 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 103 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 463 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
+ 125 named destinations out of 1000 (max. 500000)
+ 164 words of extra memory for PDF output out of 10000 (max. 10000000)
 
