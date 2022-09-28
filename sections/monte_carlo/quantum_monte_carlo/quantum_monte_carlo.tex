@@ -4,30 +4,35 @@
 \subsection{Quantum Monte Carlo}\label{sec: qmc}
 Quantum Amplitude Estimation provides a quadratic speed-up over classical monte carlo methods. \\
 Suppose a unitary operator $A$ is acting on a register of $(n+1)$ qubits
-\begin{align}\label{eq:actionOfA}
-  A\ket{0}_{n+1} &= \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1}, \label{eq:AE_A}
-\end{align}
+\begin{equation}\label{eq:action_of_A}
+  A\ket{0}_{n+1} = \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1},
+\end{equation}
 for normalised states $\ket{\psi_0}_{n}\ket{0}$, $\ket{\psi_1}_{n}\ket{1}$ and unknown $a \in [0,1]$.
-QAE allows the efficient estimation of $a$, i.e. the probability of measuring $\ket{1}$ in the last qubit
+QAE allows the efficient estimation of $a$, i.e. the probability of measuring $\ket{1}$ in the last qubit.\\
 Simply measuring $\ket{1}$ t times does not give any advantage since the variance of t is defined by a bernoulli distibution
 \begin{equation}\label{eq:t}
   t = O(\frac{a(1-a)}{\epsilon^2}),
 \end{equation}
 with given accuracy $\epsilon$.\\
-To gain a quantum speed-up more efficient quantum algorithm are used than simply measuring t times. 
-From $\ref{eq:actionOfA}$ it can be seen that
+To gain a quantum speed-up more efficient quantum algorithms are used than simply measuring t times. 
+From \ref{eq:actionOfA} it can be seen that
 \begin{equation}\label{eq:aIsSin}
   a = sin^2(\theta_a),
 \end{equation}
-what comes frome the fact that exchanging $a \text{ and } 1-a$ by sin and cos would result in same quantum behavior.\\
-The first efficient quantum algorthim is Grovers algorithmn, where
+what comes from the fact that exchanging $a \text{ and } 1-a$ by sin and cos would result in same quantum behavior:\\
+\begin{equation}\label{eq:action_of_A_sin}
+  A\ket{0}_{n+1} = cos(1-a)\ket{\psi_0}_{n}\ket{0}+sin(1-a)\ket{\psi_1}_{n}\ket{1}
+\end{equation}
+
+The first efficient quantum algorthim used is Grovers algorithm, where
 \begin{align}
   Q &= AS_0AS_{\psi_0} \nonumber \\
   S_0 &= 1-2\ket{0}\bra{0} \nonumber \\
   S_{\psi_0} &= 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0}. \nonumber \\
 \end{align}
 $Q$ applies a rotation of angle $2\theta_a$ in the complex two-dimensional Hilbert space spannend by $\ket{\psi_0}\ket{0}$ and
-$\ket{\psi_1}\ket{0}$. The eigenvalues of $Q$ are (Euler formula) $\exp{ (\pm \theta_a)}$.\\
+$\ket{\psi_1}\ket{0}$. The eigenvalues of $Q$ are (Euler formula) $\exp{ (\pm i \theta_a)}$.\\
+The Grover algorithm therefore is used to encode the angle $\theta_a$ as the argument of an exponential function in the quantum register but does not yield an approximation of that angle.
 To obtain an approximation for $\theta_a$ QAE applies Quantum Phase Estimation(QPE) to approximate the eigenvalues of $Q$.
 QPE uses $m$ additional sampling qubits to represent the results and $M=2^m$ applications of $Q$.\\
 For that the $m$ qubits are initialized to a equal superposition by Hadamard gates and are then used to control the different powers of $Q$
@@ -41,39 +46,50 @@ satisfies:
 \begin{align}
     |\tilde{\a} - \a| &\leq (\frac{\sqrt{\pi}}{M} + \frac{\pi}{M^2}) = O(M^-1), \label{eq:AE_M}
 \end{align}
-with probability of at least $(\frac{8}{\pi})$. Result $\ref{eq:AE_M}$ represents a quadratic speed-up in comparision to the classical efficiency $\ref{eq:t}$.
+with probability of at least $(\frac{8}{\pi^2})$. Result $\ref{eq:AE_M}$ represents a quadratic speed-up in comparision to the classical efficiency $\ref{eq:t}$.
+\begin{figure}[H]
+  \begin{center}
+\begin{quantikz}
+\lstick{(0) \ket{0}} & \gate{H} & \ctrl{5} & \ldots \qw & \qw & \ldots \qw & \qw & \gate[5, nwires={2,4}]{QFT^{\dagger}} &  \meter{}\\
+ & \vdots & & \ddots & & \ddots & & \\
+\lstick{(j) \ket{0}} & \gate{H} & \qw & \ldots \qw & \ctrl{3} & \ldots \qw & \qw & & \meter{}\\
+ & \vdots & & \ddots & & \ddots & &\\
+\lstick{(n-1) \ket{0}} & \gate{H} & \qw & \ldots \qw & \qw & \ldots \qw & \ctrl{1} & &  \meter{}\\
+\lstick{(n) \ket{0}} & \gate[wires=2]{A} & \gate[wires=2]{\mathcal{Q}_{2^0}} & \ldots \qw & \gate[wires=2]{\mathcal{Q}_{2^j}} & \ldots \qw & \gate[wires=2]{\mathcal{Q}_{2^{n-1}}} & \qw\\
+\lstick{(n+m-1) \ket{0}} &  & & \ldots \qw &  & \ldots \qw & & \qw
+\end{quantikz}
+\end{center}
+\caption{ Design of the Amplitude Estimation recreated after \cite{Stamatopoulos_2019}}
+\label{fig:qae}
+\end{figure}
+
 \subsubsection{European Option Pricing}\label{sec:eurOpPricing}
-For option contracts the involved random variables represent the possible values $S_T$ the underlying asset can take and the probabilities $p_i$ that those values will be realized.
-For the unitary $A$ that means: Given an n+1-qubit register $N$ (QAE register), asset prices at maturity $ \{ S_i \} $ for $ i \in \{ 0,..,2^n-1 \} $, the corresponding probabilites $ \{ p_i \}$ and the option payoff
+
+For option contracts the involved random variables represent the possible values $ \{ S_i \} $ for $ i \in \{ 0,..,2^n-1 \} $ the underlying asset can take and the probabilities $p_i$ that those values will be realized.
+For the unitary $A$ that means: Given an n+1-qubit register $N$ (QAE register), asset prices at maturity $S_T $, the corresponding probabilites $ \{ p_i \}$ and the option payoff
 $f(S_i)$ the operator $A$ becomes
-\begin{equation}\label{eq:AWitha}
+\begin{equation}\label{eq:A_with_a}
   A = \sum_{i=0}^{2n+1} \bigl ( \sqrt{1-f(S_i)}\sqrt{p_i}\ket{S_i}\ket{0} + \sqrt{f(S_i)}\sqrt{p_i}\ket{S_i}\ket{1} \bigr ).
 \end{equation}
-Comparing $\ref{eq:AWitha} \text{ and } \ref{eq:actionOfA}$ gives for options
+Comparing \ref{eq:A_with_a} and \ref{eq:action_of_A} gives for options
 \begin{equation}\label{eq:aForOption}
   a = \sum_{i=0}^{2n+1} f(S_i)p_i = E[f(S_T)].
 \end{equation}
+\ref{eq:A_with_a} is the expectation value of the payoff given the stockprice at maturity and therefore the quantity which we want to approximated with Monte Carlo Simulations.
 For option pricing using QAE that means that in order to be able to apply QAE the unitary operator $A$ has to be created using quantum circuits, i.e. a efficient method to encode
 the probabilities $p_i$ for a certain stock price at maturity $S_i$ and the corresponding payoff $f(S_i)$ in the register $N$.
 %--> start here
-
 % discuss in more detail where the accuracy 8/pi comes from QPE
 % show that ket{S_i} is binary representation of asset price. Write down how quantum register looks like after application of QPE
 % -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
 % check qpe wiki article. 
-On a quantum computer the task to perform a monte carlo is in general threefold(\cite{Stamatopoulos_2019}).
-First given an n-qubit register $M$, asset prices $ \{ S_i \} $ for $ i \in \{ 0,..,2^n-1 \} $ the corresponding probabilites $ \{ p_i \}$ 
-have to be encoded in $M$. In BSM-model the analytical formulas to price options assume that the underlying stock price at maturity follows a log-normal distribution
-with constant volatility \ref{eq:lognormal}. Second the payoff of european call options has additionally to be integrated 
-The distribution loading algorithm creates the following n-qubit state:
-\begin{equation}\label{eq:probState}
-\ket{\Phi}_n = \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{S_i}_n.
-\end{equation}
-The algorithm for creating $ref{eq:probState}$ reads:
+% underline the fact that the E value IS QMC.
+\subsubsection{Loading the distribution}
+The algorithm for loading the probability distribution \ref{eq:lognormal} reads:
 \begin{itemize}
   \item On an interval, which is described by the minimal and maximal asset price an equidistant discretization is established
-   based in the number of quantum states $M=2^n-1$.
-  \item Equidistant x-values are used to compute log-normal probability of the asset prices.
+   based on the number of quantum states $M=2^n-1$.
+  \item Equidistant x-values are used to compute log-normal probability of the asset prices \ref{eq:lognormal} with constant volatility.
   \item The probabilites are normalized by the sum of all probabilites
   \item The square root is applied and resulting numbers initialized in a quantum state.
 \end{itemize} 
@@ -99,9 +115,62 @@ The algorithm for the distribution loading can then be implemented like:
     qc.compose(circuit, inplace=True)
     return qc, x, probabilities
 \end{lstlisting}
+In tearms of a quantum state the above algorithm implements
+\begin{equation}\label{eq:distLoading}
+\ket{{\Phi}_n} = \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{S_i}_n .
+\end{equation}
+\subsubsection{Constructing the payoff}
+The payoff of a european call option at maturity is defined as 
+\begin{equation}\label{eq:callPayoff}
+  f(S_T) = \max \{ 0, S_T - K \},
+\end{equation}
+with $K$ the strike price and $T$ the maturity date. Numerically the payoff (and any other function) can be realized using piecewise linear functions for $S_T \le K$ and $S_T geq K$ which are dependent on the given stock price $S_i$. On a quantum computer we are interested in an operator
+\begin{equation}\label{eq:payOffOperator}
+  \ket{i}_n \ket{0} \rightarrow \ket{i}_n (\text{cos}[f(i)] \ket{0} + \text{sin}[f(i)\ket{1}]),
+\end{equation}
+where $f:\{ 0,...,2^n-1 \} \rigtharrow [0,1]$. $f$ is on a quantum computer dependent on the stock price encoded in a quantum state and the piecewise linear functions are implemented usind controlled Y-gates.\\
+\ref{payOffOperator} uses therefore the strategy introduced already in equation \ref{eq:estimate_a} to obtain the operator $A$ defined in \ref{eq:A_with_a}.
+Implementing the piecewise linear function is not directly straigth forward so a detailed introduction is given in the following. 
+As mentioned above we are dealing with linear function to encode the payoff
+\begin{equation}\label{eq:defLinearFunc}
+  f(x) = \alpha x + \beta,
+\end{equation}
+where $f(x)$ maps $x$ to the payoff by equation \ref{eq:callPayoff} and the domain of $x$ consist of of two linear function. One for $S_T \le K$ and one for $S_T \geq K$. 
+Furthermore the S_i do not occure as a real number but as an element of $\{ 0,...,2^n-1 \}$ and additionally on a quantum computer $f(x)$ has to be realised
+using rotations in the corresponding Hilbert space. 
+These challenges require us to use a affine mapping $\hat{f(x)}$ which is in contrast to
+\begin{equation}\label{eq:linFuncBound}
+  f: \[ a,b \] \rightarrow \[ c,d \]
+\end{equation}
+defined as
+\begin{equation}\label{eq:hatLinFunc}
+  \hat{f}: \{0,...,2^n-1 \} \rightarrow \[ 0,1 \].
+\end{equation}
+Note that in this case $d=b-K$ thanks to the definition of the payoff. But how is the transformation from \ref{linFuncBound}
+to \ref{eq:hatLinFunc} actually done?\\
+For piecewise function there are of course breakpoints needed within $\{ 0,...,2^n-1 \}$
+\begin{equation}\label{eq:breakpoints}
+b_p(x) = \frac{x-a}{b-a} \times 2^n-1.
+\end{equation}
+The affine transformation from $f$ to $hat{f}$ is then
+\begin{align}\label{eq:affinTransform}
+  \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
+  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}.
+\end{align}
+Implemented is $\phi(x)$ first by leveraging on the slope and offset of a linear function
+\begin{align}\label{eq:mappedSlopeOffset}
+  \hat{\alpha} &= \frac{\alpha}{2^n-1} \cdot (b-a)\\
+  \hat{\beta} &= \beta\\
+  &\Rightarrow \frac{\alpha}{2^n-1} \cdot (b-a) + \beta.
+\end{align}
+$\hat{f}(x)$ is then generated by introducing the slope and offset angles
+\begin{align}\label{eq:affineAngles}
+  \theta_{\hat{\alpha}} &= \frac{\pi}{2}f_c\frac{\alpha}{2^n-1}\frac{(b-a)}{(d-c)}\\
+  \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c.
+\end{align}
+%%=============old==================
 
 
-%% old stuff
 \begin{enumerate}
 	\item The payoff function $F(\textbf{X})$ has to be build with qubits inside the quantum computer. In section \ref{sec:MC_Payoff} the payoff function is constructed.
 	\item The quantum computer should calculate at the end the expected value of the payoff $\mathbb{E}_P[F(\textbf{X})]$, this will also be explained in section \ref{sec:MC_Payoff}.
@@ -114,6 +183,8 @@ For the Amplitude Estimation (AE) we need an unitary operator $A$ which behaves 
     A\ket{0}_{n+1} &= \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1}. \label{eq:AE_A}
 \end{align}
 
+
+%%=============old==================
 In the equation \ref{eq:AE_A} $\ket{\psi_0}_{n}$ and $\ket{\psi_1}_{n}$ are some normalized states and $a$ is a unknown variable $\in [0,1]$.
 With Amplitude Estimation we can estimate the value of $a$ therefor we have to construct our problem so that we have this at the end $a=\mathbb{E}_P[f(\textbf{X})]$.
 To make a use of $\sin$ and $\cos$ to work with RY-Gates we can say that $a=\sin^2(\theta_a)$ is, so that equation \ref{eq:AE_A} turns into this
@@ -132,36 +203,27 @@ $S_0$ is a reflection about the $\ket{0}$ state and $S_{\psi_1}$ is a reflection
     \mathcal{Q} &= R_Y(2\theta_p) \\ 
     \mathcal{Q}_{2^j} &= R_Y(2^j\cdot 2\theta_p)
 \end{align}
-\begin{figure}[H]
-  \begin{center}
-\begin{quantikz}
-\lstick{(0) \ket{0}} & \gate{H} & \ctrl{5} & \ldots \qw & \qw & \ldots \qw & \qw & \gate[5, nwires={2,4}]{QFT^{\dagger}} &  \meter{}\\
- & \vdots & & \ddots & & \ddots & & \\
-\lstick{(j) \ket{0}} & \gate{H} & \qw & \ldots \qw & \ctrl{3} & \ldots \qw & \qw & & \meter{}\\
- & \vdots & & \ddots & & \ddots & &\\
-\lstick{(n-1) \ket{0}} & \gate{H} & \qw & \ldots \qw & \qw & \ldots \qw & \ctrl{1} & &  \meter{}\\
-\lstick{(n) \ket{0}} & \gate[wires=2]{A} & \gate[wires=2]{\mathcal{Q}_{2^0}} & \ldots \qw & \gate[wires=2]{\mathcal{Q}_{2^j}} & \ldots \qw & \gate[wires=2]{\mathcal{Q}_{2^{n-1}}} & \qw\\
-\lstick{(n+m-1) \ket{0}} &  & & \ldots \qw &  & \ldots \qw & & \qw
-\end{quantikz}
-\end{center}
-\caption{ Design of the Amplitude Estimation recreated after \cite{Stamatopoulos_2019}}
-\label{fig:qae}
-\end{figure}
+
 The error $\epsilon$ of this method defined as followed
 \begin{align}
     |\hat{\Pi} - \Pi| &\leq C\cdot(\frac{\sqrt{\mathbb{E}}}{M} + \frac{1}{M^2}) \nonumber \\
-    M &= \mathcal{O}(\frac{1}{\epsilon \sqrt{\mathbb{E}}}) \label{eq:AE_M}
+    M &= \mathcal{O}(\frac{1}{\epsilon \sqrt{\mathbb{E}}}) \label{eq:AE_M_2}
 \end{align}
 As we can see in \ref{eq:classic_M} and \ref{eq:AE_M} quantum computer improved the number error with the same number of samples
 \subsubsection{Construct the payoff function}\label{sec:MC_Payoff}
 A lot of payoff function can be constructed by piece-wise linear functions, in this section we will go over how to construct the piece-wise linear function in to quantum computer.
 
-First of all we need to transform the payoff function $F(\textbf{X})$ in to new functions $f_b(i)=m_b\cdot i + o_b$, with $m_b$ the slope of the function and $o_b$ the offset of the function. For every break point $b$ of the payoff function we need to create a new function $f_b$. The new function gets the following as input $i\in\{0,\ldots, 2^n-1\}$, which represents all states the qubits can have. For example we have three qubits ($i\in\{0,1,2,3,4,5,6,7\}$) so $\ket{011}$ mapes to $i=3$. The output of the function can also only be $f(i)\in[0,1]$ this was shown in section \ref{sec:MC_AE}. Now that we build the function we can insert the function in this equation \ref{eq:AE_A_sin} and get this new equation
+First of all we need to transform the payoff function $F(\textbf{X})$ in to new functions $f_b(i)=m_b\cdot i + o_b$, with $m_b$ the slope of the function and $o_b$ the offset of the function.
+For every break point $b$ of the payoff function we need to create a new function $f_b$. The new function gets the following as input $i\in\{0,\ldots, 2^n-1\}$, which represents all states the qubits can have.
+For example we have three qubits ($i\in\{0,1,2,3,4,5,6,7\}$) so $\ket{011}$ mapes to $i=3$. The output of the function can also only be $f(i)\in[0,1]$ this was shown in section \ref{sec:MC_AE}. Now that we build the function we can insert the function in this equation \ref{eq:AE_A_sin} and get this new equation
 \begin{align}
     \ket{i}_n\ket{0} &= \ket{i}_n(\cos[f(i)]\ket{0}+\sin[f(i)]\ket{1}) \label{eq:PF_f}
 \end{align}
 
-So this function can be rebuild in a quantum computer with controlled $Y$-Rotations $CR_y$ and normal $Y$-Rotations $R_y$, the normal $Y$-Rotation is only used to initially rotate the qubit, which corresponds to the first offset. To do this we need an extra qubit on which we perform the rotations based on $x$ encoded in register $\ket{i}_n$ which is already holding the probability distribution. Similar to the Amplitude Estimation the rotations add a factor $2^{j}$, where the ${j}$'s are qubits from $\ket{i}_n$-register. (shown in figure \ref{fig:PF_y}) Consequently the more $\ket{j}$ are set to $\ket{1}$, the higher the value of $x$ is. If we add more qubits to $\ket{i}_n$-register, i.e. more grid-points, a higher accuracy can be reached.
+So this function can be rebuild with a quantum computer using controlled $Y$-Rotations $CR_y$ and normal $Y$-Rotations $R_y$, the normal $Y$-Rotation is only used to initially rotate the qubit,
+which corresponds to the first offset. To do this we need an extra qubit on which we perform the rotations based on $x$ encoded in register $\ket{i}_n$ which is already holding the probability distribution.
+Similar to the Amplitude Estimation the rotations add a factor $2^{j}$, where the ${j}$'s are qubits from $\ket{i}_n$-register. (shown in figure \ref{fig:PF_y}) Consequently the more $\ket{j}$ are set to $\ket{1}$,
+the higher the value of $x$ is. If we add more qubits to $\ket{i}_n$-register, i.e. more grid-points, a higher accuracy can be reached.
 
 \begin{figure}[H]
   \begin{center}
@@ -235,7 +297,7 @@ To obtain an approximation for $\theta_p$, AE applies Quantum Phase Estimation t
 The $m$ qubits, initialized to an equal superposition state by Hadamard gates, are used to control different powers of $\mathcal{Q}$. After applying an inverse Quantum Fourier Transform, their state is measured resulting in an integer $y \in \{0, ..., M - 1\}$, which is classically mapped to the estimator for $a$, i.e.
 
 \begin{equation}
-    \tilde{a} = \sin^2(y \pi / M) \in [0,1] \label{eq:estimate_a}.
+    \tilde{a} = \sin^2(y \pi / M) \in [0,1] \label{eq:estimate_a_2}.
 \end{equation}
 
 \biblio
