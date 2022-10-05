@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.31)  28 SEP 2022 16:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.31)  5 OCT 2022 13:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -996,28 +996,271 @@ LaTeX Warning: Reference `eq:action_of_A' on page 6 undefined on input line 74.
 LaTeX Warning: Reference `eq:A_with_a' on page 6 undefined on input line 78.
 
 
-LaTeX Warning: Reference `eq:lognormal' on page 6 undefined on input line 88.
+LaTeX Warning: Reference `eq:lognormal' on page 6 undefined on input line 83.
 
 [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90   \item O
+l.85   \item O
               n an interval, which is described by the minimal and maximal a...]
 
-LaTeX Warning: Reference `eq:lognormal' on page 7 undefined on input line 92.
+LaTeX Warning: Reference `eq:lognormal' on page 7 undefined on input line 87.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 97.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 92.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (199.62483pt too wide) in paragraph at lines 104--105
+Overfull \hbox (199.62483pt too wide) in paragraph at lines 99--100
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:125: Extra }, or forgotten $.
-l.125   f(S_T) = \max\{0, S_T - K}
-                                  ,
+
+LaTeX Warning: Reference `payOffOperator' on page 7 undefined on input line 130.
+
+
+LaTeX Warning: Reference `eq:estimate_a' on page 7 undefined on input line 130.
+
+
+LaTeX Warning: Reference `eq:A_with_a' on page 7 undefined on input line 130.
+
+
+LaTeX Warning: Reference `eq:payOffOperator' on page 7 undefined on input line 144.
+
+
+LaTeX Warning: Reference `eq:payOffOperator' on page 7 undefined on input line 144.
+
+[7]
+
+LaTeX Warning: Reference `eq:callPayoff' on page 8 undefined on input line 156.
+
+
+LaTeX Warning: Reference `linFuncBound' on page 8 undefined on input line 167.
+
+
+LaTeX Warning: Reference `eq:hatLinFunc' on page 8 undefined on input line 168.
+
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.177 \end{align}
+                 ]
+
+LaTeX Warning: Reference `eq:payOffOperator' on page 9 undefined on input line 190.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:195: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 ...c \in [ 0,1 ]$. Consequently , $\sin^2 \[
+                                                  f_c \cdot \hat{f}(i) + \pi...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:195: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.195 ...$\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \]
+                                                   $ is an anti-symmetric fu...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:195: LaTeX Error: \begin{document} ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 ...$\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \]
+                                                   $ is an anti-symmetric fu...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:195: Missing $ inserted.
+<inserted text> 
+                $
+l.195 ...$\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \]
+                                                   $ is an anti-symmetric fu...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:196: Package amsmath Error: \hat allowed only in math mode.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 With $\hat{f}
+                   (i)$ now being set into \ref{eq:mappedPayoffOperator} the...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `eq:mappedPayoffOperator' on page 9 undefined on input line 196.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:197: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 \begin{equation}
+                      \label{eq:probability1MappedLinFunc}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:199: You can't use `\eqno' in math mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.199 \end{equation}
+                    
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:199: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.199 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:199: LaTeX Error: \begin{document} ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:199: Missing $ inserted.
+<inserted text> 
+                $
+l.199 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:199: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.199 \end{equation}
+                    
+Things are pretty mixed up, but I think the worst is over.
+
+
+Overfull \hbox (404.32288pt too wide) in paragraph at lines 194--201
+\T1/cmr/m/n/12 with $\OML/cmm/m/it/12 f[] \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1]$\T1/cmr/m/n/12 . Con-se-quently , $[][] \OML/cmm/m/it/12 f[] \OMS/cmsy/m/n/12 ^^A []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 ^^Y=\OT1/cmr/m/n/12 4$$$$\OML/cmm/m/it/12 isananti \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 symmetricfunctionaround$\T1/cmr/m/n/12 1/2$\OML/cmm/m/it/12 :With$\T1/cmr/m/n/12 (i)$\OML/cmm/m/it/12 nowbeingsetinto[]theprobabilitytofindtheancillaqubitinstate$$[]$$; [][][][]P[] \OT1/cmr/m/n/12 =
+ []
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Missing } inserted.
+<inserted text> 
+                }
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: LaTeX Error: \begin{equation} on input line 201 ended by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Extra \endgroup.
+\frac  #1#2->{\begingroup #1\endgroup 
+                                      \@@over #2}
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+Things are pretty mixed up, but I think the worst is over.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Missing $ inserted.
+<inserted text> 
+                $
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:202: Extra }, or forgotten $.
+\frac  #1#2->{\begingroup #1\endgroup \@@over #2}
+                                                 
+l.202 ...2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c}
+                                                   - f_c + \frac{1}{2}.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -1025,231 +1268,116 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 
-LaTeX Warning: Reference `eq:payOffOperator' on page 7 undefined on input line 132.
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:203: LaTeX Error: \begin{document} ended by \end{equation}.
 
-[7]
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.203 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
-LaTeX Warning: Reference `sec:MC_Payoff' on page 8 undefined on input line 138.
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:203: Missing $ inserted.
+<inserted text> 
+                $
+l.203 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-
-LaTeX Warning: Reference `sec:MC_Payoff' on page 8 undefined on input line 139.
-
-
-LaTeX Warning: Reference `sec:MC_AE' on page 8 undefined on input line 141.
-
-
-LaTeX Warning: Reference `eq:AE_A' on page 8 undefined on input line 149.
-
-
-LaTeX Warning: Reference `eq:AE_A' on page 8 undefined on input line 151.
-
-
-LaTeX Warning: Reference `eq:classic_M' on page 8 undefined on input line 173.
-
-
-LaTeX Warning: Reference `eq:AE_M' on page 8 undefined on input line 173.
-
-
-LaTeX Warning: Reference `sec:MC_AE' on page 8 undefined on input line 177.
-
-
-LaTeX Warning: Reference `eq:AE_A_sin' on page 8 undefined on input line 177.
-
-[8]
-
-LaTeX Warning: Reference `fig:PF_y' on page 9 undefined on input line 183.
+./sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex:203: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.203 \end{equation}
+                    
+Things are pretty mixed up, but I think the worst is over.
 
 
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 9 undefined on input line 194.
+LaTeX Warning: Reference `sec:MC_Payoff' on page 9 undefined on input line 220.
 
 
-LaTeX Warning: Reference `eq:E_example_european' on page 9 undefined on input line 198.
+LaTeX Warning: Reference `sec:MC_Payoff' on page 9 undefined on input line 221.
 
 
-LaTeX Warning: Reference `fig:PF_max' on page 9 undefined on input line 198.
-
-[9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.206     \end{itemize}
-                       ]
-
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 10 undefined on input line 218.
+LaTeX Warning: Reference `sec:MC_AE' on page 9 undefined on input line 223.
 
 
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 10 undefined on input line 218.
+LaTeX Warning: Reference `eq:AE_A' on page 9 undefined on input line 231.
 
 
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 10 undefined on input line 237.
+LaTeX Warning: Reference `eq:AE_A' on page 9 undefined on input line 233.
+
+[9]
+
+LaTeX Warning: Reference `eq:classic_M' on page 10 undefined on input line 255.
 
 
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 10 undefined on input line 237.
+LaTeX Warning: Reference `eq:AE_M' on page 10 undefined on input line 255.
 
-[10
+
+LaTeX Warning: Reference `sec:MC_AE' on page 10 undefined on input line 261.
+
+
+LaTeX Warning: Reference `eq:AE_A_sin' on page 10 undefined on input line 261.
+
+
+LaTeX Warning: Reference `fig:PF_y' on page 10 undefined on input line 268.
+
+[10]
+
+Package natbib Warning: Citation `Stamatopoulos_2019' on page 11 undefined on input line 280.
+
+
+LaTeX Warning: Reference `eq:E_example_european' on page 11 undefined on input line 284.
+
+
+LaTeX Warning: Reference `fig:PF_max' on page 11 undefined on input line 284.
+
+
+Package natbib Warning: Citation `Stamatopoulos_2019' on page 11 undefined on input line 304.
+
+
+Package natbib Warning: Citation `Stamatopoulos_2019' on page 11 undefined on input line 304.
+
+[11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.248 \end{align}
-                 
+l.307 
+      ]
+
+Package natbib Warning: Citation `Stamatopoulos_2019' on page 12 undefined on input line 323.
+
+
+Package natbib Warning: Citation `Stamatopoulos_2019' on page 12 undefined on input line 323.
+
+
+LaTeX Warning: Reference `eq:theata_P' on page 12 undefined on input line 336.
+
+
+LaTeX Warning: Reference `eq:f_bi' on page 12 undefined on input line 336.
+
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.248 \end{align}
-                 ]
-
-LaTeX Warning: Reference `eq:theata_P' on page 11 undefined on input line 250.
-
-
-LaTeX Warning: Reference `eq:f_bi' on page 11 undefined on input line 250.
-
-) (./sections/results/results.tex
-
-LaTeX Warning: Reference `sec: cmc' on page 11 undefined on input line 7.
-
-
-LaTeX Warning: Reference `fig:E_log-normal' on page 11 undefined on input line 7.
-
-<./sections/results//../../images/probability.png, id=150, 423.5825pt x 328.22626pt>
-File: ./sections/results//../../images/probability.png Graphic file (type png)
-<use ./sections/results//../../images/probability.png>
-Package pdftex.def Info: ./sections/results//../../images/probability.png  used on input line 10.
-(pdftex.def)             Requested size: 227.62206pt x 176.3781pt.
-
-LaTeX Warning: Reference `eq:lognormal' on page 11 undefined on input line 12.
-
-
-LaTeX Warning: Reference `eq:lognormal' on page 11 undefined on input line 12.
-
-[11]
-
-LaTeX Warning: Reference `fig:E_payoff_function' on page 12 undefined on input line 20.
-
-<./sections/results//../../images/payoff_european.png, id=160, 399.4925pt x 319.1925pt>
-File: ./sections/results//../../images/payoff_european.png Graphic file (type png)
-<use ./sections/results//../../images/payoff_european.png>
-Package pdftex.def Info: ./sections/results//../../images/payoff_european.png  used on input line 23.
-(pdftex.def)             Requested size: 227.62206pt x 181.86855pt.
-
-LaTeX Warning: Reference `sec:MC_Payoff' on page 12 undefined on input line 25.
-
-
-LaTeX Warning: Reference `sec:MC_Payoff' on page 12 undefined on input line 25.
-
-[12
+l.341 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.39 \end{align}
-                
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.39 \end{align}
-                 <./sections/results//../../images/probability.png> <./sections/results//../../images/payoff_european.png>]
-
-LaTeX Warning: Reference `fig:E_model_payoff_function' on page 13 undefined on input line 41.
-
-
-LaTeX Warning: Reference `fig:E_probability_estimate' on page 13 undefined on input line 41.
-
-<./sections/results//../../images/model.png, id=170, 1220.56pt x 1081.03876pt>
-File: ./sections/results//../../images/model.png Graphic file (type png)
-<use ./sections/results//../../images/model.png>
-Package pdftex.def Info: ./sections/results//../../images/model.png  used on input line 45.
-(pdftex.def)             Requested size: 455.24411pt x 403.21115pt.
-
-Package natbib Warning: Citation `Qiskit' on page 13 undefined on input line 47.
-
-
-Package natbib Warning: Citation `Qiskit' on page 13 undefined on input line 47.
-
-[13]
-<./sections/results//../../images/probability_estimate.png, id=176, 462.72874pt x 357.335pt>
-File: ./sections/results//../../images/probability_estimate.png Graphic file (type png)
-<use ./sections/results//../../images/probability_estimate.png>
-Package pdftex.def Info: ./sections/results//../../images/probability_estimate.png  used on input line 53.
-(pdftex.def)             Requested size: 227.62206pt x 175.77724pt.
- [14
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.58 
-      <./sections/results//../../images/model.png>]
-
-LaTeX Warning: Reference `fig:E_model_payoff_function' on page 15 undefined on input line 61.
-
-
-LaTeX Warning: Reference `fig:PF_max' on page 15 undefined on input line 62.
-
-
-LaTeX Warning: Reference `fig:grover' on page 15 undefined on input line 63.
-
-<./sections/results//../../images/grover.png, id=183, 1356.06625pt x 442.65375pt>
-File: ./sections/results//../../images/grover.png Graphic file (type png)
-<use ./sections/results//../../images/grover.png>
-Package pdftex.def Info: ./sections/results//../../images/grover.png  used on input line 67.
-(pdftex.def)             Requested size: 455.24411pt x 148.6023pt.
-
-LaTeX Warning: Reference `fig:E_model_payoff_function' on page 15 undefined on input line 70.
-
-
-LaTeX Warning: Reference `fig:E_model_payoff_function' on page 15 undefined on input line 70.
-
-
-LaTeX Warning: Reference `fig:qgan' on page 15 undefined on input line 74.
-
-<./sections/results//../../images/combinedCircuit.png, id=184, 1472.50125pt x 609.27625pt>
-File: ./sections/results//../../images/combinedCircuit.png Graphic file (type png)
-<use ./sections/results//../../images/combinedCircuit.png>
-Package pdftex.def Info: ./sections/results//../../images/combinedCircuit.png  used on input line 78.
-(pdftex.def)             Requested size: 455.24411pt x 188.36235pt.
-[15
-pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.83 T
-      he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.83 T
-      he combined Circuit is displayed in figure $\ref{fig:combinedCircuit}$... <./sections/results//../../images/probability_estimate.png> <./sections/results//../../images/grover.png>]
-
-LaTeX Warning: Reference `fig:combinedCircuit' on page 16 undefined on input line 83.
-
-
-LaTeX Warning: Reference `eq:estimate_a' on page 16 undefined on input line 90.
-
-<./sections/results//../../images/resultAE.png, id=193, 477.785pt x 334.24875pt>
-File: ./sections/results//../../images/resultAE.png Graphic file (type png)
-<use ./sections/results//../../images/resultAE.png>
-Package pdftex.def Info: ./sections/results//../../images/resultAE.png  used on input line 99.
-(pdftex.def)             Requested size: 455.24411pt x 318.47804pt.
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.104 W
-       hen we now execute the same Circuit using Iterative Amplitude Estimat... <./sections/results//../../images/combinedCircuit.png>]
-
-Package natbib Warning: Citation `Grinko_2021' on page 17 undefined on input line 104.
-
-) (./sections/outlook_and_conclusion/conclusion.tex
-
-Package natbib Warning: Citation `Stamatopoulos_2019' on page 17 undefined on input line 5.
-
-)
-No file main.bbl.
+l.341 
+      ]
 
 Package natbib Warning: There were undefined citations.
 
-[17
-pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.88 \end{document}
-                    <./sections/results//../../images/resultAE.png>] (./main.aux)
+[13] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1263,21 +1391,21 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  3515E6B3705BD2E48A46120F1224E896;2148.
- ) 
+(rerunfilecheck)             After:  476E53F84D58A62084B1FF04C8D63862;2438.
+ ) ) 
 Here is how much of TeX's memory you used:
- 32754 strings out of 478268
- 652637 string characters out of 5846347
+ 33002 strings out of 478268
+ 657619 string characters out of 5846347
  1203879 words of memory out of 5000000
- 50262 multiletter control sequences out of 15000+600000
+ 50532 multiletter control sequences out of 15000+600000
  487739 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,24n,89p,2101b,1730s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (17 pages, 943539 bytes).
+Output written on main.pdf (13 pages, 414908 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 249 compressed objects within 3 object streams
- 115 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 299 PDF objects out of 1000 (max. 8388607)
+ 238 compressed objects within 3 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

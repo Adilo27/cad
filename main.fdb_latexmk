@@ -1,12 +1,5 @@
 # Fdb version 3
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 0
-  "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "main.aux" 0 -1 0 "pdflatex"
-  "refs.bib" 1661930615 1828 a38cb4e0b0c16c438c529bdd0d96d266 ""
-  (generated)
-  "main.bbl"
-  "main.blg"
-["pdflatex"] 1664376652 "/Users/em07od/Desktop/QuantumComputing/Projects/QMC-2/cad/main.tex" "main.pdf" "main" 1664376652
+["pdflatex"] 1664969872 "/Users/em07od/Desktop/QuantumComputing/Projects/QMC-2/cad/main.tex" "main.pdf" "main" 1664969872
   "/Users/em07od/Desktop/QuantumComputing/Projects/QMC-2/cad/main.tex" 1664366578 2568 959b55e582943d75644ccc6237519efc ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -245,8 +238,7 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661949990 2826440 243288e28ec15731382f8bb4c8cccf90 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "main.aux" 1664376652 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "main.bbl" 0 -1 0 "bibtex main"
+  "main.aux" 1664969872 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
   "main.tex" 1664366578 2568 959b55e582943d75644ccc6237519efc ""
   "sections/bms/bms.tex" 1662033292 2653 925c9098014eb3d3fd82b6ff241351df ""
@@ -254,16 +246,7 @@
   "sections/monte_carlo/classical_monte_carlo//../../../images/stock_path.png" 1661930615 90553 3d354ab0d91c47ca5c1f5aa4a186a9e3 ""
   "sections/monte_carlo/classical_monte_carlo/classical_monte_carlo.tex" 1661930615 3410 0219d00130e832446aa436f918cc34d7 ""
   "sections/monte_carlo/monte_carlo.tex" 1661930615 219 3f8f32f686f9b610b48a7258e539e02f ""
-  "sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex" 1664376640 19904 0429521a217b6483274a041f282b04a1 ""
-  "sections/outlook_and_conclusion/conclusion.tex" 1661930615 749 18c7aad4e900170847e8f9fd7e19640f ""
-  "sections/results//../../images/combinedCircuit.png" 1661930615 277031 4f0011e452715311b48be86759dcc280 ""
-  "sections/results//../../images/grover.png" 1661930615 285240 4ae1185303da1f6def5161188edaa194 ""
-  "sections/results//../../images/model.png" 1661930615 57024 32d3900b8d81731d1d8b723b7542cfa1 ""
-  "sections/results//../../images/payoff_european.png" 1661930615 16651 f510457296be880531d53c316f5f90b0 ""
-  "sections/results//../../images/probability.png" 1661930615 13893 8de3f864b64d649405d76ce4f7e0a3ef ""
-  "sections/results//../../images/probability_estimate.png" 1661930615 16285 26ea53e27bf340acc4c76cf7107abc05 ""
-  "sections/results//../../images/resultAE.png" 1661930615 105300 686441c61023e7de9fc77eed08b843cb ""
-  "sections/results/results.tex" 1661930615 8197 e775db96f7535b8259e3ddcb8acd532a ""
+  "sections/monte_carlo/quantum_monte_carlo/quantum_monte_carlo.tex" 1664965751 24631 b34c02fc4f14fea1850095d3aed689e8 ""
   (generated)
   "main.aux"
   "main.log"

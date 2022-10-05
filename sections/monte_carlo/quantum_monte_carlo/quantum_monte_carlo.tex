@@ -78,12 +78,7 @@ Comparing \ref{eq:A_with_a} and \ref{eq:action_of_A} gives for options
 \ref{eq:A_with_a} is the expectation value of the payoff given the stockprice at maturity and therefore the quantity which we want to approximated with Monte Carlo Simulations.
 For option pricing using QAE that means that in order to be able to apply QAE the unitary operator $A$ has to be created using quantum circuits, i.e. a efficient method to encode
 the probabilities $p_i$ for a certain stock price at maturity $S_i$ and the corresponding payoff $f(S_i)$ in the register $N$.
-%--> start here
-% discuss in more detail where the accuracy 8/pi comes from QPE
-% show that ket{S_i} is binary representation of asset price. Write down how quantum register looks like after application of QPE
-% -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
-% check qpe wiki article. 
-% underline the fact that the E value IS QMC.
+
 \subsubsection{Loading the distribution}
 The algorithm for loading the probability distribution \ref{eq:lognormal} reads:
 \begin{itemize}
@@ -115,36 +110,102 @@ The algorithm for the distribution loading can then be implemented like:
     qc.compose(circuit, inplace=True)
     return qc, x, probabilities
 \end{lstlisting}
-In tearms of a quantum state the above algorithm implements
+In terms of a quantum state the above algorithm implements
 \begin{equation}\label{eq:distLoading}
 \ket{{\Phi}_n} = \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{S_i}_n .
 \end{equation}
-\subsubsection{Constructing the payoff}
+
+
+\subsubsection{Constructing the payoff}\label{sec:ConstructPayOff}
 The payoff of a european call option at maturity is defined as 
 \begin{equation}\label{eq:callPayoff}
   f(S_T) = \max \{ 0, S_T - K \},
 \end{equation}
-with $K$ the strike price and $T$ the maturity date. Numerically the payoff (and any other function) can be realized using piecewise linear functions for $S_T \le K$ and $S_T geq K$ which are dependent on the given stock price $S_i$. On a quantum computer we are interested in an operator
-\begin{equation}\label{eq:payOffOperator}
-  \ket{i}_n \ket{0} \rightarrow \ket{i}_n (\text{cos}[f(i)] \ket{0} + \text{sin}[f(i)\ket{1}]),
-\end{equation}
-where $f:\{ 0,...,2^n-1 \} \rigtharrow [0,1]$. $f$ is on a quantum computer dependent on the stock price encoded in a quantum state and the piecewise linear functions are implemented usind controlled Y-gates.\\
+with $K$ the strike price and $T$ the maturity date. Numerically the payoff (and any other function) can be realized using piecewise linear functions for $S_T < K$ and $S_T \geq K$ which are dependent on the given stock price $S_i$. On a quantum computer we are interested in an operator
+\begin{align}\label{eq:payOffOperator}
+  f(i) &= \alpha i + \beta \\
+  \ket{i}_n \ket{0} &\rightarrow \ket{i}_n (\text{cos}[f(i)] \ket{0} + \text{sin}[f(i)\ket{1}]),
+\end{align}
+where $f:\{ 0,...,2^n-1 \} \rightarrow [0,1]$. $f$ is on a quantum computer dependent on the stock price encoded in a quantum state and the piecewise linear functions are implemented usind controlled Y-gates.\\
 \ref{payOffOperator} uses therefore the strategy introduced already in equation \ref{eq:estimate_a} to obtain the operator $A$ defined in \ref{eq:A_with_a}.
+$f(i)$ is implemented by using each qubit $i$ of the $\ket{i}_n$(N) register as a control for the Y-rotation with angle $2^i \alpha $ of an ancilla qubit.
+The constant term is implemented by an initial rotation on the ancilla without controls. 
+
+
+\begin{figure}[H]
+  \begin{center}
+\begin{quantikz}
+\lstick{\ket{q_0}} & \qw & \ctrl{3} & \qw & \qw & \qw\\
+\lstick{\ket{q_1}} & \qw & \qw & \ctrl{2} & \qw & \qw\\
+\lstick{\ket{q_2}} & \qw & \qw & \qw & \ctrl{1} & \qw\\
+\lstick{\ket{q_3}} & \gate[1]{R_y(f_0)} & \gate[1]{CR_y(f_1)} & \gate[1]{2CR_y(f_1)} & \gate[1]{4CR_y(f_1)} & \qw
+\end{quantikz}
+\end{center}
+\caption{ Quantum circuit that creates state in Eq. [\ref{eq:payOffOperator}].
+Three qubits $\ket{i_2 i_1 i_0} $ are here used to be encode $i = 4 i_2 + 2i_1 + i_0 \in \{ 0,...,7 \}$. 
+The linear function $f(i) = \alpha \cdot i + \beta$ is given by $4\alpha \cdot i_2 + 2 \alpha \cdot i_1  + \alpha \cdot i_0 + \beta$ .}
+\label{fig:PF_y}
+\end{figure}
+
+
+Equation \ref{eq:payOffOperator} can be used to create the operator that maps $\sum_i \sqrt{p_i} \ket{i}_n \ket{0}$ to
+\begin{equation}\label{eq:mappedPayoffOperator}
+  \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{i}_n \bigl[ \text{cos}( f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{0} +
+   \text{sin} (f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{1} \bigr],
+\end{equation}
+with $f_c \in [ 0,1 ]$. \\
+$f(i)$ is of course only a mapped payoff since the payoff is usually defined on closed intervals
+\begin{equation}\label{eq:linFuncBoundPayoff}
+  f: [ a,b ] \rightarrow [ c,d ].
+\end{equation}
+For the introduced piece-wise representation of the payoff we already used the domain and image suitable for calculations on a quantum computer
+\begin{equation}\label{eq:hatLinFuncPayoff}
+  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ 0,1 ].
+\end{equation}.
+Hence it is necessary to introduce an affine transformation to realize the transition between \ref{eq:linFuncBoundPayoff} and \ref{eq:hatLinFuncPayoff}
+\begin{align}\label{eq:affinTransformPayoff}
+  \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
+  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}.
+\end{align}
+Consequently , $\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \] $ is an anti-symmetric function around $1/2$.
+With $\hat{f}(i)$ now being set into \ref{eq:mappedPayoffOperator} the probability to find the ancilla qubit in state $\ket{1}$,
+\begin{equation}\label{eq:probability1MappedLinFunc}
+  P_1 = \sum_{i=0}^{2^n-1} p_i \sin^2(f_c \cdot \hat{f}(i) + \frac{\pi}{4}), 
+\end{equation}
+is well approximated by 
+\begin{equation}\label{eq:approxP1}
+  P_1 \approx \sum_{i=0}^{2^n-1} p_i \bigl( f_c \cdot \hat{f}(i) + 1/2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c} - f_c + \frac{1}{2}.
+\end{equation}
+The approximation is obtained by making use of the following Taylor expansion
+\begin{equation}\label{eq:sinTaylor}
+  \sin^2(c \hat{f}(i) + \frac{\pi}{4}) = f_c \hat{f}(i) + \frac{1}{2} + \mathcal{O}(f_c^3 \hat{f}^3(i)),
+\end{equation}
+which is valid for small values of $ f_c \hat{f}(i) $.\\
+From \ref{eq:approxP1} $E(f(x))$ can be recovered since Quantum Amplitude Estimation allow to efficiently estimate $P_1$ and because $f_min, f_max$ and $f_c$
+are known.
+
+
+\subsubsection{Implementation of max-function}\label{sec:ImplMaxFunc}
+Mimicking the linear behavior of the payoff is done by the approach outlined in Sec. \ref{sec:ConstructPayOff}, but still a way to express the max operation
+on a quantum computer is missing. In the following one approach is shown by comparision between the values encoded in the basis states of Eq. \ref{eq:distLoading}.\\
+In principle we use $n$ additional ancilla qubits $\ket{a}$ in addition to the already given $n$ data qubits in the $\ket{i}$-register to build a greater-equal operation.
+
+\subsubsection{Implementation of piece-wise linear functions}\label{sec:ImplPieceFunc}
 Implementing the piecewise linear function is not directly straigth forward so a detailed introduction is given in the following. 
 As mentioned above we are dealing with linear function to encode the payoff
 \begin{equation}\label{eq:defLinearFunc}
   f(x) = \alpha x + \beta,
 \end{equation}
 where $f(x)$ maps $x$ to the payoff by equation \ref{eq:callPayoff} and the domain of $x$ consist of of two linear function. One for $S_T \le K$ and one for $S_T \geq K$. 
-Furthermore the S_i do not occure as a real number but as an element of $\{ 0,...,2^n-1 \}$ and additionally on a quantum computer $f(x)$ has to be realised
+Furthermore the $S_i$ do not occure as a real number but as an element of $\{ 0,...,2^n-1 \}$ and additionally on a quantum computer $f(x)$ has to be realised
 using rotations in the corresponding Hilbert space. 
 These challenges require us to use a affine mapping $\hat{f(x)}$ which is in contrast to
 \begin{equation}\label{eq:linFuncBound}
-  f: \[ a,b \] \rightarrow \[ c,d \]
+  f: [ a,b ] \rightarrow [ c,d ]
 \end{equation}
 defined as
 \begin{equation}\label{eq:hatLinFunc}
-  \hat{f}: \{0,...,2^n-1 \} \rightarrow \[ 0,1 \].
+  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ 0,1 ].
 \end{equation}
 Note that in this case $d=b-K$ thanks to the definition of the payoff. But how is the transformation from \ref{linFuncBound}
 to \ref{eq:hatLinFunc} actually done?\\
@@ -166,8 +227,68 @@ Implemented is $\phi(x)$ first by leveraging on the slope and offset of a linear
 $\hat{f}(x)$ is then generated by introducing the slope and offset angles
 \begin{align}\label{eq:affineAngles}
   \theta_{\hat{\alpha}} &= \frac{\pi}{2}f_c\frac{\alpha}{2^n-1}\frac{(b-a)}{(d-c)}\\
-  \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c.
+  \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c,
 \end{align}
+where $\pi/2$ is used to map from slope and offest to angles.The reason why $f_c$ occurs has to be discussed in more detail.
+\begin{enumerate}
+  \item Convert the breakpoint of piece-wise linear function $b \in [0,2^n-1]$ in bit representation $t$. The breakpoint indicates the threshold from which a actuall payoff is gained and is therefore equal to the strike price $K$.
+  To prevent the breakpoint from lying in between two grid points a ceil operation is applied on $b$ to set it to next grid point before the conversion is done. During the conversion every qubit is represented by a bit.
+  \item Iterate over all qubits ($j$ is used as iteration parameter)
+  \begin{itemize}
+    \item if $j=0$ and $t[j]=1$, perform a $CX$ operation on $\ket{q_j}$ and $\ket{a_j}$.
+    \item if $t[j]=1$ an $OR$-Operation has to be applied to $\ket{q_j}$ and $\ket{a_{j-1}}$ and save the result of the $OR$-Operation in $\ket{a_j}$
+    \item if $t[j]=0$ an $CCX$-Operation has to be applied to $\ket{q_j}$, $\ket{a_{j-1}}$ and $\ket{a_j}$
+  \end{itemize}
+  \item $\ket{a_{n-1}$} is now $\ket{0}$ if $i<b$ and $\ket{1}$ if $i\geq b$ and therefore a quantum version of a max-function.
+  \item Reverse the process by simply applying the complex conjugate of all operations except for the last qubit which does store the outcome of max-operation.
+\end{enumerate}
+\begin{figure}[H]
+  \begin{center}
+\begin{quantikz}
+ & & & & &  & & & & & & &  \gategroup[9,steps=7,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt},background]{{Inverse for n-2 to 0}}    & & & &  &  &    \\
+\lstick{\ket{i_0}} & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[0]=1}} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[0]=1}} & \qw  \\
+\lstick{\ket{i_1}} & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=0}} & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=1}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=0}} & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=1}} & \qw & \qw & \qw \\
+\lstick{\vdots} & & & &  & & \vdots & & & & & \vdots & & & & &  &  &    \\
+\lstick{\ket{i_{n-1}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[6,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[n-1]=0}} & \qw & \ctrl{4}\gategroup[6,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[n-1]=1}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{\ket{a_0}} & \targ{} & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw   \\
+\lstick{\ket{a_1}} & \qw & \qw & \targ{} & \qw & \gate{OR} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw & \gate[style={fill=blue!20}]{OR} & \qw & \qw & \qw \\
+\lstick{\vdots} & & & & & & \vdots & & & & & \vdots & & & &  & &  & \\
+\lstick{\ket{a_{n-2}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
+\lstick{\ket{a_{n-1}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw & \gate{OR} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw 
+\end{quantikz}
+\end{center}
+\caption{ Quantum comparator for implementing a quantum version of max-function. Depending on strike price $K$ and stock price stored in $\ket{i}_n$ information
+if stock price is greater than strike price is stored in last qubit $\ket{a}_{n-1}$. State of $\ket{a}_{n-1}$ is then kept for usage in later stage of circuit whereas
+rest of the circuit is inverted for next stock price.}
+\label{fig:PF_max}
+\end{figure}
+
+% Equation \ref{eq:payOffOperator} can be used to create the operator that maps $\sum_i \sqrt{p_i} \ket{i}_n \ket{0}$ to
+% \begin{equation}\label{eq:mappedPayoffOperator}
+%   \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{i}_n \bigl[ \text{cos}( f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{0} +
+%    \text{sin} (f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{1} \bigr],
+% \end{equation}
+% with $f_c \in [ 0,1 ]$. Consequently , $\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \] $ is an anti-symmetric function around $1/2$.
+% With $\hat{f}(i)$ now being set into \ref{eq:mappedPayoffOperator} the probability to find the ancilla qubit in state $\ket{1}$,
+% \begin{equation}\label{eq:probability1MappedLinFunc}
+%   P_1 = \sum_{i=0}^{2^n-1} p_i \sin^2(f_c \cdot \hat{f}(i) + \frac{\pi}{4}), 
+% \end{equation}
+% is well approximated by 
+% \begin{equation}
+%   P_1 \approx \sum_{i=0}^{2^n-1} p_i \bigl( f_c \cdot \hat{f}(i) + 1/2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c} - f_c + \frac{1}{2}.
+% \end{equation}
+% The approximation is obtained by making use of the approximation
+% \begin{equation}\label{eq:sinTaylor}
+%   \sin^2(c \hat{f}(i) + \frac{\pi}{4}) = f_c \hat{f}(i) + \frac{1}{2} + \mathcal{O}(f_c^3 \hat{f}^3(i)),
+% \end{equation}
+% which is valid for small values of $ f_c \hat{f}(i) $.
+
+%--> start here
+% erkläre weiter, dass P1 der Teil vom operator A ist, der über QPE gemessen wird.
+% füge noch abschnitt über amplitude amplification ein. 
+% Write down how application of QPE looks like
+% -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
+% check qpe wiki article. 
 %%=============old==================
 
 
@@ -183,8 +304,6 @@ For the Amplitude Estimation (AE) we need an unitary operator $A$ which behaves 
     A\ket{0}_{n+1} &= \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1}. \label{eq:AE_A}
 \end{align}
 
-
-%%=============old==================
 In the equation \ref{eq:AE_A} $\ket{\psi_0}_{n}$ and $\ket{\psi_1}_{n}$ are some normalized states and $a$ is a unknown variable $\in [0,1]$.
 With Amplitude Estimation we can estimate the value of $a$ therefor we have to construct our problem so that we have this at the end $a=\mathbb{E}_P[f(\textbf{X})]$.
 To make a use of $\sin$ and $\cos$ to work with RY-Gates we can say that $a=\sin^2(\theta_a)$ is, so that equation \ref{eq:AE_A} turns into this
