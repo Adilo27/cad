@@ -50,55 +50,73 @@
 \newlabel{eq:aIsSin}{{15}{5}{Quantum Monte Carlo}{equation.3.15}{}}
 \newlabel{eq:action_of_A_sin}{{16}{5}{Quantum Monte Carlo}{equation.3.16}{}}
 \newlabel{eq:estimate_a}{{18}{5}{Quantum Monte Carlo}{equation.3.18}{}}
-\citation{Stamatopoulos_2019}
 \newlabel{eq:AE_M}{{19}{6}{Quantum Monte Carlo}{equation.3.19}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Design of the Amplitude Estimation recreated after \cite  {Stamatopoulos_2019}}}{6}{figure.2}\protected@file@percent }
-\newlabel{fig:qae}{{2}{6}{Design of the Amplitude Estimation recreated after \cite {Stamatopoulos_2019}}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}European Option Pricing}{6}{subsubsection.3.2.1}\protected@file@percent }
-\newlabel{sec:eurOpPricing}{{3.2.1}{6}{European Option Pricing}{subsubsection.3.2.1}{}}
-\newlabel{eq:A_with_a}{{20}{6}{European Option Pricing}{equation.3.20}{}}
-\newlabel{eq:aForOption}{{21}{6}{European Option Pricing}{equation.3.21}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Loading the distribution}{7}{subsubsection.3.2.2}\protected@file@percent }
-\newlabel{eq:distLoading}{{22}{7}{Loading the distribution}{equation.3.22}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Constructing the payoff}{7}{subsubsection.3.2.3}\protected@file@percent }
-\newlabel{eq:callPayoff}{{23}{7}{Constructing the payoff}{equation.3.23}{}}
-\newlabel{eq:payOffOperator}{{24}{8}{Constructing the payoff}{equation.3.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Design of the Amplitude Estimation. Operator A combines distribution loading and payoff construction as defined in \ref  {eq:action_of_A}. $mathcal{Q}$ to rotate given state around $2*\theta _a$ in Hilbert-space spanned by $\ensuremath  {\left |\phi _0\right \rangle }\ensuremath  {\left |0\right \rangle }$ and $\ensuremath  {\left |\phi _1\right \rangle }\ensuremath  {\left |1\right \rangle }$. Inverse QFT is then applied to obtain the estimate $\tilde  {a}$ of a. }}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:qae}{{2}{6}{Design of the Amplitude Estimation. Operator A combines distribution loading and payoff construction as defined in \ref {eq:action_of_A}. $mathcal{Q}$ to rotate given state around $2*\theta _a$ in Hilbert-space spanned by $\ket {\phi _0}\ket {0}$ and $\ket {\phi _1}\ket {1}$. Inverse QFT is then applied to obtain the estimate $\tilde {a}$ of a}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}}{6}{subsubsection.3.2.1}\protected@file@percent }
+\newlabel{sec:amplitudeAmplification}{{3.2.1}{6}{}{subsubsection.3.2.1}{}}
+\newlabel{eq:amplitudeAmplA}{{20}{6}{}{equation.3.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}European Option Pricing}{6}{subsubsection.3.2.2}\protected@file@percent }
+\newlabel{sec:eurOpPricing}{{3.2.2}{6}{European Option Pricing}{subsubsection.3.2.2}{}}
+\newlabel{eq:A_with_a}{{21}{7}{European Option Pricing}{equation.3.21}{}}
+\newlabel{eq:aForOption}{{22}{7}{European Option Pricing}{equation.3.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Loading the distribution}{7}{subsubsection.3.2.3}\protected@file@percent }
+\newlabel{eq:distLoading}{{23}{8}{Loading the distribution}{equation.3.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Constructing the payoff}{8}{subsubsection.3.2.4}\protected@file@percent }
+\newlabel{sec:ConstructPayOff}{{3.2.4}{8}{Constructing the payoff}{subsubsection.3.2.4}{}}
+\newlabel{eq:callPayoff}{{24}{8}{Constructing the payoff}{equation.3.24}{}}
+\newlabel{eq:payOffOperator}{{25}{8}{Constructing the payoff}{equation.3.25}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Quantum circuit that creates state in Eq. [\ref  {eq:payOffOperator}]. Three qubits $\ensuremath  {\left |i_2 i_1 i_0\right \rangle } $ are here used to be encode $i = 4 i_2 + 2i_1 + i_0 \in \{ 0,...,7 \}$. The linear function $f(i) = \alpha \cdot i + \beta $ is given by $4\alpha \cdot i_2 + 2 \alpha \cdot i_1 + \alpha \cdot i_0 + \beta $ .}}{8}{figure.3}\protected@file@percent }
 \newlabel{fig:PF_y}{{3}{8}{Quantum circuit that creates state in Eq. [\ref {eq:payOffOperator}]. Three qubits $\ket {i_2 i_1 i_0} $ are here used to be encode $i = 4 i_2 + 2i_1 + i_0 \in \{ 0,...,7 \}$. The linear function $f(i) = \alpha \cdot i + \beta $ is given by $4\alpha \cdot i_2 + 2 \alpha \cdot i_1 + \alpha \cdot i_0 + \beta $ }{figure.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Implementation of max-function}{8}{subsubsection.3.2.4}\protected@file@percent }
-\newlabel{sec:ImplMaxFunc}{{3.2.4}{8}{Implementation of max-function}{subsubsection.3.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.5}Implementation of piece-wise linear functions}{8}{subsubsection.3.2.5}\protected@file@percent }
-\newlabel{sec:ImplPieceFunc}{{3.2.5}{8}{Implementation of piece-wise linear functions}{subsubsection.3.2.5}{}}
-\newlabel{eq:defLinearFunc}{{26}{8}{Implementation of piece-wise linear functions}{equation.3.26}{}}
-\newlabel{eq:linFuncBound}{{27}{8}{Implementation of piece-wise linear functions}{equation.3.27}{}}
-\newlabel{eq:hatLinFunc}{{28}{8}{Implementation of piece-wise linear functions}{equation.3.28}{}}
-\newlabel{eq:breakpoints}{{29}{8}{Implementation of piece-wise linear functions}{equation.3.29}{}}
-\newlabel{eq:affinTransform}{{30}{9}{Implementation of piece-wise linear functions}{equation.3.30}{}}
-\newlabel{eq:mappedSlopeOffset}{{32}{9}{Implementation of piece-wise linear functions}{equation.3.32}{}}
-\newlabel{eq:affineAngles}{{35}{9}{Implementation of piece-wise linear functions}{equation.3.35}{}}
-\newlabel{eq:mappedPayoffOperator}{{37}{9}{Implementation of piece-wise linear functions}{equation.3.37}{}}
-\newlabel{eq:probability1MappedLinFunc}{{38}{9}{}{equation.3.38}{}}
-\newlabel{eq:sinTaylor}{{40}{9}{}{equation.3.40}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.6}Amplitude Estimation}{10}{subsubsection.3.2.6}\protected@file@percent }
-\newlabel{sec:MC_AE}{{3.2.6}{10}{Amplitude Estimation}{subsubsection.3.2.6}{}}
-\newlabel{eq:AE_A}{{41}{10}{Amplitude Estimation}{equation.3.41}{}}
-\newlabel{eq:AE_A_sin}{{42}{10}{Amplitude Estimation}{equation.3.42}{}}
-\newlabel{eq:AE_M_2}{{46}{10}{Amplitude Estimation}{equation.3.46}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.7}Construct the payoff function}{10}{subsubsection.3.2.7}\protected@file@percent }
-\newlabel{sec:MC_Payoff}{{3.2.7}{10}{Construct the payoff function}{subsubsection.3.2.7}{}}
-\newlabel{eq:PF_f}{{47}{10}{Construct the payoff function}{equation.3.47}{}}
+\newlabel{eq:mappedPayoffOperator}{{27}{8}{Constructing the payoff}{equation.3.27}{}}
+\newlabel{eq:linFuncBoundPayoff}{{28}{8}{Constructing the payoff}{equation.3.28}{}}
+\newlabel{eq:hatLinFuncPayoff}{{29}{9}{Constructing the payoff}{equation.3.29}{}}
+\newlabel{eq:affinTransformPayoff}{{30}{9}{Constructing the payoff}{equation.3.30}{}}
+\newlabel{eq:probability1MappedLinFunc}{{32}{9}{Constructing the payoff}{equation.3.32}{}}
+\newlabel{eq:approxP1}{{33}{9}{Constructing the payoff}{equation.3.33}{}}
+\newlabel{eq:sinTaylor}{{34}{9}{Constructing the payoff}{equation.3.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.5}Implementation of max-function}{9}{subsubsection.3.2.5}\protected@file@percent }
+\newlabel{sec:ImplMaxFunc}{{3.2.5}{9}{Implementation of max-function}{subsubsection.3.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Quantum comparator for implementing a quantum version of max-function. Depending on strike price $K$ and stock price stored in $\ensuremath  {\left |i\right \rangle }_n$ information if stock price is greater than strike price is stored in last qubit $\ensuremath  {\left |a\right \rangle }_{n-1}$. State of $\ensuremath  {\left |a\right \rangle }_{n-1}$ is then kept for usage in later stage of circuit whereas rest of the circuit is inverted for next stock price.}}{10}{figure.4}\protected@file@percent }
+\newlabel{fig:PF_max}{{4}{10}{Quantum comparator for implementing a quantum version of max-function. Depending on strike price $K$ and stock price stored in $\ket {i}_n$ information if stock price is greater than strike price is stored in last qubit $\ket {a}_{n-1}$. State of $\ket {a}_{n-1}$ is then kept for usage in later stage of circuit whereas rest of the circuit is inverted for next stock price}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.6}Implementation of piece-wise linear functions}{10}{subsubsection.3.2.6}\protected@file@percent }
+\newlabel{sec:ImplPieceFunc}{{3.2.6}{10}{Implementation of piece-wise linear functions}{subsubsection.3.2.6}{}}
+\newlabel{eq:defLinearFunc}{{35}{10}{Implementation of piece-wise linear functions}{equation.3.35}{}}
+\newlabel{eq:linFuncBound}{{36}{10}{Implementation of piece-wise linear functions}{equation.3.36}{}}
+\newlabel{eq:hatLinFunc}{{37}{10}{Implementation of piece-wise linear functions}{equation.3.37}{}}
+\newlabel{eq:breakpoints}{{38}{11}{Implementation of piece-wise linear functions}{equation.3.38}{}}
+\newlabel{eq:affinTransform}{{39}{11}{Implementation of piece-wise linear functions}{equation.3.39}{}}
+\newlabel{eq:mappedSlopeOffset}{{41}{11}{Implementation of piece-wise linear functions}{equation.3.41}{}}
+\newlabel{eq:affineAngles}{{44}{11}{Implementation of piece-wise linear functions}{equation.3.44}{}}
+\newlabel{eq:finalAngle}{{46}{11}{Implementation of piece-wise linear functions}{equation.3.46}{}}
+\newlabel{eq:finalOffest}{{47}{11}{Implementation of piece-wise linear functions}{equation.3.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{12}{section.4}\protected@file@percent }
+\newlabel{sec: results}{{4}{12}{Results}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The distinct log-normal distribution (eq. \ref  {eq:lognormal}), with $\mu =(r-0.5\cdot \sigma ^2)\cdot T + \qopname  \relax o{log}(S_0)$, $\sigma _{\text  {dist}}=\sigma \cdot \sqrt  {T}$ and as lower $l$ and highest $h$ value we used the 3 standard deviation. As x value the classical value is shown and the corresponding qubit state which are representing the number in our quantum computer.}}{12}{figure.5}\protected@file@percent }
+\newlabel{fig:E_log-normal}{{5}{12}{The distinct log-normal distribution (eq. \ref {eq:lognormal}), with $\mu =(r-0.5\cdot \sigma ^2)\cdot T + \log (S_0)$, $\sigma _{\text {dist}}=\sigma \cdot \sqrt {T}$ and as lower $l$ and highest $h$ value we used the 3 standard deviation. As x value the classical value is shown and the corresponding qubit state which are representing the number in our quantum computer}{figure.5}{}}
+\newlabel{eq:E_example_european}{{48}{12}{Results}{equation.4.48}{}}
+\citation{Qiskit}
+\citation{Qiskit}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Here the value of the payoff function is shown. The breakpoints are set to $[0, 2.126]$ or $[\ensuremath  {\left |000\right \rangle }, \ensuremath  {\left |100\right \rangle }]$ thanks to ceil operation described in \ref  {sec:MC_Payoff}}}{13}{figure.6}\protected@file@percent }
+\newlabel{fig:E_payoff_function}{{6}{13}{Here the value of the payoff function is shown. The breakpoints are set to $[0, 2.126]$ or $[\ket {000}, \ket {100}]$ thanks to ceil operation described in \ref {sec:MC_Payoff}}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The output of the circuit for the payoff function. The image of the circuit was generated by qiskit.\cite  {Qiskit}. The circuit is divided in four sections. The first section is the $Y$-Rotation for the first breakpoint. The second section is then the greater or equal operation for the second breakpoint. The next section is then the rotation for the second breakpoint, here it good to see that the compare qubit is used to decide if the rotation should be executed or not. The last section is now the inverse of the second section.}}{14}{figure.7}\protected@file@percent }
+\newlabel{fig:E_model_payoff_function}{{7}{14}{The output of the circuit for the payoff function. The image of the circuit was generated by qiskit.\cite {Qiskit}. The circuit is divided in four sections. The first section is the $Y$-Rotation for the first breakpoint. The second section is then the greater or equal operation for the second breakpoint. The next section is then the rotation for the second breakpoint, here it good to see that the compare qubit is used to decide if the rotation should be executed or not. The last section is now the inverse of the second section}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The output after applying the payoff function to our circuit.}}{15}{figure.8}\protected@file@percent }
+\newlabel{fig:E_probability_estimate}{{8}{15}{The output after applying the payoff function to our circuit}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The Grover-operator. $S_0$ is a bit-flip implemented by a X-gate sandwiched by H-gates. $A$, $A^{\dagger }$ is the circuit and its complex-conjugate shown in figure $\ref  {fig:E_model_payoff_function}$.\\ $S_{\psi _1} = 1-2\ensuremath  {\left |\psi _1\right \rangle }\ensuremath  {\left |0\right \rangle }\ensuremath  {\left \langle \psi _1\right |}\ensuremath  {\left \langle 0\right |}$ is implemented using $2\ensuremath  {\left |\psi _1\right \rangle }\ensuremath  {\left |0\right \rangle }\ensuremath  {\left \langle \psi _1\right |}\ensuremath  {\left \langle 0\right |}-1$ and a global phase bit.}}{15}{figure.9}\protected@file@percent }
+\newlabel{fig:grover}{{9}{15}{The Grover-operator. $S_0$ is a bit-flip implemented by a X-gate sandwiched by H-gates. $A$, $A^{\dagger }$ is the circuit and its complex-conjugate shown in figure $\ref {fig:E_model_payoff_function}$.\\ $S_{\psi _1} = 1-2\ket {\psi _1}\ket {0}\bra {\psi _1}\bra {0}$ is implemented using $2\ket {\psi _1}\ket {0}\bra {\psi _1}\bra {0}-1$ and a global phase bit}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The combined circuit. Note that the objective qubit here is qubit 3. Evaluation qubits are chosen for pragmatical reasons. For results a register consisting of seven qubits have been used.}}{16}{figure.10}\protected@file@percent }
+\newlabel{fig:combinedCircuit}{{10}{16}{The combined circuit. Note that the objective qubit here is qubit 3. Evaluation qubits are chosen for pragmatical reasons. For results a register consisting of seven qubits have been used}{figure.10}{}}
+\citation{Grinko_2021}
 \citation{Stamatopoulos_2019}
-\citation{Stamatopoulos_2019}
-\citation{Stamatopoulos_2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Quantum circuit for a linear function. Base image copied from \cite  {Stamatopoulos_2019}}}{11}{figure.4}\protected@file@percent }
-\newlabel{fig:PF_y}{{4}{11}{Quantum circuit for a linear function. Base image copied from \cite {Stamatopoulos_2019}}{figure.4}{}}
-\citation{Stamatopoulos_2019}
-\citation{Stamatopoulos_2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Example of an $OR$-Operation on qubit $\ensuremath  {\left |a\right \rangle }$ and $\ensuremath  {\left |b\right \rangle }$. The result is then saved in $\ensuremath  {\left |c\right \rangle }$. Base image copied from \cite  {Stamatopoulos_2019}}}{12}{figure.5}\protected@file@percent }
-\newlabel{fig:PF_OR}{{5}{12}{Example of an $OR$-Operation on qubit $\ket {a}$ and $\ket {b}$. The result is then saved in $\ket {c}$. Base image copied from \cite {Stamatopoulos_2019}}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Basic structure of an circuit for the bigger then operation. Base image copied from \cite  {Stamatopoulos_2019}}}{12}{figure.6}\protected@file@percent }
-\newlabel{fig:PF_max}{{6}{12}{Basic structure of an circuit for the bigger then operation. Base image copied from \cite {Stamatopoulos_2019}}{figure.6}{}}
-\newlabel{eq:theata_P}{{48}{12}{Construct the payoff function}{equation.3.48}{}}
-\newlabel{eq:f_bi}{{49}{12}{Construct the payoff function}{equation.3.49}{}}
-\newlabel{eq:estimate_a_2}{{50}{13}{Construct the payoff function}{equation.3.50}{}}
-\gdef \@abspage@last{13}
+\bibdata{refs}
+\bibcite{Qiskit}{{1}{2021}{{et~al.}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Results of Canonical AE. Red dotted line show the exact value. Green line is the MLE estimator value. }}{17}{figure.11}\protected@file@percent }
+\newlabel{fig:resultAE}{{11}{17}{Results of Canonical AE. Red dotted line show the exact value. Green line is the MLE estimator value}{figure.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Outlook and Conclusion}{17}{section.5}\protected@file@percent }
+\newlabel{sec: conclusion}{{5}{17}{Outlook and Conclusion}{section.5}{}}
+\bibcite{Grinko_2021}{{2}{2021}{{Grinko et~al.}}{{Grinko, Gacon, Zoufal, and Woerner}}}
+\bibcite{Montanaro_2015}{{3}{2015}{{Montanaro}}{{}}}
+\bibcite{Rebentrost_2018}{{4}{2018}{{Rebentrost et~al.}}{{Rebentrost, Gupt, and Bromley}}}
+\bibcite{Stamatopoulos_2019}{{5}{2019}{{Stamatopoulos et~al.}}{{Stamatopoulos, Egger, Sun, Zoufal, Iten, Shen, and Woerner}}}
+\gdef \@abspage@last{18}

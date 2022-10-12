@@ -1,6 +1,8 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
+
+
 \subsection{Quantum Monte Carlo}\label{sec: qmc}
 Quantum Amplitude Estimation provides a quadratic speed-up over classical monte carlo methods. \\
 Suppose a unitary operator $A$ is acting on a register of $(n+1)$ qubits
@@ -24,7 +26,7 @@ what comes from the fact that exchanging $a \text{ and } 1-a$ by sin and cos wou
   A\ket{0}_{n+1} = cos(1-a)\ket{\psi_0}_{n}\ket{0}+sin(1-a)\ket{\psi_1}_{n}\ket{1}
 \end{equation}
 
-The first efficient quantum algorthim used is Grovers algorithm, where
+The first efficient quantum algorthim used is amplitude estimation which is the general case of Grovers algorithm, where
 \begin{align}
   Q &= AS_0AS_{\psi_0} \nonumber \\
   S_0 &= 1-2\ket{0}\bra{0} \nonumber \\
@@ -44,7 +46,7 @@ $y \in {0,..., M-1}$ which is classically mapped to the estimator of $a$
 Focusing on the efficiency of the algorithm described above it can be observed from \ref{eq:classic_M} and \ref{eq:AE_M} that $\tilde{a}$
 satisfies:
 \begin{align}
-    |\tilde{\a} - \a| &\leq (\frac{\sqrt{\pi}}{M} + \frac{\pi}{M^2}) = O(M^-1), \label{eq:AE_M}
+    | \tilde{a} - a | &\leq (\frac{\sqrt{\pi}}{M} + \frac{\pi}{M^2}) = O(M^{-1}), \label{eq:AE_M}
 \end{align}
 with probability of at least $(\frac{8}{\pi^2})$. Result $\ref{eq:AE_M}$ represents a quadratic speed-up in comparision to the classical efficiency $\ref{eq:t}$.
 \begin{figure}[H]
@@ -59,9 +61,118 @@ with probability of at least $(\frac{8}{\pi^2})$. Result $\ref{eq:AE_M}$ represe
 \lstick{(n+m-1) \ket{0}} &  & & \ldots \qw &  & \ldots \qw & & \qw
 \end{quantikz}
 \end{center}
-\caption{ Design of the Amplitude Estimation recreated after \cite{Stamatopoulos_2019}}
+\caption{ Design of the Amplitude Estimation. Operator A combines distribution loading and payoff construction as defined in \ref{eq:action_of_A}.
+$mathcal{Q}$ to rotate given state around $2*\theta_a$ in Hilbert-space spanned by $\ket{\phi_0}\ket{0}$ and $\ket{\phi_1}\ket{1}$. Inverse QFT is then applied
+to obtain the estimate $\tilde{a}$ of a.
+}
 \label{fig:qae}
 \end{figure}
+
+\subsubsection{Quantum Phase Estimation}\label{sec:QPE}
+In short Quantum Phase Estimation (QPE) has the purpose to estimate $\theta$ in $U\ket{\phi} = e^{2 \pi i \theta }$, given a unitary operator $U$.
+$\ket{\phi}$ is an eigenvector and $e^{2 \pi i \theta }$ the corresponding eigenvalue.\\
+Starting with two qubit registers $\ket{\phi}$ and $\ket{0^n}$, with $\ket{0^n}$ the counting register
+which will store the value $2^n \theta$. After applying Hadamard gates to the counting register and n controlled Operations $CU^{2j}$ the initial state has evolved to
+\begin{equation}
+  \ket{\phi} = \frac{1}{2^{\frac{n}{2}}} \sum_{k=0}^{2^n-1} e^{2 \pi i \theta k} \ket{k} \otimes \ket{\phi}.
+\end{equation}
+Note that $0 \le j \le n-1$ and $U$ is controlled by the register $\ket{\phi}$. Furthermore $k$ denotes the integer representation of n-bit binary numbers.\\
+After applying  an inverse quantum Fourier transformation, to recover the state $\ket{2^n \theta}$, we find
+\begin{equation}
+  \frac{1}{\frac{n}{2}} \sum_x=0^{2^n-1} \sum_{k=0}^{2^n-1} e^{\frac{2 \pi i k}{2^n}(x - 2^n \theta)} \ket{x} \otimes \ket{\phi}.
+\end{equation}
+This expression peaks near $x=2^n \theta$. Measuring the computational basis in counting register gives the Phase
+\begin{equation}
+  \ket{\phi} = \ket{2^n \theta} \otimes \ket{\phi}.
+\end{equation}
+For the case $2^n \theta$ is an integer the right phase is measured with high probability close to 1. Otherwise it can be shown that one measures the right phase
+with probability better than $\frac{4}{\pi^2} \approx 40 \% $.\\
+!!!Citation qiskit here!!!
+\subsubsection{Amplitude Amplification}\label{sec:amplitudeAmplification}
+
+
+As already mentioned amplitude amplification is the general case of grovers algorithmn. It amplifies the probability to measure a "good" part of a algorithm.\\
+This algorithm is in our case the circuit A. Suppose it initilizes n qubits, such that
+\begin{equation}\label{eq:amplitudeAmplA}
+  \ket{\phi} = A\ket{0}_{n} = \sqrt{1-a}\ket{\phi_0}_{n} +\sqrt{a}\ket{\phi_1}_{n},
+\end{equation}
+where $\ket{\phi_0}, \ket{\phi_1}$ are both normalized n-qubit states and orthorgonal to each other.
+For example could it be that the last qubit of $\ket{\phi_0} \text{ } \ket{0}$ and $\ket{\phi_1} \text{ } \ket{1}$ is.
+Let us denote $\ket{\phi_1}$ as the good-state, what means that the probability $\sqrt{a}$ should be increased.\\
+Furthermore $\ket{\phi_0}$ and $\ket{\phi_1}$ can be viewed as the horizontal and vertical axes of a two-dimensional Hilbert space. The angle between $\ket{U}$ and the horizontal axis is thus
+$\theta_a = \arcsin(\sqrt{a})$. Obviously we would like to rotate the initial state $\ket{\phi}$ towards the good-state, i.e. to the e.g. the vertical axis.\\
+The rotation is implemented as for Grover by defining a product of two reflections: a reflection trough the bad state and a reflection through $\ket{U}$.
+The first reflection is realized by a circuit $S_{\phi_0}$ which can distinguish the good from the bad state by putting a minus in front of $\ket{\phi_1}$ and leaving $\ket{\phi_0}$ alone.
+In case the last qubits are $\ket{1}, \ket{0}$ for $\ket{\phi_1}, \ket{\phi_0}$ respectively, then the reflection would be
+\begin{equation}\ref{eq:PhiReflection}
+  S_{\psi_0} &= 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0},
+\end{equation}
+and can in turn be realized by applying a Z-gate to the last qubit.\\
+The second reflection can be implemented as $AR_{0}A^{\dagger} = AR_0A$ with $R_0$
+\begin{equation}\label{eq:ZeroReflection}
+  R_0 = 2\ket{0^n}\bra{0^n} - \mathbb{1}.
+\end{equation}
+ $AR_0A$ puts a minus sign in front of states orthorgonal to $\ket{U}$. The product of both reflection is then (thanks to Grover) a rotation of angle
+ $2\theta$ in the two-dimensional picture introduced above. \\
+ The following amplitude amplification procedure increases the amplitude of the good state close to 1:
+\begin{enumerate}
+  \item{Setup the starting state $\ket{U} = A\ket{0^n}$}.
+  \item{Repeat the following $\mathcal{O}(1/\sqrt{a})}$.
+  \begin{itemize}
+    \item Reflect through bad state $\ket{\phi_0}$ ($R_G$).
+    \item Reflect through $\ket{U}$ ($AR_0A$).
+  \end{itemize}
+\end{enumerate}
+After k iterations the state is 
+\begin{equation}\label{eq:Qktimes}
+\mathcal{Q}^k \ket{U} = \sin \biggl[ (2k+1)\theta_a \biggr] \ket{\phi_1} + \cos \biggl[ (2k+1)\theta_a \biggr] \ket{\phi_0}.
+\end{equation}
+We would like to end up with an angle $(2k+1)\theta_a \approx \pi/2$ to be close to $\sin(pi/2) \approx 1$.\\
+The above explanation describes how amplitude amplification is applied to the initial state $\ket{\phi}$ in order to amplify the good state $\ket{phi_1}$.
+But how is this actually connected to Quantum Phase Estimation which then gives a estimation $\tilde{a}$?\\
+Given again the statevector which is defined to be living in a two-dimensional subspace $H_{\phi}$: $\ket{\phi} \in H_{\phi}$ spannend by two orthogonal and normalized
+projectors $\ket{\phi_1}, \ket{\phi_0}$ onto $H_1$ and $H_0$.\\
+The action of $\mathcal{Q} := AR_0AR_g$ is given by
+\begin{align}\label{eq:actionOfQ}
+  \mathcal{Q} \ket{\phi_0} &= (2 \cos^2(\theta_a) - 1 )\ket{\phi_0} + 2 \sin(\theta_a)cos(\theta) \ket{\phi_1}\\
+  \mathcal{Q} \ket{phi_1} &= -2 \sin(\theta_a) \cos(\theta_a) \ket{\phi_0} 
+\end{align}
+Thus $mathcal{Q}$ corresponds to rotation by $2\theta_a$ in $H_\phi$
+\begin{equation}\label{eq:rotationMatrix}
+  \mathcal{Q} = 
+\begin{pmatrix}
+      cos(2\theta_a) & -sin(2 \theta_a) \\
+      sin(2\theta_a) & cos(2 \theta_a) 
+\end{pmatrix},
+\end{equation}
+which has the well has eigenvalues $\lambda_{\pm} = e^{\pm i \theta_a}$.\\
+Since $\mathcal{Q}$ is unitary and therefore there is an orthonormal basis of the subspace $H_{\phi}$ formed
+by the two eigenvectors of $\mathcal{Q}$.
+\begin{equation}\label{eq:eigenvectors}
+  \begin{array}
+    1\\
+    i
+  \end{array}
+  ,
+  \begin{array}
+    1\\
+    -i
+  \end{array}.
+\end{equation}
+For $H_{\phi}$ the basis-states can be defined as
+\begin{equation}\label{eq:HBasisStates}
+  \ket{\phi_{\pm}} = \frac{1}{\sqrt{2}} (\ket{\phi_1} \pm i \ket{\phi_0}).
+\end{equation} 
+Express $\ket{\phi} = A \ket{0^n}$ in eigenvector basis 
+\begin{equation}
+  \ket{\phi} = \frac{1}{\sqrt{2}} ( \ket{\phi_+} + \ket{\phi_-}).
+\end{equation}
+After j applications of $\mathcal{Q}$ it is obvious that the state is
+\begin{equation}\label{eq:PhiAfterJQ}
+  \ket{\phi} = \frac{1}{\sqrt{2}} ( e^{2j \cdot i \theta_a}\ket{\phi_+} + e^{-2j \cdot i \theta_a}\ket{\phi_-})
+\end{equation}
+The last equation can then be utilized as a controlled unitary in QPE algorithmn. QPE will be peaked where $y/2^n = \pm \tilde{\theta_a}$,
+with $\tilde{\theta_a}$ an n-bit approximation of $\theta_a$.
 
 \subsubsection{European Option Pricing}\label{sec:eurOpPricing}
 
@@ -167,69 +278,29 @@ Hence it is necessary to introduce an affine transformation to realize the trans
   \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
   \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}.
 \end{align}
-Consequently , $\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \] $ is an anti-symmetric function around $1/2$.
+Consequently , $\sin^2 [f_c \cdot \hat{f}(i) + \pi/4 ] $ is an anti-symmetric function around $1/2$.
 With $\hat{f}(i)$ now being set into \ref{eq:mappedPayoffOperator} the probability to find the ancilla qubit in state $\ket{1}$,
 \begin{equation}\label{eq:probability1MappedLinFunc}
   P_1 = \sum_{i=0}^{2^n-1} p_i \sin^2(f_c \cdot \hat{f}(i) + \frac{\pi}{4}), 
 \end{equation}
 is well approximated by 
 \begin{equation}\label{eq:approxP1}
-  P_1 \approx \sum_{i=0}^{2^n-1} p_i \bigl( f_c \cdot \hat{f}(i) + 1/2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c} - f_c + \frac{1}{2}.
+  P_1 \approx \sum_{i=0}^{2^n-1} p_i \bigl( f_c \cdot \hat{f}(i) + 1/2 \bigr) = f_c \frac{E[ f(x) ] - c}{d-c} - f_c + \frac{1}{2}.
 \end{equation}
 The approximation is obtained by making use of the following Taylor expansion
 \begin{equation}\label{eq:sinTaylor}
   \sin^2(c \hat{f}(i) + \frac{\pi}{4}) = f_c \hat{f}(i) + \frac{1}{2} + \mathcal{O}(f_c^3 \hat{f}^3(i)),
 \end{equation}
 which is valid for small values of $ f_c \hat{f}(i) $.\\
-From \ref{eq:approxP1} $E(f(x))$ can be recovered since Quantum Amplitude Estimation allow to efficiently estimate $P_1$ and because $f_min, f_max$ and $f_c$
+From \ref{eq:approxP1} $E(f(x))$ can be recovered since Quantum Amplitude Estimation allow to efficiently estimate $P_1$ and because $f_{min}, f_{max}$ and $f_c$
 are known.
 
 
 \subsubsection{Implementation of max-function}\label{sec:ImplMaxFunc}
+
 Mimicking the linear behavior of the payoff is done by the approach outlined in Sec. \ref{sec:ConstructPayOff}, but still a way to express the max operation
 on a quantum computer is missing. In the following one approach is shown by comparision between the values encoded in the basis states of Eq. \ref{eq:distLoading}.\\
 In principle we use $n$ additional ancilla qubits $\ket{a}$ in addition to the already given $n$ data qubits in the $\ket{i}$-register to build a greater-equal operation.
-
-\subsubsection{Implementation of piece-wise linear functions}\label{sec:ImplPieceFunc}
-Implementing the piecewise linear function is not directly straigth forward so a detailed introduction is given in the following. 
-As mentioned above we are dealing with linear function to encode the payoff
-\begin{equation}\label{eq:defLinearFunc}
-  f(x) = \alpha x + \beta,
-\end{equation}
-where $f(x)$ maps $x$ to the payoff by equation \ref{eq:callPayoff} and the domain of $x$ consist of of two linear function. One for $S_T \le K$ and one for $S_T \geq K$. 
-Furthermore the $S_i$ do not occure as a real number but as an element of $\{ 0,...,2^n-1 \}$ and additionally on a quantum computer $f(x)$ has to be realised
-using rotations in the corresponding Hilbert space. 
-These challenges require us to use a affine mapping $\hat{f(x)}$ which is in contrast to
-\begin{equation}\label{eq:linFuncBound}
-  f: [ a,b ] \rightarrow [ c,d ]
-\end{equation}
-defined as
-\begin{equation}\label{eq:hatLinFunc}
-  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ 0,1 ].
-\end{equation}
-Note that in this case $d=b-K$ thanks to the definition of the payoff. But how is the transformation from \ref{linFuncBound}
-to \ref{eq:hatLinFunc} actually done?\\
-For piecewise function there are of course breakpoints needed within $\{ 0,...,2^n-1 \}$
-\begin{equation}\label{eq:breakpoints}
-b_p(x) = \frac{x-a}{b-a} \times 2^n-1.
-\end{equation}
-The affine transformation from $f$ to $hat{f}$ is then
-\begin{align}\label{eq:affinTransform}
-  \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
-  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}.
-\end{align}
-Implemented is $\phi(x)$ first by leveraging on the slope and offset of a linear function
-\begin{align}\label{eq:mappedSlopeOffset}
-  \hat{\alpha} &= \frac{\alpha}{2^n-1} \cdot (b-a)\\
-  \hat{\beta} &= \beta\\
-  &\Rightarrow \frac{\alpha}{2^n-1} \cdot (b-a) + \beta.
-\end{align}
-$\hat{f}(x)$ is then generated by introducing the slope and offset angles
-\begin{align}\label{eq:affineAngles}
-  \theta_{\hat{\alpha}} &= \frac{\pi}{2}f_c\frac{\alpha}{2^n-1}\frac{(b-a)}{(d-c)}\\
-  \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c,
-\end{align}
-where $\pi/2$ is used to map from slope and offest to angles.The reason why $f_c$ occurs has to be discussed in more detail.
 \begin{enumerate}
   \item Convert the breakpoint of piece-wise linear function $b \in [0,2^n-1]$ in bit representation $t$. The breakpoint indicates the threshold from which a actuall payoff is gained and is therefore equal to the strike price $K$.
   To prevent the breakpoint from lying in between two grid points a ceil operation is applied on $b$ to set it to next grid point before the conversion is done. During the conversion every qubit is represented by a bit.
@@ -239,7 +310,7 @@ where $\pi/2$ is used to map from slope and offest to angles.The reason why $f_c
     \item if $t[j]=1$ an $OR$-Operation has to be applied to $\ket{q_j}$ and $\ket{a_{j-1}}$ and save the result of the $OR$-Operation in $\ket{a_j}$
     \item if $t[j]=0$ an $CCX$-Operation has to be applied to $\ket{q_j}$, $\ket{a_{j-1}}$ and $\ket{a_j}$
   \end{itemize}
-  \item $\ket{a_{n-1}$} is now $\ket{0}$ if $i<b$ and $\ket{1}$ if $i\geq b$ and therefore a quantum version of a max-function.
+  \item $\ket{a_{n-1}}$ is now $\ket{0}$ if $i<b$ and $\ket{1}$ if $i\geq b$ and therefore a quantum version of a max-function.
   \item Reverse the process by simply applying the complex conjugate of all operations except for the last qubit which does store the outcome of max-operation.
 \end{enumerate}
 \begin{figure}[H]
@@ -263,161 +334,68 @@ rest of the circuit is inverted for next stock price.}
 \label{fig:PF_max}
 \end{figure}
 
-% Equation \ref{eq:payOffOperator} can be used to create the operator that maps $\sum_i \sqrt{p_i} \ket{i}_n \ket{0}$ to
-% \begin{equation}\label{eq:mappedPayoffOperator}
-%   \sum_{i=0}^{2^n-1} \sqrt{p_i} \ket{i}_n \bigl[ \text{cos}( f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{0} +
-%    \text{sin} (f_c \cdot \hat{f}(i) + \frac{\pi}{4}) \ket{1} \bigr],
-% \end{equation}
-% with $f_c \in [ 0,1 ]$. Consequently , $\sin^2 \[f_c \cdot \hat{f}(i) + \pi/4 \] $ is an anti-symmetric function around $1/2$.
-% With $\hat{f}(i)$ now being set into \ref{eq:mappedPayoffOperator} the probability to find the ancilla qubit in state $\ket{1}$,
-% \begin{equation}\label{eq:probability1MappedLinFunc}
-%   P_1 = \sum_{i=0}^{2^n-1} p_i \sin^2(f_c \cdot \hat{f}(i) + \frac{\pi}{4}), 
-% \end{equation}
-% is well approximated by 
-% \begin{equation}
-%   P_1 \approx \sum_{i=0}^{2^n-1} p_i \bigl( f_c \cdot \hat{f}(i) + 1/2 \bigr) = f_c \frac{E\[ f(x)\] - c}{d-c} - f_c + \frac{1}{2}.
-% \end{equation}
-% The approximation is obtained by making use of the approximation
-% \begin{equation}\label{eq:sinTaylor}
-%   \sin^2(c \hat{f}(i) + \frac{\pi}{4}) = f_c \hat{f}(i) + \frac{1}{2} + \mathcal{O}(f_c^3 \hat{f}^3(i)),
-% \end{equation}
-% which is valid for small values of $ f_c \hat{f}(i) $.
 
+\subsubsection{Implementation of piece-wise linear functions}\label{sec:ImplPieceFunc}
+Implementing the piecewise linear function is not directly straigth forward so a detailed introduction is given in the following. 
+As mentioned above we are dealing with linear function to encode the payoff
+\begin{equation}\label{eq:defLinearFunc}
+  f(x) = \alpha x + \beta,
+\end{equation}
+where $f(x)$ maps $x$ to the payoff by equation \ref{eq:callPayoff} and the domain of $x$ consist of of two linear function. One for $S_T < K$ and one for $S_T \geq K$. 
+Furthermore the $S_i$ do not occure as a real number but as an element of $\{ 0,...,2^n-1 \}$ and additionally on a quantum computer $f(x)$ has to be realised
+using rotations in the corresponding Hilbert space. 
+These challenges require us to use a affine mapping $\hat{f}(x)$ which is in contrast to
+\begin{equation}\label{eq:linFuncBound}
+  f: [ a,b ] \rightarrow [ c,d ]
+\end{equation}
+defined as
+\begin{equation}\label{eq:hatLinFunc}
+  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ 0,1 ].
+\end{equation}
+Note that in this case $d=b-K$ thanks to the definition of the payoff. But how is the transformation from \ref{linFuncBound}
+to \ref{eq:hatLinFunc} actually done?\\
+For piecewise function there are of course breakpoints needed within $\{ 0,...,2^n-1 \}$
+\begin{equation}\label{eq:breakpoints}
+b_p(x) = \frac{x-a}{b-a} \times 2^n-1.
+\end{equation}
+In case of the payoff only one breakpoint is given for $ S_T \geq K $.
+The affine transformation from $f$ to $\hat{f}$ is then
+\begin{align}\label{eq:affinTransform}
+  \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
+  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c},
+\end{align}
+which already have been introduced in Section \ref{sec:ConstructPayOff}.\\
+Implemented is $\phi(x)$ first by leveraging on the slope and offset of a linear function
+\begin{align}\label{eq:mappedSlopeOffset}
+  \hat{\alpha} &= \frac{\alpha}{2^n-1} \cdot (b-a)\\
+  \hat{\beta} &= \beta\\
+  &\Rightarrow \frac{\alpha}{2^n-1} \cdot (b-a) + \beta.
+\end{align}
+$\hat{f}(x)$ is then generated by introducing the slope and offset angles
+\begin{align}\label{eq:affineAngles}
+  \theta_{\hat{\alpha}} &= \frac{\pi}{2}f_c\frac{\alpha}{2^n-1}\frac{b-a}{d-c}\\
+  \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c,
+\end{align}
+where $\pi/2$ is used to map from slope and offest to angles. $f_c$ is here again the factor for taylor approximation, introduced in \ref{{eq:approxP1}}.\\
+Note here that the rotations using the angles above are realized on a Quantum Computer using $R_Y$-Gates
+and the inset of a slope, i.e. rotations around the slope-angle $\theta_{\hat{\alpha}}$ is controlled by the last qubit of the quantum comparator
+as explained in the previous section.\\
+Furthermore and again thanks to the fact that we are dealing with a vector in a complex Hilbert space the actual used angle for implementing offset and slope
+based on the given state in register $\ket{i}_n$ is finally computed using the following equations
+\begin{align}
+\theta_{\text{slope}}[b_p] &= \theta_{\hat{\alpha}}^{b_p} - \sum_{i=0}^{N_{b_p} - 1}\theta_{\hat{\alpha}}^{i} \label{eq:finalAngle} \\
+\theta_{\text{offset}}[b_p] &= \theta_{\hat{\beta}}^{b_p} - \theta_{\hat{\alpha}} \cdot b_p - \sum_{i=0}^{N_{b_p} - 1}\theta_{\hat{\beta}}^{i} \label{eq:finalOffest}.
+\end{align}
+Hence the angles which have already been used for rotating the current state are substracted from the final slope angle $\theta_{\text{slope}}[b_p]$
+This is realized through the summation to the last breakpoint $N_{b_p} - 1$. The additional term in the offset $ - \theta_{\hat{\alpha}} \cdot b_p$ is coming from the fact that the payoff
+requires us to substract the strike price from the current stock price, see Equation \ref{eq:callPayoff}.\\
+
+\subsubsection{Estimating the expected payoff}
 %--> start here
-% erkläre weiter, dass P1 der Teil vom operator A ist, der über QPE gemessen wird.
-% füge noch abschnitt über amplitude amplification ein. 
 % Write down how application of QPE looks like
 % -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
 % check qpe wiki article. 
-%%=============old==================
-
-
-\begin{enumerate}
-	\item The payoff function $F(\textbf{X})$ has to be build with qubits inside the quantum computer. In section \ref{sec:MC_Payoff} the payoff function is constructed.
-	\item The quantum computer should calculate at the end the expected value of the payoff $\mathbb{E}_P[F(\textbf{X})]$, this will also be explained in section \ref{sec:MC_Payoff}.
-\end{enumerate}
-But before we can describe how to construct the gates to build the payoff function, we need to explain how amplitude estimation is working in an quantum computer. We are doing this in section \ref{sec:MC_AE}
-
-\subsubsection{Amplitude Estimation}\label{sec:MC_AE}
-For the Amplitude Estimation (AE) we need an unitary operator $A$ which behaves on an register of $(n+1)$ qubits like this
-\begin{align}
-    A\ket{0}_{n+1} &= \sqrt{1-a}\ket{\psi_0}_{n}\ket{0}+\sqrt{a}\ket{\psi_1}_{n}\ket{1}. \label{eq:AE_A}
-\end{align}
-
-In the equation \ref{eq:AE_A} $\ket{\psi_0}_{n}$ and $\ket{\psi_1}_{n}$ are some normalized states and $a$ is a unknown variable $\in [0,1]$.
-With Amplitude Estimation we can estimate the value of $a$ therefor we have to construct our problem so that we have this at the end $a=\mathbb{E}_P[f(\textbf{X})]$.
-To make a use of $\sin$ and $\cos$ to work with RY-Gates we can say that $a=\sin^2(\theta_a)$ is, so that equation \ref{eq:AE_A} turns into this
-\begin{align}
-    A\ket{0}_{n+1} &= \cos(\theta_a)\ket{\psi_0}_{n}\ket{0}+\sin(\theta_a)\ket{\psi_1}_{n}\ket{1}. \label{eq:AE_A_sin} \\
-    \theta_p &= 2 \theta_a \nonumber \\
-    A &= R_Y(\theta_p)
-\end{align}
-
-With this changes we transformed the amplitude estimation in to a phase estimation.\\
-The next step is to determine the Grover operator $\mathcal{Q}=AS_0A^\dagger S_{\psi_1}$.\\
-$S_0$ is a reflection about the $\ket{0}$ state and $S_{\psi_1}$ is a reflection about the $|\psi_1>$ state. So we can write $S$ and $\mathcal{Q}$ like this:
-\begin{align}
-    S_0 &= 1-2\ket{0}\bra{0} \nonumber \\
-    S_{\psi_1} &= 1-2\ket{\psi_1}\ket{0}\bra{\psi_1}\bra{0} \nonumber \\
-    \mathcal{Q} &= R_Y(2\theta_p) \\ 
-    \mathcal{Q}_{2^j} &= R_Y(2^j\cdot 2\theta_p)
-\end{align}
-
-The error $\epsilon$ of this method defined as followed
-\begin{align}
-    |\hat{\Pi} - \Pi| &\leq C\cdot(\frac{\sqrt{\mathbb{E}}}{M} + \frac{1}{M^2}) \nonumber \\
-    M &= \mathcal{O}(\frac{1}{\epsilon \sqrt{\mathbb{E}}}) \label{eq:AE_M_2}
-\end{align}
-As we can see in \ref{eq:classic_M} and \ref{eq:AE_M} quantum computer improved the number error with the same number of samples
-\subsubsection{Construct the payoff function}\label{sec:MC_Payoff}
-A lot of payoff function can be constructed by piece-wise linear functions, in this section we will go over how to construct the piece-wise linear function in to quantum computer.
-
-First of all we need to transform the payoff function $F(\textbf{X})$ in to new functions $f_b(i)=m_b\cdot i + o_b$, with $m_b$ the slope of the function and $o_b$ the offset of the function.
-For every break point $b$ of the payoff function we need to create a new function $f_b$. The new function gets the following as input $i\in\{0,\ldots, 2^n-1\}$, which represents all states the qubits can have.
-For example we have three qubits ($i\in\{0,1,2,3,4,5,6,7\}$) so $\ket{011}$ mapes to $i=3$. The output of the function can also only be $f(i)\in[0,1]$ this was shown in section \ref{sec:MC_AE}. Now that we build the function we can insert the function in this equation \ref{eq:AE_A_sin} and get this new equation
-\begin{align}
-    \ket{i}_n\ket{0} &= \ket{i}_n(\cos[f(i)]\ket{0}+\sin[f(i)]\ket{1}) \label{eq:PF_f}
-\end{align}
-
-So this function can be rebuild with a quantum computer using controlled $Y$-Rotations $CR_y$ and normal $Y$-Rotations $R_y$, the normal $Y$-Rotation is only used to initially rotate the qubit,
-which corresponds to the first offset. To do this we need an extra qubit on which we perform the rotations based on $x$ encoded in register $\ket{i}_n$ which is already holding the probability distribution.
-Similar to the Amplitude Estimation the rotations add a factor $2^{j}$, where the ${j}$'s are qubits from $\ket{i}_n$-register. (shown in figure \ref{fig:PF_y}) Consequently the more $\ket{j}$ are set to $\ket{1}$,
-the higher the value of $x$ is. If we add more qubits to $\ket{i}_n$-register, i.e. more grid-points, a higher accuracy can be reached.
-
-\begin{figure}[H]
-  \begin{center}
-\begin{quantikz}
-\lstick{\ket{q_0}} & \qw & \ctrl{3} & \qw & \qw & \qw\\
-\lstick{\ket{q_1}} & \qw & \qw & \ctrl{2} & \qw & \qw\\
-\lstick{\ket{q_2}} & \qw & \qw & \qw & \ctrl{1} & \qw\\
-\lstick{\ket{q_3}} & \gate[1]{R_y(f_0)} & \gate[1]{CR_y(f_1)} & \gate[1]{2CR_y(f_1)} & \gate[1]{4CR_y(f_1)} & \qw
-\end{quantikz}
-\end{center}
-\caption{ Quantum circuit for a linear function. Base image copied from \cite{Stamatopoulos_2019}}
-\label{fig:PF_y}
-\end{figure}
-
-Until now we only showed how to implement a linear function but every piece-wise linear function applies only on specific states. Now we have to build a greater or equal operation in a quantum computer, since we are dealing with a $max$ function in eq. $\ref{eq:E_example_european}$. For this we need also $n$ qubits, one of the qubits has the result at the end. So for this operation we have $n$ data qubits $\ket{q}$ and $n$ qubits for the greater or equal operation $\ket{a}$. To build the operation we can follow this steps (example of a circuit is in figure \ref{fig:PF_max}). 
-\begin{enumerate}
-	\item At first we convert the breakpoint $b\in[0,2^n-1]$ in a bit representation $t$. For this we use a ceil operation on b and convert it then in a bit representation $t$. Every bit represent one qubit. If the breakpoint lies between two grid points $i$, the ceil operation ensures that the respective larger grid point is used as breakpoint for controlled application of max-operation.
-	\item Now we can iterate over all the qubits. (we use here $j$ as iterate parameter)
-	\begin{itemize}
-	    \item if it is the first qubit $j=0$ and $t[j]=1$, we have to perform a $CX$ operation on $\ket{q_j}$ and $\ket{a_j}$.
-	    \item if $t[j]=1$ an $OR$-Operation has to be done on $\ket{q_j}$ and $\ket{a_{j-1}}$ the result of the $OR$-Operation will be saved in $\ket{a_j}$
-	    \item if $t[j]=0$ an $CCX$-Operation has to be done on $\ket{q_j}$, $\ket{a_{j-1}}$ and $\ket{a_j}$
-    \end{itemize}
-    \item Now we have in $a_{n-1}$ the result saved $\ket{0}$ if $i<b$ and $\ket{1}$ if $i\geq b$.
-    \item What we have to do now is to reverse the process except that now $j\in{n-1, \ldots, 0}$ is. So we do not consider the last qubit because it saves the result. To reverse an $CX$, $CCX$ and $OR$-Operation we only have to apply the same operator again.
-\end{enumerate}
-\begin{figure}[H]
-  \begin{center}
-\begin{quantikz}
-\lstick{\ket{a}} & \gate{X} & \ctrl{2} & \gate{X} &  \midstick[3,brackets=none]{$\equiv$}\qw & \ctrl{2} & \qw\\
-\lstick{\ket{b}} & \gate{X} & \ctrl{1} & \gate{X} & \qw & \ctrl{1} & \qw\\
-\lstick{\ket{c}} & \gate{X} &  \targ{} & \qw & \qw & \gate{OR} & \qw
-\end{quantikz}
-\end{center}
-\caption{ Example of an $OR$-Operation on qubit $\ket{a}$ and $\ket{b}$. The result is then saved in $\ket{c}$. Base image copied from \cite{Stamatopoulos_2019}}
-\label{fig:PF_OR}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{center}
-\begin{quantikz}
- & & & & &  & & & & & & &  \gategroup[9,steps=7,style={dashed,rounded corners,fill=blue!20, inner xsep=2pt},background]{{Inverse for n-2 to 0}}    & & & &  &  &    \\
-\lstick{\ket{q_0}} & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[0]=1}} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[0]=1}} & \qw  \\
-\lstick{\ket{q_1}} & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=0}} & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=1}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=0}} & \qw & \ctrl{4}\gategroup[5,steps=1,style={dashed,rounded corners, inner xsep=2pt}, label style={label position=below,anchor=north,yshift=-0.2cm}]{{t[1]=1}} & \qw & \qw & \qw \\
-\lstick{\vdots} & & & &  & & \vdots & & & & & \vdots & & & & &  &  &    \\
-\lstick{\ket{q_{n-1}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{4}\gategroup[6,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[n-1]=0}} & \qw & \ctrl{4}\gategroup[6,steps=1,style={dashed,rounded corners, inner xsep=2pt}]{{t[n-1]=1}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
-\lstick{\ket{a_0}} & \targ{} & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw   \\
-\lstick{\ket{a_1}} & \qw & \qw & \targ{} & \qw & \gate{OR} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw & \gate[style={fill=blue!20}]{OR} & \qw & \qw & \qw \\
-\lstick{\vdots} & & & & & & \vdots & & & & & \vdots & & & &  & &  & \\
-\lstick{\ket{a_{n-2}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \qw \\
-\lstick{\ket{a_{n-1}}} & \qw & \qw & \qw & \qw & \qw & \qw & \qw & \targ{} & \qw & \gate{OR} & \qw & \qw & \qw & \qw & \qw  & \qw & \qw & \qw 
-\end{quantikz}
-\end{center}
-\caption{ Basic structure of an circuit for the bigger then operation. Base image copied from \cite{Stamatopoulos_2019}}
-\label{fig:PF_max}
-\end{figure}
-
-So now we have a qubit $a_{n-1}$ (control qubit) which holds the information if $i\geq b$. This control qubit is then used to control if the rotations of breakpoint $b$ are executed or not. After applying the $Y$ Rotations for a breakpoint $b$ the inverse of the greater or equal operation has to applied to the circuit, so that the states are all $\ket{0}$ for the next breakpoint. 
-Note that a smaller-than operations can be realized by adding a bit-flip X-gate to qubit $a_{n-1}$.
-
-Now that we have shown how to construct a piece-wise linear function in a quantum computer we change $\theta_P$ again to better obtain our desired result $\mathbb{E}$.
-\begin{align}
-    \theta_P &= c\tilde{f}_b(i)+\frac{\pi}{4}\label{eq:theata_P} \\
-    \tilde{f}_b(i) &= 2 \frac{f_b(i)-f_{\text{min}_b}}{f_{\text{max}_b}-f_{\text{min}_b}}\label{eq:f_bi}
-\end{align}
-
-Equation \ref{eq:theata_P} is chosen to center $ \sin^2(\theta_P) $ around $\tilde{f}_b(i) = 0$ and \ref{eq:f_bi} so that $\tilde{f}_b(i) \in [-1,1] $
-
-At the end of the Amplitude Estimation we only have to calculate the result.
-To obtain an approximation for $\theta_p$, AE applies Quantum Phase Estimation to approximate certain eigenvalues of $\mathcal{Q}$, which are classically mapped to an estimator for $a$. The Quantum Phase Estimation uses $m$ additional sampling qubits to represent result and $M = 2^m$ applications of $\mathcal{Q}$, i.e., $M$ quantum samples. 
-The $m$ qubits, initialized to an equal superposition state by Hadamard gates, are used to control different powers of $\mathcal{Q}$. After applying an inverse Quantum Fourier Transform, their state is measured resulting in an integer $y \in \{0, ..., M - 1\}$, which is classically mapped to the estimator for $a$, i.e.
-
-\begin{equation}
-    \tilde{a} = \sin^2(y \pi / M) \in [0,1] \label{eq:estimate_a_2}.
-\end{equation}
-
+% füge alles zusammen
+%lese nochmal altes paper 
 \biblio
 \end{document}
