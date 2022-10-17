@@ -17,7 +17,7 @@ Simply measuring $\ket{1}$ t times does not give any advantage since the varianc
 \end{equation}
 with given accuracy $\epsilon$.\\
 To gain a quantum speed-up more efficient quantum algorithms are used than simply measuring t times. 
-From \ref{eq:actionOfA} it can be seen that
+From \ref{eq:action_of_A} it can be seen that
 \begin{equation}\label{eq:aIsSin}
   a = sin^2(\theta_a),
 \end{equation}
@@ -62,7 +62,7 @@ with probability of at least $(\frac{8}{\pi^2})$. Result $\ref{eq:AE_M}$ represe
 \end{quantikz}
 \end{center}
 \caption{ Design of the Amplitude Estimation. Operator A combines distribution loading and payoff construction as defined in \ref{eq:action_of_A}.
-$mathcal{Q}$ to rotate given state around $2*\theta_a$ in Hilbert-space spanned by $\ket{\phi_0}\ket{0}$ and $\ket{\phi_1}\ket{1}$. Inverse QFT is then applied
+$\mathcal{Q}$ to rotate given state around $2*\theta_a$ in Hilbert-space spanned by $\ket{\phi_0}\ket{0}$ and $\ket{\phi_1}\ket{1}$. Inverse QFT is then applied
 to obtain the estimate $\tilde{a}$ of a.
 }
 \label{fig:qae}
@@ -79,7 +79,7 @@ which will store the value $2^n \theta$. After applying Hadamard gates to the co
 Note that $0 \le j \le n-1$ and $U$ is controlled by the register $\ket{\phi}$. Furthermore $k$ denotes the integer representation of n-bit binary numbers.\\
 After applying  an inverse quantum Fourier transformation, to recover the state $\ket{2^n \theta}$, we find
 \begin{equation}
-  \frac{1}{\frac{n}{2}} \sum_x=0^{2^n-1} \sum_{k=0}^{2^n-1} e^{\frac{2 \pi i k}{2^n}(x - 2^n \theta)} \ket{x} \otimes \ket{\phi}.
+  \frac{1}{\frac{n}{2}} \sum_{x=0}^{2^n-1} \sum_{k=0}^{2^n-1} e^{\frac{2 \pi i k}{2^n}(x - 2^n \theta)} \ket{x} \otimes \ket{\phi}.
 \end{equation}
 This expression peaks near $x=2^n \theta$. Measuring the computational basis in counting register gives the Phase
 \begin{equation}
@@ -104,7 +104,7 @@ $\theta_a = \arcsin(\sqrt{a})$. Obviously we would like to rotate the initial st
 The rotation is implemented as for Grover by defining a product of two reflections: a reflection trough the bad state and a reflection through $\ket{U}$.
 The first reflection is realized by a circuit $S_{\phi_0}$ which can distinguish the good from the bad state by putting a minus in front of $\ket{\phi_1}$ and leaving $\ket{\phi_0}$ alone.
 In case the last qubits are $\ket{1}, \ket{0}$ for $\ket{\phi_1}, \ket{\phi_0}$ respectively, then the reflection would be
-\begin{equation}\ref{eq:PhiReflection}
+\begin{equation}\label{eq:PhiReflection}
   S_{\psi_0} &= 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0},
 \end{equation}
 and can in turn be realized by applying a Z-gate to the last qubit.\\
@@ -135,7 +135,7 @@ projectors $\ket{\phi_1}, \ket{\phi_0}$ onto $H_1$ and $H_0$.\\
 The action of $\mathcal{Q} := AR_0AR_g$ is given by
 \begin{align}\label{eq:actionOfQ}
   \mathcal{Q} \ket{\phi_0} &= (2 \cos^2(\theta_a) - 1 )\ket{\phi_0} + 2 \sin(\theta_a)cos(\theta) \ket{\phi_1}\\
-  \mathcal{Q} \ket{phi_1} &= -2 \sin(\theta_a) \cos(\theta_a) \ket{\phi_0} 
+  \mathcal{Q} \ket{\phi_1} &= -2 \sin(\theta_a) \cos(\theta_a) \ket{\phi_0} 
 \end{align}
 Thus $mathcal{Q}$ corresponds to rotation by $2\theta_a$ in $H_\phi$
 \begin{equation}\label{eq:rotationMatrix}
@@ -149,15 +149,15 @@ which has the well has eigenvalues $\lambda_{\pm} = e^{\pm i \theta_a}$.\\
 Since $\mathcal{Q}$ is unitary and therefore there is an orthonormal basis of the subspace $H_{\phi}$ formed
 by the two eigenvectors of $\mathcal{Q}$.
 \begin{equation}\label{eq:eigenvectors}
-  \begin{array}
+  \begin{pmatrix}
     1\\
     i
-  \end{array}
+  \end{pmatrix}
   ,
-  \begin{array}
+  \begin{pmatrix}
     1\\
     -i
-  \end{array}.
+  \end{pmatrix}.
 \end{equation}
 For $H_{\phi}$ the basis-states can be defined as
 \begin{equation}\label{eq:HBasisStates}
@@ -172,7 +172,7 @@ After j applications of $\mathcal{Q}$ it is obvious that the state is
   \ket{\phi} = \frac{1}{\sqrt{2}} ( e^{2j \cdot i \theta_a}\ket{\phi_+} + e^{-2j \cdot i \theta_a}\ket{\phi_-})
 \end{equation}
 The last equation can then be utilized as a controlled unitary in QPE algorithmn. QPE will be peaked where $y/2^n = \pm \tilde{\theta_a}$,
-with $\tilde{\theta_a}$ an n-bit approximation of $\theta_a$.
+with $\tilde{\theta}_a$ an n-bit approximation of $\theta_a$.
 
 \subsubsection{European Option Pricing}\label{sec:eurOpPricing}
 
@@ -190,7 +190,7 @@ Comparing \ref{eq:A_with_a} and \ref{eq:action_of_A} gives for options
 For option pricing using QAE that means that in order to be able to apply QAE the unitary operator $A$ has to be created using quantum circuits, i.e. a efficient method to encode
 the probabilities $p_i$ for a certain stock price at maturity $S_i$ and the corresponding payoff $f(S_i)$ in the register $N$.
 
-\subsubsection{Loading the distribution}
+\subsubsection{Loading the distribution}\label{sec:loadingDist}
 The algorithm for loading the probability distribution \ref{eq:lognormal} reads:
 \begin{itemize}
   \item On an interval, which is described by the minimal and maximal asset price an equidistant discretization is established
@@ -278,7 +278,7 @@ Hence it is necessary to introduce an affine transformation to realize the trans
   \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
   \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}.
 \end{align}
-Consequently , $\sin^2 [f_c \cdot \hat{f}(i) + \pi/4 ] $ is an anti-symmetric function around $1/2$.
+Consequently , $\sin^2 [f_c \cdot \hat{f}(i) + \pi/4 ] $ is an anti-symmetric function around $1/2$ and mimicks a linear behavior on $[0,1]$.
 With $\hat{f}(i)$ now being set into \ref{eq:mappedPayoffOperator} the probability to find the ancilla qubit in state $\ket{1}$,
 \begin{equation}\label{eq:probability1MappedLinFunc}
   P_1 = \sum_{i=0}^{2^n-1} p_i \sin^2(f_c \cdot \hat{f}(i) + \frac{\pi}{4}), 
@@ -292,7 +292,7 @@ The approximation is obtained by making use of the following Taylor expansion
   \sin^2(c \hat{f}(i) + \frac{\pi}{4}) = f_c \hat{f}(i) + \frac{1}{2} + \mathcal{O}(f_c^3 \hat{f}^3(i)),
 \end{equation}
 which is valid for small values of $ f_c \hat{f}(i) $.\\
-From \ref{eq:approxP1} $E(f(x))$ can be recovered since Quantum Amplitude Estimation allow to efficiently estimate $P_1$ and because $f_{min}, f_{max}$ and $f_c$
+From \ref{eq:approxP1} $E(f(x))$ can be recovered since Quantum Amplitude Estimation allow to efficiently estimate $P_1$ and because $c, d$ and $f_c$
 are known.
 
 
@@ -376,7 +376,7 @@ $\hat{f}(x)$ is then generated by introducing the slope and offset angles
   \theta_{\hat{\alpha}} &= \frac{\pi}{2}f_c\frac{\alpha}{2^n-1}\frac{b-a}{d-c}\\
   \theta_{\hat{\beta}} &=\frac{\pi}{4}(1-f_c) + \frac{\pi}{2}\frac{\beta-c}{d-c}f_c,
 \end{align}
-where $\pi/2$ is used to map from slope and offest to angles. $f_c$ is here again the factor for taylor approximation, introduced in \ref{{eq:approxP1}}.\\
+where $\pi/2$ is used to map from slope and offest to angles. $f_c$ is here again the factor for taylor approximation, introduced in \ref{eq:approxP1}.\\
 Note here that the rotations using the angles above are realized on a Quantum Computer using $R_Y$-Gates
 and the inset of a slope, i.e. rotations around the slope-angle $\theta_{\hat{\alpha}}$ is controlled by the last qubit of the quantum comparator
 as explained in the previous section.\\
@@ -391,10 +391,22 @@ This is realized through the summation to the last breakpoint $N_{b_p} - 1$. The
 requires us to substract the strike price from the current stock price, see Equation \ref{eq:callPayoff}.\\
 
 \subsubsection{Estimating the expected payoff}
+Putting all togehter the estimation of payoff is calculated using the following scheme:
+\begin{itemize}
+  \item First the initial probability distribution of stock prices is loaded into a quantum register $\ket{i}$ using
+  the algorithmn described in \ref{sec:loadingDist}. The number of qubits $2^n-1$ determines how many different stock prices can be loaded into the grid represented by the quantum states.
+  \item Second the quantum comparator is used on each stock price $ket{S_i}$ which is now equipped with the corresponding probability $\sqrt{p_i}$. $c$ additional ancilla qubits are needed next to the already given qubits in $\ket{i}$.
+  The comparator applies the operation described in \ref{sec:ImplMaxFunc} and stores the outcome in the last qubit, which is then used to apply a slope to the linear payoff-function.
+  \item Viewing the payoff as a piecewise-linear function Y-rotations are applied to the register $\ket{i}$. If the current stock-price is below the strike price (realized as a breakpoint of piecwise-linear function)
+  then only the offset is used to rotate the state. If the current stock price is above the strike price, then additional rotations are applied to add a slope to the function. Since we are working with a quantum computer we need a affine transformation
+  to map domain and image to suitable intervals. The realization of piecewise-linear function can be found in \ref{sec:ConstructPayOff}. The last three steps are then combined in a circuit A.
+  \item The circuit A can then be used for amplitude amplification explained in \ref{sec:amplitudeAmplification} and amlitude estimation in turn to estimate $P_1$ (Eq. \ref{eq:approxP1} in combination with Eq. \ref{eq:estimate_a}) using Quantum Phase Estimation from Section \ref{sec:QPE}.
+  \item As outlined in Eq. \ref{eq:approxP1} as a last step after computing $P_1$ a post procssing has to be applied which undos all scaling applied during the affine transformation: 
+  \begin{equation}
+    E[f(x)]  = ( E[f(x)]_{\text{scaled}} - \frac{1}{2} + \frac{\pi}{4}f_c ) \frac{2}{\pi f_c} (d-c) + c
+  \end{equation}
+\end{itemize}
 %--> start here
-% Write down how application of QPE looks like
-% -> i.e. U is Q, \ket{S_i} leads to 2^i times application of \theta_n implemented by Q 
-% check qpe wiki article. 
 % füge alles zusammen
 %lese nochmal altes paper 
 \biblio
