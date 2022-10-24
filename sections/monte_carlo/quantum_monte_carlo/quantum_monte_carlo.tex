@@ -88,6 +88,33 @@ This expression peaks near $x=2^n \theta$. Measuring the computational basis in 
 For the case $2^n \theta$ is an integer the right phase is measured with high probability close to 1. Otherwise it can be shown that one measures the right phase
 with probability better than $\frac{4}{\pi^2} \approx 40 \% $.\\
 !!!Citation qiskit here!!!
+
+\begin{lstlisting}[caption={Example of phaseestimation algorithm used for results of this paper.},captionpos=b]
+  def phase_estimation(num_evaluation_qubits: int,
+        unitary: QuantumCircuit,
+        iqft: Optional[QuantumCircuit] = None,
+        name: str = "QPE"):
+    """
+        Args:
+            num_evaluation_qubits: The number of evaluation qubits.
+            unitary: The unitary operation :math:`U` which will be repeated and controlled.
+            iqft: A inverse Quantum Fourier Transform, per default the inverse of
+                :class:`~qiskit.circuit.library.QFT` is used. Note that the QFT should not include
+                the usual swaps!
+            name: The name of the circuit.
+    """
+    qr_eval = QuantumRegister(num_evaluation_qubits, "eval")
+    qr_state = QuantumRegister(unitary.num_qubits, "q")
+    circuit = QuantumCircuit(qr_eval, qr_state, name=name)
+    iqft = QFT(num_evaluation_qubits, inverse=True, do_swaps=False).reverse_bits()
+    circuit.h(qr_eval)  # hadamards on evaluation qubits
+
+    for j in range(num_evaluation_qubits):  # controlled powers
+        circuit.append(unitary.power(2**j).control(), [j] + qr_state[:])
+    circuit.append(iqft.to_gate(), qr_eval[:])  # final QFT
+    return circuit
+\end{lstlisting}
+
 \subsubsection{Amplitude Amplification}\label{sec:amplitudeAmplification}
 
 
@@ -105,7 +132,7 @@ The rotation is implemented as for Grover by defining a product of two reflectio
 The first reflection is realized by a circuit $S_{\phi_0}$ which can distinguish the good from the bad state by putting a minus in front of $\ket{\phi_1}$ and leaving $\ket{\phi_0}$ alone.
 In case the last qubits are $\ket{1}, \ket{0}$ for $\ket{\phi_1}, \ket{\phi_0}$ respectively, then the reflection would be
 \begin{equation}\label{eq:PhiReflection}
-  S_{\psi_0} &= 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0},
+  S_{\psi_0} = 1-2\ket{\psi_0}\ket{0}\bra{\psi_0}\bra{0},
 \end{equation}
 and can in turn be realized by applying a Z-gate to the last qubit.\\
 The second reflection can be implemented as $AR_{0}A^{\dagger} = AR_0A$ with $R_0$
@@ -117,7 +144,7 @@ The second reflection can be implemented as $AR_{0}A^{\dagger} = AR_0A$ with $R_
  The following amplitude amplification procedure increases the amplitude of the good state close to 1:
 \begin{enumerate}
   \item{Setup the starting state $\ket{U} = A\ket{0^n}$}.
-  \item{Repeat the following $\mathcal{O}(1/\sqrt{a})}$.
+  \item{Repeat the following $\mathcal{O}(1 \sqrt{a})$}.
   \begin{itemize}
     \item Reflect through bad state $\ket{\phi_0}$ ($R_G$).
     \item Reflect through $\ket{U}$ ($AR_0A$).
@@ -173,6 +200,38 @@ After j applications of $\mathcal{Q}$ it is obvious that the state is
 \end{equation}
 The last equation can then be utilized as a controlled unitary in QPE algorithmn. QPE will be peaked where $y/2^n = \pm \tilde{\theta_a}$,
 with $\tilde{\theta}_a$ an n-bit approximation of $\theta_a$.
+\begin{lstlisting}[caption={Implementation of reflections for amplitude amplification as used trought the rest of the paper},captionpos=b]
+  def grover_operator_oracle(num_qubits:int, num_ancillas:int, objective_qubits: List[int]) -> QuantumCircuit:
+    # build the reflection about the bad state (zero Reflection): a MCZ with open controls (thus X gates
+    # around the controls) and X gates around the target to change from a phaseflip on
+    # |1> to a phaseflip on |0>
+        num_state_qubits = num_qubits - num_ancillas
+        oracle = QuantumCircuit(num_state_qubits, name="S_f")
+        oracle.h(objective_qubits[-1])
+        if len(objective_qubits) == 1:
+            oracle.x(objective_qubits[0])
+        else:
+            oracle.mcx(objective_qubits[:-1], objective_qubits[-1])
+        oracle.h(objective_qubits[-1])
+        return oracle
+  def zero_reflection(num_qubits: int, num_ancillas: int, reflection_qubits: List[int], mcx_mode: str) -> QuantumCircuit:
+    reflection = QuantumCircuit(num_qubits - num_ancillas, name="S_0")
+    if num_ancillas > 0:
+        qr_ancilla = AncillaRegister(num_ancillas, "ancilla")
+        reflection.add_register(qr_ancilla)
+    else:
+        qr_ancilla = []
+    reflection.x(reflection_qubits)
+    if len(reflection_qubits) == 1:
+        reflection.z(0)  
+        # MCX does not allow 0 control qubits, therefore this is separate
+    else:
+        reflection.h(reflection_qubits[-1])
+        reflection.mcx(reflection_qubits[:-1], reflection_qubits[-1], qr_ancilla[:], mode=mcx_mode)
+        reflection.h(reflection_qubits[-1])
+    reflection.x(reflection_qubits)
+    return reflection
+\end{lstlisting}
 
 \subsubsection{European Option Pricing}\label{sec:eurOpPricing}
 
@@ -334,8 +393,64 @@ rest of the circuit is inverted for next stock price.}
 \label{fig:PF_max}
 \end{figure}
 
+\begin{lstlisting}[caption={Implementation of quantum comparator as described in section \ref{sec:ImplMaxFunc}},captionpos=b]
+  def qubit_integer_comparator(num_qubits_dist, compare_value, bigger_then=True ,name="compare_{value:.2f}_{bit_value}"):
+  qubits_dist = list(range(num_qubits_dist))
+  qubits_compare = list(range(num_qubits_dist, num_qubits_A*2))
+  bin_compare_value = value_to_binar(compare_value, num_qubits_dist)
+  num_qubits_all = num_qubits_dist*2
+  num_qubits_compare = len(qubits_compare)
+  comparator = QuantumCircuit(num_qubits_all)
+  if compare_value <= 0:  # condition always satisfied for non-positive values
+      if bigger_then:  # otherwise the condition is never satisfied
+          comparator.x(qubits_compare[0])
+      # condition never satisfied for values larger than or equal to 2^n
+  elif compare_value < pow(2, num_qubits_dist):
+      if num_qubits_dist > 1:
+          for i in range(num_qubits_dist):
+              if i == 0:
+                  if bin_compare_value[i] == 1:
+                      comparator.cx(qubits_dist[i], qubits_compare[i+1])
+              elif i < num_qubits_dist - 1:
+                  if bin_compare_value[i] == 1:
+                      comparator.compose(OR(2), [qubits_dist[i], qubits_compare[i], qubits_compare[i + 1]], inplace=True)
+                  else:
+                      comparator.ccx(qubits_dist[i], qubits_compare[i], qubits_compare[i + 1])
+              else:
+                  if bin_compare_value[i] == 1:
+                      # OR needs the result argument as qubit not register, thus
+                      # access the index [0]
+                      comparator.compose(OR(2), [qubits_dist[i], qubits_compare[i], qubits_compare[0]], inplace=True)
+                  else:
+                      comparator.ccx(qubits_dist[i], qubits_compare[i], qubits_compare[0])
+          # flip result bit if geq flag is false
+          if not bigger_then:
+              comparator.x(qubits_compare[0])
+          # uncompute ancillas state
+          for i in reversed(range(num_qubits_dist - 1)):
+              if i == 0:
+                  if bin_compare_value[i] == 1:
+                      comparator.cx(qubits_dist[i], qubits_compare[i+1])
+              else:
+                  if bin_compare_value[i] == 1:
+                      comparator.compose(OR(2), [qubits_dist[i], qubits_compare[i], qubits_compare[i+1]], inplace=True)
+                  else:
+                      comparator.ccx(qubits_dist[i], qubits_compare[i], qubits_compare[i+1])
+      else:
+          # num_state_qubits == 1 and value == 1:
+          comparator.cx(qubits_dist[0], qubits_compare[0])
+          # flip result bit if geq flag is false
+          if not bigger_then:
+              comparator.x(qubits_compare[0])
+  else:
+      if not bigger_then:  # otherwise the condition is never satisfied
+          comparator.x(qubits_compare[0])
+  comparator.name = name.format(value=compare_value, bit_value="".join(str(x) for x in bin_compare_value))
+  return comparator
+\end{lstlisting}
 
 \subsubsection{Implementation of piece-wise linear functions}\label{sec:ImplPieceFunc}
+
 Implementing the piecewise linear function is not directly straigth forward so a detailed introduction is given in the following. 
 As mentioned above we are dealing with linear function to encode the payoff
 \begin{equation}\label{eq:defLinearFunc}
@@ -389,6 +504,50 @@ based on the given state in register $\ket{i}_n$ is finally computed using the f
 Hence the angles which have already been used for rotating the current state are substracted from the final slope angle $\theta_{\text{slope}}[b_p]$
 This is realized through the summation to the last breakpoint $N_{b_p} - 1$. The additional term in the offset $ - \theta_{\hat{\alpha}} \cdot b_p$ is coming from the fact that the payoff
 requires us to substract the strike price from the current stock price, see Equation \ref{eq:callPayoff}.\\
+\begin{lstlisting}[caption={Implementation of payoff piecewise-linear function as described in section \ref{sec:ImplPieceFunc}},captionpos=b]
+  def create_lin_circuit(offset, slope, num_qubits_dist, num_qubits_linear, name="lin-func"):
+    linear_model = QuantumCircuit(num_qubits_dist+num_qubits_linear)
+    linear_model.ry(offset, num_qubits_dist)
+    for j, q_j in enumerate(range(num_qubits_dist)):
+        linear_model.cry(slope * pow(2, j), q_j, num_qubits_dist)
+    linear_model.name = name
+    return linear_model
+
+  def payoff_european(normal_dist_model, num_qubits_A, low, high, strike_price):
+    high_number_qubit = 2**(num_qubits_A)-1
+    f_min = 0
+    f_max = normal_dist_model_custom[1][-1] - strike_price
+    f_c = 0.25
+    breakpoints = [low, strike_price]
+    slopes = [0,1]
+    offsets = [0,0]
+    breakpoints = [(x-low) / (high-low) * (high_number_qubit) for x in breakpoints]
+    slopes_temp = [2 * np.pi/2 * f_c * slope * (high-low)/high_number_qubit/(f_max-f_min) for slope in slopes]
+    offsets_temp = [2 * np.pi / 4 * (1 - f_c) + np.pi/2 * f_c * (offset-f_min)/(f_max-f_min) for offset in offsets]
+    slopes = np.zeros_like(slopes_temp)
+    for i, slope in enumerate(slopes_temp):
+        slopes[i] = slope - sum(slopes[:i])
+    offsets = np.zeros_like(offsets_temp)
+    for i, (offset, slope, point) in enumerate(zip(offsets_temp, slopes_temp, breakpoints)):
+        offsets[i] = offset - slope * point - sum(offsets[:i])
+    qubits_dist = list(range(num_qubits_A))
+    qubits_linear = [num_qubits_A]
+    qubits_compare = list(range(num_qubits_A+1, num_qubits_A*2+1))
+    num_qubits_all = num_qubits_A*2+1
+    num_qubits_linear = len(qubits_linear)
+    num_qubits_compare = len(qubits_compare)
+    payoff_model = QuantumCircuit(num_qubits_all, name="Payoff")
+    for i, point in enumerate(breakpoints):
+        linear_model = create_lin_circuit(offsets[i], slopes[i], num_qubits_A, num_qubits_linear, name="lin({:.2f})".format(point))
+        if i == 0 and point == 0:
+            payoff_model.append(linear_model.to_gate(), qubits_dist[:] + qubits_linear)
+        else:
+            comparator = qubit_integer_comparator(num_qubits_A, point)
+            payoff_model.append(comparator.to_gate(), qubits_dist[:] + qubits_compare[:])
+            payoff_model.append(linear_model.to_gate().control(), [qubits_compare[0]] + qubits_dist[:] + qubits_linear)
+            payoff_model.append(comparator.to_gate().inverse(), qubits_dist[:] + qubits_compare[:])
+    return payoff_model
+\end{lstlisting}
 
 \subsubsection{Estimating the expected payoff}
 Putting all togehter the estimation of payoff is calculated using the following scheme:
@@ -403,11 +562,8 @@ Putting all togehter the estimation of payoff is calculated using the following 
   \item The circuit A can then be used for amplitude amplification explained in \ref{sec:amplitudeAmplification} and amlitude estimation in turn to estimate $P_1$ (Eq. \ref{eq:approxP1} in combination with Eq. \ref{eq:estimate_a}) using Quantum Phase Estimation from Section \ref{sec:QPE}.
   \item As outlined in Eq. \ref{eq:approxP1} as a last step after computing $P_1$ a post procssing has to be applied which undos all scaling applied during the affine transformation: 
   \begin{equation}
-    E[f(x)]  = ( E[f(x)]_{\text{scaled}} - \frac{1}{2} + \frac{\pi}{4}f_c ) \frac{2}{\pi f_c} (d-c) + c
+     E[f(x)]  = ( E[\hat{f}(x)] - \frac{1}{2} + \frac{\pi}{4}f_c ) \frac{2}{\pi f_c} (d-c) + c
   \end{equation}
 \end{itemize}
-%--> start here
-% füge alles zusammen
-%lese nochmal altes paper 
 \biblio
 \end{document}
