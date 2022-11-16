@@ -146,7 +146,7 @@ The second reflection can be implemented as $AR_{0}A^{\dagger} = AR_0A$ with $R_
   \item{Setup the starting state $\ket{U} = A\ket{0^n}$}.
   \item{Repeat the following $\mathcal{O}(1 \sqrt{a})$}.
   \begin{itemize}
-    \item Reflect through bad state $\ket{\phi_0}$ ($R_G$).
+    \item Reflect through bad state $\ket{\phi_0}$ ($S_{\phi_0} := R_g$).
     \item Reflect through $\ket{U}$ ($AR_0A$).
   \end{itemize}
 \end{enumerate}
@@ -162,7 +162,7 @@ projectors $\ket{\phi_1}, \ket{\phi_0}$ onto $H_1$ and $H_0$.\\
 The action of $\mathcal{Q} := AR_0AR_g$ is given by
 \begin{align}\label{eq:actionOfQ}
   \mathcal{Q} \ket{\phi_0} &= (2 \cos^2(\theta_a) - 1 )\ket{\phi_0} + 2 \sin(\theta_a)cos(\theta) \ket{\phi_1}\\
-  \mathcal{Q} \ket{\phi_1} &= -2 \sin(\theta_a) \cos(\theta_a) \ket{\phi_0} 
+  \mathcal{Q} \ket{\phi_1} &= -2 \sin(\theta_a) \cos(\theta_a) \ket{\phi_0} + (1-2 sin^2(\theta))\ket{\phi_1}.
 \end{align}
 Thus $mathcal{Q}$ corresponds to rotation by $2\theta_a$ in $H_\phi$
 \begin{equation}\label{eq:rotationMatrix}
@@ -172,7 +172,7 @@ Thus $mathcal{Q}$ corresponds to rotation by $2\theta_a$ in $H_\phi$
       sin(2\theta_a) & cos(2 \theta_a) 
 \end{pmatrix},
 \end{equation}
-which has the well has eigenvalues $\lambda_{\pm} = e^{\pm i \theta_a}$.\\
+which has the well has eigenvalues $\lambda_{\pm} = e^{\pm i 2 \theta_a}$.\\
 Since $\mathcal{Q}$ is unitary and therefore there is an orthonormal basis of the subspace $H_{\phi}$ formed
 by the two eigenvectors of $\mathcal{Q}$.
 \begin{equation}\label{eq:eigenvectors}
@@ -196,7 +196,7 @@ Express $\ket{\phi} = A \ket{0^n}$ in eigenvector basis
 \end{equation}
 After j applications of $\mathcal{Q}$ it is obvious that the state is
 \begin{equation}\label{eq:PhiAfterJQ}
-   \matchcal{Q}^j \ket{\phi} = \frac{1}{\sqrt{2}} ( e^{2j \cdot i \theta_a}\ket{\phi_+} + e^{-2j \cdot i \theta_a}\ket{\phi_-})
+   \mathcal{Q}^j \ket{\phi} = \frac{1}{\sqrt{2}} ( e^{2j \cdot i \theta_a}\ket{\phi_+} + e^{-2j \cdot i \theta_a}\ket{\phi_-})
 \end{equation}
 The last equation can then be utilized as a controlled unitary in QPE algorithmn. QPE will be peaked where $y/2^n = \pm \tilde{\theta_a}$,
 with $\tilde{\theta}_a$ an n-bit approximation of $\theta_a$.
@@ -465,7 +465,7 @@ These challenges require us to use a affine mapping $\hat{f}(x)$ which is in con
 \end{equation}
 defined as
 \begin{equation}\label{eq:hatLinFunc}
-  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ 0,1 ].
+  \hat{f}: \{0,...,2^n-1 \} \rightarrow [ -1,1 ].
 \end{equation}
 Note that in this case $d=b-K$ thanks to the definition of the payoff. But how is the transformation from \ref{linFuncBound}
 to \ref{eq:hatLinFunc} actually done?\\
@@ -477,7 +477,7 @@ In case of the payoff only one breakpoint is given for $ S_T \geq K $.
 The affine transformation from $f$ to $\hat{f}$ is then
 \begin{align}\label{eq:affinTransform}
   \phi(x) &= a + \frac{b-a}{2^n-1} \cdot x \\
-  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c},
+  \hat{f}(x) &= \frac{f(\phi(x))-c}{d-c}-1,
 \end{align}
 which already have been introduced in Section \ref{sec:ConstructPayOff}.\\
 Implemented is $\phi(x)$ first by leveraging on the slope and offset of a linear function
